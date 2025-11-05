@@ -1,15 +1,71 @@
-# React + TypeScript + Vite
+# Figma Code Connect - Icon System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript project that demonstrates automated icon generation from Figma using the Figma Code Connect API. This project fetches icon components from Figma, generates React components, and creates Code Connect documentation to sync your design system with your codebase.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Automated Icon Generation**: Fetch icon components directly from Figma and generate React components
+- **Figma Code Connect Integration**: Automatically create Code Connect documentation linking Figma components to React code
+- **Type-Safe Components**: All icons are TypeScript-based with proper prop types
+- **Customizable Sizes**: Icons support multiple size variants (20, 24, 32, 40, 48)
+- **Tailwind CSS**: Styled with Tailwind CSS for easy integration
+- **Fast Development**: Built with Vite for instant HMR and optimized builds
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** with React DOM
+- **TypeScript** for type safety
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Figma Code Connect** for design-code synchronization
+- **ESLint** for code quality
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- A Figma account with access to an icon library
+- Figma Access Token (get it from [Figma Settings](https://www.figma.com/developers/api#access-tokens))
+
+### Installation
+
+```bash
+# Install dependencies
+yarn install
+```
+
+### Environment Setup
+
+Create a `.env` file in the root directory:
+
+```env
+FIGMA_ACCESS_TOKEN=your_figma_access_token
+FIGMA_FILE_KEY=your_figma_file_key
+```
+
+### Development
+
+```bash
+# Start the development server
+yarn dev
+
+# Generate icons from Figma (without REST API call)
+yarn script:icons
+
+# Generate icons from Figma (with fresh REST API call)
+yarn script:icons:rest
+
+# Build for production
+yarn build
+
+# Preview production build
+yarn preview
+```
+
+## Icon System
+
+This project includes an automated icon generation system that syncs with Figma. See [docs/icon-system.md](./docs/icon-system.md) for detailed documentation on how the icon system works.
 
 ## Expanding the ESLint configuration
 
@@ -17,9 +73,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -34,40 +90,41 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
+
