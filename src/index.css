@@ -1,7 +1,8 @@
-@import url("./icons.css");
-@import url("./theme.css");
-@import url("./reset.css");
 @import "tailwindcss";
+@import "./reset.css";
+@import "./theme.css";
+@import "./icons.css";
+@import "./ui/primitives/Button/button.css";
 
 :root {
   --global-focus-ring-size: var(--sds-size-stroke-focus-ring);
