@@ -1,4 +1,4 @@
-import { Button } from "../../ui/primitives/Button/Button";
+import { Button } from "../../../ui/primitives/Button/Button";
 import figma from "@figma/code-connect";
 
 /**

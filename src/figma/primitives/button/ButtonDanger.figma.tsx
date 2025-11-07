@@ -1,4 +1,4 @@
-import { IconButton } from "../../ui/primitives/Button/IconButton";
+import { ButtonDanger } from "../../../ui/primitives/Button/ButtonDanger";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,21 +9,22 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  IconButton,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk/Simple-Design-System--Community-?node-id=11%3A11508",
+  ButtonDanger,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk/Simple-Design-System--Community-?node-id=185%3A852",
   {
     props: {
-      // These props were automatically mapped based on your linked code:
-      icon: figma.instance("Icon"),
-      disabled: figma.enum("State", {
-        Disabled: true,
-      }),
       // No matching props could be found for these Figma properties:
-      // "icon": figma.instance('Icon'),
+      label: figma.string("Label"),
+      iconEnd: figma.instance("Icon End"),
+      // hasIconEnd: figma.boolean("Has Icon End"),
+      // hasIconStart: figma.boolean("Has Icon Start"),
+      iconStart: figma.instance("Icon Start"),
       variant: figma.enum("Variant", {
         Primary: "primary",
-        Neutral: "neutral",
         Subtle: "subtle",
+      }),
+      disabled: figma.enum("State", {
+        Disabled: true,
       }),
       size: figma.enum("Size", {
         Medium: "md",
@@ -31,12 +32,15 @@ figma.connect(
       }),
     },
     example: (props) => (
-      <IconButton
+      <ButtonDanger
         variant={props.variant}
-        size={props.size}
-        icon={props.icon}
         disabled={props.disabled}
-      />
+        size={props.size}
+        iconStart={props.iconStart}
+        iconEnd={props.iconEnd}
+      >
+        {props.label}
+      </ButtonDanger>
     ),
   }
 );
