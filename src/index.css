@@ -3,6 +3,7 @@
 @import "./theme.css";
 @import "./icons.css";
 @import "./ui/primitives/Button/button.css";
+@import "./ui/primitives/Tab/tabs.css";
 
 :root {
   --global-focus-ring-size: var(--sds-size-stroke-focus-ring);

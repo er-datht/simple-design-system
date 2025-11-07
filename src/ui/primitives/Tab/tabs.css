@@ -1,0 +1,74 @@
+@layer components {
+  /* Container styles */
+  .tabs-container {
+    @apply w-full;
+  }
+
+  /* Add padding to prevent focus ring from being clipped by overflow */
+  .tabs-flowbite-wrapper > div[role="tablist"] {
+    @apply py-1.5 px-1.5;
+  }
+
+  /* Override flowbite-react default styles for tabs */
+  .tabs-flowbite-wrapper button[role="tab"] {
+    /* Shared styles between all tab states */
+    @apply inline-flex items-center justify-center p-[var(--sds-size-space-100)_var(--sds-size-space-300)] rounded-t-(--sds-size-radius-100) rounded-b-none text-(--sds-color-text-neutral-tertiary);
+
+    /* Smooth transitions */
+    @apply transition-colors duration-150;
+
+    /* Border bottom */
+    border-bottom: var(--sds-size-stroke-border) solid
+      var(--sds-color-border-neutral-tertiary);
+
+    /* Remove default flowbite borders and backgrounds */
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    background: transparent !important;
+  }
+
+  /* Hover state - applies to all tabs on hover */
+  .tabs-flowbite-wrapper button[role="tab"]:hover {
+    /* Hover border color */
+    border-bottom-color: var(--sds-color-border-neutral-default);
+
+    /* Hover background */
+    background: var(--sds-color-background-default-default-hover) !important;
+
+    /* Text color remains tertiary on hover */
+    color: var(--sds-color-text-neutral-tertiary);
+  }
+
+  /* Active tab state */
+  .tabs-flowbite-wrapper button[role="tab"][aria-selected="true"] {
+    /* Active border color */
+    border-bottom-color: var(--sds-color-border-neutral-default);
+
+    /* No background in default state (not hovering) */
+    background: transparent !important;
+
+    /* Active text color */
+    color: var(--sds-color-text-neutral-default);
+  }
+
+  /* Active tab hover state - background shows when hovering over active tab */
+  .tabs-flowbite-wrapper button[role="tab"][aria-selected="true"]:hover {
+    background: var(--sds-color-background-default-default-hover) !important;
+  }
+
+  /* Disabled state */
+  .tabs-flowbite-wrapper button[role="tab"]:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Focus visible for keyboard navigation */
+  .tabs-flowbite-wrapper button[role="tab"]:focus-visible {
+    @apply outline-none ring-1 ring-offset-1 ring-(--sds-color-border-neutral-default);
+  }
+
+  /* Tab panel content area */
+  .tab-item {
+    @apply p-4;
+  }
+}
