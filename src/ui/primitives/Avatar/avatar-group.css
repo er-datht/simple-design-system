@@ -1,0 +1,37 @@
+/* Avatar Group component styles using design system CSS variables */
+
+@layer components {
+  /* Base avatar group container */
+  .avatar-group-shared {
+    @apply inline-flex items-center;
+  }
+
+  /* Spacing variants */
+  .avatar-group-spacing-spaced {
+    @apply gap-(--sds-size-space-100);
+  }
+
+  .avatar-group-spacing-overlap {
+    @apply gap-(--sds-size-space-200);
+  }
+
+  /* Inner container for overlap spacing (images) */
+  .avatar-group-overlap-inner {
+    @apply flex items-center;
+  }
+
+  /* Apply negative margin to children for overlap effect */
+  .avatar-group-overlap-inner > .avatar:not(:first-child) {
+    @apply ml-(--sds-size-space-negative-200);
+  }
+
+  /* Overflow count indicator */
+  .avatar-group-overflow-count {
+    @apply flex justify-center items-center self-stretch text-center leading-[140%] bg-(--sds-color-background-default-secondary) text-(--sds-color-text-default-secondary) p-[5px_4px] rounded-(--sds-size-radius-200);
+    min-width: 24px;
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-small);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-regular);
+  }
+}
