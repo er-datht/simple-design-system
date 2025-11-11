@@ -1,0 +1,54 @@
+/* Navigation Pill Styles - Based on navigation-pill.md design specs */
+
+@layer components {
+  /* Base navigation pill list container */
+  .navigation-pill-list {
+    @apply inline-flex;
+    gap: var(--sds-size-space-100);
+  }
+
+  /* Base navigation pill item - shared styles */
+  .navigation-pill-item {
+    /* Layout - as per navigation-pill.md */
+    @apply inline-flex items-center justify-center cursor-pointer transition-colors duration-200;
+    padding: var(--sds-size-space-200);
+    gap: var(--sds-size-space-200);
+    border-radius: var(--sds-size-radius-200);
+
+    /* Typography */
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-weight: var(--sds-typography-body-font-weight-regular);
+    font-style: normal;
+    line-height: 100%;
+    text-align: center;
+  }
+
+  /* State: Default - as per navigation-pill.md */
+  .navigation-pill-item-state-default {
+    background: transparent;
+    color: var(--sds-color-text-default-default);
+  }
+
+  /* State: Hover (only when not active and not disabled) - as per navigation-pill.md */
+  .navigation-pill-item-state-default:hover:not(.navigation-pill-item-disabled) {
+    background: var(--sds-color-background-default-default-hover);
+    color: var(--sds-color-text-default-default);
+  }
+
+  /* State: Active - as per navigation-pill.md */
+  .navigation-pill-item-state-active {
+    background: var(--sds-color-background-brand-tertiary);
+    color: var(--sds-color-text-brand-on-brand-secondary);
+  }
+
+  /* State: Disabled */
+  .navigation-pill-item-disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Label wrapper */
+  .navigation-pill-label {
+    display: inline-block;
+  }
+}
