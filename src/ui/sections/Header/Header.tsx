@@ -1,0 +1,207 @@
+import { type ReactNode, useState } from "react";
+import {
+  NavigationPillList,
+  type NavigationPillItem,
+} from "../../primitives/Navigation/NavigationPillList";
+import HeaderAuth from "../../primitives/HeaderAuth/HeaderAuth";
+import { IconButton } from "../../primitives/Button/IconButton";
+import { IconMenu } from "../../icons/IconMenu";
+import { IconX } from "../../icons/IconX";
+import { cn } from "../../../utils/cn";
+import "./header.css";
+
+export interface HeaderProps {
+  /**
+   * Logo icon or component to display in the header
+   */
+  logoIcon: ReactNode;
+
+  /**
+   * Array of navigation items for the NavigationPillList
+   */
+  navigationItems: NavigationPillItem[];
+
+  /**
+   * Currently active navigation item ID
+   */
+  activeNavigationId?: string;
+
+  /**
+   * Whether the user is logged in (for HeaderAuth)
+   */
+  isLoggedIn: boolean;
+
+  /**
+   * User name for HeaderAuth component
+   */
+  userName?: string;
+
+  /**
+   * Avatar image source for HeaderAuth component
+   */
+  avatarSrc?: string;
+
+  /**
+   * Avatar alt text for accessibility
+   */
+  avatarAlt?: string;
+
+  /**
+   * Callback when navigation item is clicked
+   */
+  onNavigationItemClick?: (itemId: string) => void;
+
+  /**
+   * Callback when sign in button is clicked
+   */
+  onSignInClick?: () => void;
+
+  /**
+   * Callback when register button is clicked
+   */
+  onRegisterClick?: () => void;
+
+  /**
+   * Callback when avatar is clicked (logged-in state)
+   */
+  onAvatarClick?: () => void;
+
+  /**
+   * Additional CSS classes for the header container
+   */
+  className?: string;
+
+  /**
+   * Additional CSS classes for navigation items
+   */
+  itemClassName?: string;
+}
+
+/**
+ * Header section component with responsive navigation and authentication
+ * Built with custom styling following the design system specifications
+ *
+ * Features:
+ * - Three main blocks: Logo, Navigation, and Auth
+ * - Responsive design with desktop and mobile layouts
+ * - Mobile menu toggle (hamburger menu)
+ * - NavigationPillList for navigation items
+ * - HeaderAuth component for authentication UI
+ * - Semantic HTML with proper ARIA attributes
+ * - Keyboard accessible
+ *
+ * Layout:
+ * - Desktop (≥992px): Logo + horizontal navigation + auth (menu button hidden)
+ * - Mobile (closed) (<992px): Logo + menu button (navigation/auth hidden)
+ * - Mobile (open) (<992px): Logo + close button + vertical navigation + auth
+ *
+ * @example
+ * ```tsx
+ * // Desktop with logged-in user
+ * <Header
+ *   logoIcon={<YourLogoComponent />}
+ *   navigationItems={[
+ *     { id: '1', label: 'Home', href: '/' },
+ *     { id: '2', label: 'About', href: '/about' },
+ *     { id: '3', label: 'Contact', href: '/contact' },
+ *   ]}
+ *   activeNavigationId="1"
+ *   isLoggedIn={true}
+ *   userName="John Doe"
+ *   avatarSrc="/avatar.jpg"
+ *   onNavigationItemClick={(id) => console.log(id)}
+ *   onAvatarClick={() => setShowMenu(true)}
+ * />
+ *
+ * // Mobile with logged-out user
+ * <Header
+ *   logoIcon={<YourLogoComponent />}
+ *   navigationItems={navigationItems}
+ *   isLoggedIn={false}
+ *   onSignInClick={() => navigate('/login')}
+ *   onRegisterClick={() => navigate('/register')}
+ * />
+ * ```
+ */
+const Header = ({
+  logoIcon,
+  navigationItems,
+  activeNavigationId,
+  isLoggedIn,
+  userName,
+  avatarSrc,
+  avatarAlt,
+  onNavigationItemClick,
+  onSignInClick,
+  onRegisterClick,
+  onAvatarClick,
+  className,
+  itemClassName,
+}: HeaderProps) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  return (
+    <header
+      className={cn(
+        "header",
+        isMobileMenuOpen && "header-mobile-open",
+        className
+      )}
+    >
+      {/* Logo Block */}
+      <div className="header-logo-block">
+        <div className="header-logo">{logoIcon}</div>
+
+        {/* Mobile Menu Toggle Button */}
+        <IconButton
+          icon={isMobileMenuOpen ? <IconX size="24" /> : <IconMenu size="24" />}
+          variant="subtle"
+          className="header-menu-button"
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="header-navigation"
+        />
+      </div>
+
+      {/* Navigation Block */}
+
+      <NavigationPillList
+        items={navigationItems}
+        direction={isMobileMenuOpen ? "column" : "row"}
+        activeItemId={activeNavigationId}
+        onItemClick={onNavigationItemClick}
+        className={cn(
+          "header-navigation-block",
+          !isMobileMenuOpen && "header-navigation-hidden"
+        )}
+        itemClassName={cn("navigation-item", itemClassName)}
+      />
+
+      {/* Auth Block */}
+      <div
+        className={cn(
+          "header-auth-block",
+          !isMobileMenuOpen && "header-auth-hidden"
+        )}
+      >
+        <HeaderAuth
+          isLoggedIn={isLoggedIn}
+          userName={userName}
+          avatarSrc={avatarSrc}
+          avatarAlt={avatarAlt}
+          onAvatarClick={onAvatarClick}
+          onSignInClick={onSignInClick}
+          onRegisterClick={onRegisterClick}
+          className={!isLoggedIn ? "w-full" : ""}
+        />
+      </div>
+    </header>
+  );
+};
+
+export default Header;

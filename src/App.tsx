@@ -3,36 +3,82 @@ import { IconsDemo } from "./components/IconsDemo";
 import { ButtonsDemo } from "./components/ButtonsDemo";
 import { AvatarsDemo } from "./components/AvatarsDemo";
 import { NavigationDemo } from "./components/NavigationDemo";
+import { HeaderAuthDemo } from "./components/HeaderAuthDemo";
+import { HeaderDemo } from "./components/HeaderDemo";
+import Header from "./ui/sections/Header/Header";
+import { IconFigma } from "./ui/icons";
+import type { NavigationPillItem } from "./ui/primitives/Navigation";
+import { useState } from "react";
+
+const navigationItems: NavigationPillItem[] = [
+  { id: "products", label: "Products", href: "/products" },
+  { id: "solutions", label: "Solutions", href: "/solutions" },
+  { id: "community", label: "Community", href: "/community" },
+  { id: "resources", label: "Resources", href: "/resources" },
+  { id: "pricing", label: "Pricing", href: "/pricing" },
+  { id: "contact", label: "Contact", href: "/contact" },
+];
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [activeNavId, setActiveNavId] = useState(navigationItems[0].id);
   return (
-    <div className="p-8">
-      <Tabs
-        items={[
-          {
-            id: "icons",
-            label: "Icons",
-            content: <IconsDemo />,
-          },
-          {
-            id: "buttons",
-            label: "Buttons",
-            content: <ButtonsDemo />,
-          },
-          {
-            id: "avatars",
-            label: "Avatars",
-            content: <AvatarsDemo />,
-          },
-          {
-            id: "navigation",
-            label: "Navigation",
-            content: <NavigationDemo />,
-          },
-        ]}
-        defaultActiveTab="icons"
+    <>
+      <Header
+        logoIcon={<IconFigma size="32" />}
+        navigationItems={navigationItems}
+        activeNavigationId={activeNavId}
+        isLoggedIn={isLoggedIn}
+        userName="John Doe"
+        avatarSrc="/avatar1.svg"
+        onNavigationItemClick={(id) => setActiveNavId(id)}
+        onSignInClick={() => {
+          alert("Sign in clicked!");
+          setIsLoggedIn(true);
+        }}
+        onRegisterClick={() => {
+          alert("Register clicked!");
+          setIsLoggedIn(true);
+        }}
       />
-    </div>
+      <div className="p-8">
+        <Tabs
+          items={[
+            {
+              id: "icons",
+              label: "Icons",
+              content: <IconsDemo />,
+            },
+            {
+              id: "buttons",
+              label: "Buttons",
+              content: <ButtonsDemo />,
+            },
+            {
+              id: "avatars",
+              label: "Avatars",
+              content: <AvatarsDemo />,
+            },
+            {
+              id: "navigation",
+              label: "Navigation",
+              content: <NavigationDemo />,
+            },
+            {
+              id: "header-auth",
+              label: "Header Auth",
+              content: <HeaderAuthDemo />,
+            },
+            {
+              id: "header",
+              label: "Header",
+              content: <HeaderDemo />,
+            },
+          ]}
+          defaultActiveTab="icons"
+        />
+      </div>
+    </>
   );
 }
 
