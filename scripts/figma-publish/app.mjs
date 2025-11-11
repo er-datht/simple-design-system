@@ -22,13 +22,15 @@ const repoRoot = path.resolve(__dirname, "../..");
 if (targetDir) {
   const absoluteDir = path.resolve(repoRoot, targetDir);
   console.log(`Publishing Code Connect from: ${absoluteDir}`);
-  console.log(`Using token: ${TOKEN.slice(0, 10)}...`);
 
   try {
-    execSync(`npx figma connect publish --token=${TOKEN} --dir="${absoluteDir}"`, {
-      cwd: repoRoot,
-      stdio: "inherit",
-    });
+    execSync(
+      `npx figma connect publish --token=${TOKEN} --dir="${absoluteDir}"`,
+      {
+        cwd: repoRoot,
+        stdio: "inherit",
+      }
+    );
     console.log("\n✓ Successfully published Code Connect");
   } catch (error) {
     console.error("\n✗ Failed to publish Code Connect");
@@ -36,7 +38,6 @@ if (targetDir) {
   }
 } else {
   console.log(`Publishing all Code Connect files from repository root`);
-  console.log(`Using token: ${TOKEN.slice(0, 10)}...`);
 
   try {
     execSync(`npx figma connect publish --token=${TOKEN}`, {
