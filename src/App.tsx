@@ -5,6 +5,8 @@ import { AvatarsDemo } from "./components/AvatarsDemo";
 import { NavigationDemo } from "./components/NavigationDemo";
 import { HeaderAuthDemo } from "./components/HeaderAuthDemo";
 import { HeaderDemo } from "./components/HeaderDemo";
+import { TextContentTitleDemo } from "./components/TextContentTitleDemo";
+import HeroActionsDemo from "./components/HeroActionsDemo";
 import Header from "./ui/sections/Header/Header";
 import { IconFigma } from "./ui/icons";
 import type { NavigationPillItem } from "./ui/primitives/Navigation";
@@ -73,6 +75,16 @@ function App() {
               id: "header",
               label: "Header",
               content: <HeaderDemo />,
+            },
+            {
+              id: "text-content-title",
+              label: "Text Content Title",
+              content: <TextContentTitleDemo />,
+            },
+            {
+              id: "hero-actions",
+              label: "Hero Actions",
+              content: <HeroActionsDemo />,
             },
           ]}
           defaultActiveTab="icons"
