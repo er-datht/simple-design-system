@@ -1,0 +1,2 @@
+export { default as HeroActions } from "./HeroActions";
+export type { HeroActionsProps } from "./HeroActions";
