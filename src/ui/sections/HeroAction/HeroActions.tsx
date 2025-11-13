@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import TextContentTitle from "../../typography/TextContentTitle";
+import TextContentTitle from "../../typography/TextContentTitle/TextContentTitle";
 import { ButtonGroup } from "../../primitives/Button/ButtonGroup";
 import "./hero-actions.css";
 

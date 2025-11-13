@@ -1,0 +1,37 @@
+/* TestimonialCard component styles using design system CSS variables */
+
+@layer components {
+  /* Base card container */
+  .testimonial-card {
+    @apply flex flex-col items-start box-border;
+    background: var(--sds-color-background-default-default);
+    border: var(--sds-size-stroke-border) solid
+      var(--sds-color-border-default-default);
+    border-radius: var(--sds-size-radius-200);
+    padding: var(--sds-size-space-600);
+    gap: var(--sds-size-space-600);
+    min-width: 300px;
+    min-height: 1px;
+    flex: 1 0 0;
+  }
+
+  /* Quote text styling */
+  .testimonial-card-quote {
+    @apply flex w-full whitespace-pre-wrap;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-heading-font-family);
+    font-size: var(--sds-typography-heading-size-base);
+    font-style: normal;
+    font-weight: var(--sds-typography-heading-font-weight);
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+    min-width: 1px;
+    min-height: 1px;
+    flex: 1 0 0;
+  }
+
+  /* Avatar block within testimonial card */
+  .testimonial-card-avatar-block {
+    @apply self-stretch;
+  }
+}

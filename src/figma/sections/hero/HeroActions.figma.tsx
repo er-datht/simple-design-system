@@ -1,4 +1,4 @@
-import HeroActions from "../../../ui/sections/heroActions/HeroActions";
+import HeroActions from "../../../ui/sections/HeroAction/HeroActions";
 import figma from "@figma/code-connect";
 import { Button } from "../../../ui/primitives/Button";
 

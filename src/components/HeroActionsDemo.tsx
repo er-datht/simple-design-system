@@ -1,4 +1,4 @@
-import { HeroActions } from "../ui/sections/heroActions";
+import { HeroActions } from "../ui/sections/HeroAction";
 import { Button } from "../ui/primitives/Button/Button";
 
 const HeroActionsDemo = () => {

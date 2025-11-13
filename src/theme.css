@@ -416,6 +416,8 @@
   --sds-size-space-negative-600: -1.5rem;
   --sds-size-stroke-border: 0.0625rem;
   --sds-size-stroke-focus-ring: 0.125rem;
+  --sds-responsive-device-width-desktop: 75rem;
+  --sds-responsive-device-width-mobile: 23.4375rem;
 }
 /* typography_primitives: default (default) */
 :root {

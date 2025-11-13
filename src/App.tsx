@@ -6,6 +6,8 @@ import { NavigationDemo } from "./components/NavigationDemo";
 import { HeaderAuthDemo } from "./components/HeaderAuthDemo";
 import { HeaderDemo } from "./components/HeaderDemo";
 import { TextContentTitleDemo } from "./components/TextContentTitleDemo";
+import { TextContentHeadingDemo } from "./components/TextContentHeadingDemo";
+import { TextHeadingDemo } from "./components/TextHeadingDemo";
 import HeroActionsDemo from "./components/HeroActionsDemo";
 import Header from "./ui/sections/Header/Header";
 import { IconFigma } from "./ui/icons";
@@ -80,6 +82,16 @@ function App() {
               id: "text-content-title",
               label: "Text Content Title",
               content: <TextContentTitleDemo />,
+            },
+            {
+              id: "text-content-heading",
+              label: "Text Content Heading",
+              content: <TextContentHeadingDemo />,
+            },
+            {
+              id: "text-heading",
+              label: "Text Heading",
+              content: <TextHeadingDemo />,
             },
             {
               id: "hero-actions",

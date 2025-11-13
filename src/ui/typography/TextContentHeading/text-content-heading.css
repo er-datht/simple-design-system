@@ -1,0 +1,42 @@
+/* TextContentHeading component styles using design system CSS variables */
+
+@layer components {
+  /* Base container */
+  .text-content-heading-container {
+    @apply flex flex-col items-start;
+    width: 100%;
+    gap: var(--sds-size-space-200);
+  }
+
+  /* Alignment variants */
+  .text-content-heading-align-start {
+    @apply items-start text-start;
+  }
+
+  .text-content-heading-align-center {
+    @apply items-center text-center;
+  }
+
+  /* Main heading text styling */
+  .text-content-heading-heading {
+    @apply w-full whitespace-pre-wrap;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-heading-font-family);
+    font-size: var(--sds-typography-heading-size-base);
+    font-style: normal;
+    font-weight: var(--sds-typography-heading-font-weight);
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+  }
+
+  /* Subheading text styling */
+  .text-content-heading-subheading {
+    @apply flex flex-col justify-center w-full whitespace-pre-wrap;
+    color: var(--sds-color-text-default-secondary);
+    font-family: var(--sds-typography-subheading-font-family);
+    font-size: var(--sds-typography-subheading-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-subheading-font-weight);
+    line-height: 1.2;
+  }
+}
