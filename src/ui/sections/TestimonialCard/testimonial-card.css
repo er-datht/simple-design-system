@@ -1,0 +1,34 @@
+/**
+ * TestimonialCard Component Styles
+ *
+ * A card component for displaying customer testimonials with quote text
+ * and author information (avatar, name, role).
+ *
+ * Design System Tokens Used:
+ * - Colors: --sds-color-background-default-default, --sds-color-border-default-default
+ * - Spacing: --sds-size-space-600
+ * - Borders: --sds-size-stroke-border, --sds-size-radius-200
+ */
+
+.testimonial-card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-size-space-600, 24px);
+
+  /* Sizing */
+  min-width: 240px;
+  box-sizing: border-box;
+
+  /* Spacing */
+  padding: var(--sds-size-space-600, 24px);
+
+  /* Visual Styling */
+  background-color: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid var(--sds-color-border-default-default, #d9d9d9);
+  border-radius: var(--sds-size-radius-200, 8px);
+
+  /* Content Alignment */
+  align-content: stretch;
+}
