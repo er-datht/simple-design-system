@@ -1,4 +1,4 @@
-import TextContentTitle from "../ui/typography/TextContentTitle";
+import TextContentTitle from "../ui/typography/TextContentTitle/TextContentTitle";
 
 export function TextContentTitleDemo() {
   return (
@@ -47,7 +47,9 @@ export function TextContentTitleDemo() {
         <h2 className="text-2xl font-bold mb-4">Subtitle Variations</h2>
         <div className="space-y-6">
           <div>
-            <h3 className="text-lg font-semibold mb-2">With Subtitle (Default)</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              With Subtitle (Default)
+            </h3>
             <div className="p-4 rounded border border-dashed border-amber-600">
               <TextContentTitle
                 title="Title with Subtitle"
@@ -59,15 +61,14 @@ export function TextContentTitleDemo() {
           <div>
             <h3 className="text-lg font-semibold mb-2">Without Subtitle</h3>
             <div className="p-4 rounded border border-dashed border-amber-600">
-              <TextContentTitle
-                title="Title Only"
-                hasSubtitle={false}
-              />
+              <TextContentTitle title="Title Only" hasSubtitle={false} />
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-2">Subtitle Prop Not Provided</h3>
+            <h3 className="text-lg font-semibold mb-2">
+              Subtitle Prop Not Provided
+            </h3>
             <div className="p-4 rounded border border-dashed border-amber-600">
               <TextContentTitle title="Title without subtitle prop" />
             </div>
