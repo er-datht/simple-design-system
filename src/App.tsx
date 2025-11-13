@@ -9,6 +9,7 @@ import { TextContentTitleDemo } from "./components/TextContentTitleDemo";
 import { TextContentHeadingDemo } from "./components/TextContentHeadingDemo";
 import { TextHeadingDemo } from "./components/TextHeadingDemo";
 import HeroActionsDemo from "./components/HeroActionsDemo";
+import TestimonialCardDemo from "./components/TestimonialCardDemo";
 import Header from "./ui/sections/Header/Header";
 import { IconFigma } from "./ui/icons";
 import type { NavigationPillItem } from "./ui/primitives/Navigation";
@@ -97,6 +98,11 @@ function App() {
               id: "hero-actions",
               label: "Hero Actions",
               content: <HeroActionsDemo />,
+            },
+            {
+              id: "testimonial-card",
+              label: "Testimonial Card",
+              content: <TestimonialCardDemo />,
             },
           ]}
           defaultActiveTab="icons"
