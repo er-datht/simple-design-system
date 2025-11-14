@@ -1,2 +1,1 @@
-export { TextSmall, default } from "./TextSmall";
-export type { TextSmallProps } from "./TextSmall";
+export { TextSmall, type TextSmallProps } from "./TextSmall";

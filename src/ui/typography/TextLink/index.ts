@@ -1,2 +1,1 @@
-export { TextLink, default } from "./TextLink";
-export type { TextLinkProps } from "./TextLink";
+export { TextLink, type TextLinkProps } from "./TextLink";

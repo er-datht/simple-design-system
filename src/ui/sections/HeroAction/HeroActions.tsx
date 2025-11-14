@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import TextContentTitle from "../../typography/TextContentTitle/TextContentTitle";
+import { TextContentTitle } from "../../typography/TextContentTitle/TextContentTitle";
 import { ButtonGroup } from "../../primitives/Button/ButtonGroup";
 import "./hero-actions.css";
 
@@ -29,7 +29,7 @@ export type HeroActionsProps = {
  * HeroActions component for displaying hero sections with title, subtitle, and action buttons
  * Features responsive typography that adapts between desktop and mobile viewports
  */
-const HeroActions = ({
+export const HeroActions = ({
   title,
   subtitle,
   buttons,
@@ -48,5 +48,3 @@ const HeroActions = ({
     </section>
   );
 };
-
-export default HeroActions;

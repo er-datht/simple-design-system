@@ -1,4 +1,4 @@
-import TextHeading from "../../ui/typography/TextHeading/TextHeading";
+import { TextSmall } from "../../../ui/typography/TextSmall";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,8 +9,8 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  TextHeading,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2087%3A8488",
+  TextSmall,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2087%3A8484",
   {
     props: {
       // These props were automatically mapped based on your linked code:
@@ -18,6 +18,6 @@ figma.connect(
       // No matching props could be found for these Figma properties:
       // "text": figma.string('Text')
     },
-    example: (props) => <TextHeading text={props.text} />,
+    example: (props) => <TextSmall text={props.text} />,
   }
 );

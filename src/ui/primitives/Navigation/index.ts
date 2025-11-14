@@ -1,16 +1,16 @@
 // Navigation List Component
-export { NavigationList } from "./NavigationList";
-export type {
-  NavigationItem,
-  NavigationListProps,
-  NavigationDirection,
-  NavigationSize,
+export {
+  NavigationList,
+  type NavigationItem,
+  type NavigationListProps,
+  type NavigationDirection,
+  type NavigationSize,
 } from "./NavigationList";
 
 // Navigation Pill List Component
-export { NavigationPillList } from "./NavigationPillList";
-export type {
-  NavigationPillItem,
-  NavigationPillListProps,
-  NavigationPillDirection,
+export {
+  NavigationPillList,
+  type NavigationPillItem,
+  type NavigationPillListProps,
+  type NavigationPillDirection,
 } from "./NavigationPillList";

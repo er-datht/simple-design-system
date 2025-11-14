@@ -1,5 +1,5 @@
-import { Avatar } from "../Avatar/Avatar";
-import { Button, ButtonGroup } from "../Button";
+import { Avatar } from "../../primitives/Avatar/Avatar";
+import { Button, ButtonGroup } from "../../primitives/Button";
 import { IconChevronDown } from "../../icons/IconChevronDown";
 import { cn } from "../../../utils/cn";
 import "./header-auth.css";
@@ -134,7 +134,7 @@ export interface HeaderAuthProps {
  * />
  * ```
  */
-const HeaderAuth = ({
+export const HeaderAuth = ({
   isLoggedIn,
   onAvatarClick,
   onSignInClick,
@@ -193,5 +193,3 @@ const HeaderAuth = ({
     </ButtonGroup>
   );
 };
-
-export default HeaderAuth;

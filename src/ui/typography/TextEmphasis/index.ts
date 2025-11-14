@@ -1,2 +1,1 @@
-export { TextEmphasis, default } from "./TextEmphasis";
-export type { TextEmphasisProps } from "./TextEmphasis";
+export { TextEmphasis, type TextEmphasisProps } from "./TextEmphasis";

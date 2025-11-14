@@ -1,5 +1,5 @@
 import { IconFigma } from "../../../ui/icons";
-import Header from "../../../ui/sections/Header/Header";
+import { Header } from "../../../ui/sections/Header/Header";
 import figma from "@figma/code-connect";
 
 /**

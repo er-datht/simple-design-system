@@ -1,5 +1,5 @@
-export { TextContentHeading, default } from "./TextContentHeading";
-export type {
-  TextContentHeadingProps,
-  TextContentHeadingAlign,
+export {
+  TextContentHeading,
+  type TextContentHeadingProps,
+  type TextContentHeadingAlign,
 } from "./TextContentHeading";

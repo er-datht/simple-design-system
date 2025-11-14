@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "../ui/sections/Header/Header";
+import { Header } from "../ui/sections/Header/Header";
 import { type NavigationPillItem } from "../ui/primitives/Navigation/NavigationPillList";
 import { IconFigma } from "../ui/icons";
 

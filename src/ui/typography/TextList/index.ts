@@ -1,2 +1,1 @@
-export { TextList, default } from "./TextList";
-export type { TextListProps, TextListDensity } from "./TextList";
+export { TextList, type TextListProps, type TextListDensity } from "./TextList";

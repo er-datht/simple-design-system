@@ -3,7 +3,7 @@ import {
   NavigationPillList,
   type NavigationPillItem,
 } from "../../primitives/Navigation/NavigationPillList";
-import HeaderAuth from "../../primitives/HeaderAuth/HeaderAuth";
+import { HeaderAuth } from "../HeaderAuth/HeaderAuth";
 import { IconButton } from "../../primitives/Button/IconButton";
 import { IconMenu } from "../../icons/IconMenu";
 import { IconX } from "../../icons/IconX";
@@ -123,7 +123,7 @@ export interface HeaderProps {
  * />
  * ```
  */
-const Header = ({
+export const Header = ({
   logoIcon,
   navigationItems,
   activeNavigationId,
@@ -203,5 +203,3 @@ const Header = ({
     </header>
   );
 };
-
-export default Header;

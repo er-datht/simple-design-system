@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HeaderAuth from "../ui/primitives/HeaderAuth/HeaderAuth";
+import { HeaderAuth } from "../ui/sections/HeaderAuth/HeaderAuth";
 
 export function HeaderAuthDemo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

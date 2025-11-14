@@ -1,4 +1,4 @@
-import CheckboxField from "../../../ui/primitives/Input/CheckboxField/CheckboxField";
+import { CheckboxField } from "../../../ui/primitives/Input/CheckboxField/CheckboxField";
 import figma from "@figma/code-connect";
 
 /**

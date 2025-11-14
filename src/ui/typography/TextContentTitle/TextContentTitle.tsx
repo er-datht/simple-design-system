@@ -37,4 +37,4 @@ const TextContentTitle = ({
   );
 };
 
-export default TextContentTitle;
+export { TextContentTitle };
