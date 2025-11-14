@@ -1,0 +1,21 @@
+/* TextSubheading component styles using design system CSS variables */
+
+@layer components {
+  /* Base container */
+  .text-subheading-container {
+    @apply flex items-start;
+    width: 100%;
+  }
+
+  /* Subheading text styling */
+  .text-subheading-text {
+    @apply relative whitespace-pre-wrap;
+    flex-shrink: 0;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-subheading-font-family);
+    font-size: var(--sds-typography-subheading-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-subheading-font-weight);
+    line-height: 1.2;
+  }
+}

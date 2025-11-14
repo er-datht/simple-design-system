@@ -4,6 +4,10 @@
     @apply w-full;
   }
 
+  .tabs-flowbite-wrapper {
+    border: none !important;
+  }
+
   /* Add padding to prevent focus ring from being clipped by overflow */
   .tabs-flowbite-wrapper > div[role="tablist"] {
     @apply py-1.5 px-1.5;
