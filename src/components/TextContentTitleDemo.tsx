@@ -1,4 +1,4 @@
-import TextContentTitle from "../ui/typography/TextContentTitle/TextContentTitle";
+import { TextContentTitle } from "../ui/typography/TextContentTitle/TextContentTitle";
 
 export function TextContentTitleDemo() {
   return (

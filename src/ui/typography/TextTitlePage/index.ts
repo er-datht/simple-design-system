@@ -1,2 +1,1 @@
-export { TextTitlePage, default } from "./TextTitlePage";
-export type { TextTitlePageProps } from "./TextTitlePage";
+export { TextTitlePage, type TextTitlePageProps } from "./TextTitlePage";

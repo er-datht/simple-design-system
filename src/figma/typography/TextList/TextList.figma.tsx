@@ -1,4 +1,4 @@
-import Text from "../../ui/typography/Text/Text";
+import { TextList } from "../../../ui/typography/TextList";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,15 +9,21 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  Text,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2087%3A8487",
+  TextList,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=480%3A6149",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      text: figma.string("Text"),
+      hasTitle: figma.boolean("Has Title"),
+      density: figma.enum("Density", {
+        Default: "Default",
+        Tight: "Tight",
+      }),
       // No matching props could be found for these Figma properties:
-      // "text": figma.string('Text')
+      // "hasTitle": figma.boolean('Has Title')
     },
-    example: (props) => <Text text={props.text} />,
+    example: (props) => (
+      <TextList hasTitle={props.hasTitle} density={props.density} />
+    ),
   }
 );

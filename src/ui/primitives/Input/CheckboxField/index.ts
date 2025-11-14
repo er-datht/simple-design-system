@@ -1,6 +1,6 @@
-export { CheckboxField, default } from "./CheckboxField";
-export type {
-  CheckboxFieldProps,
-  CheckboxState,
-  CheckboxValueType,
+export {
+  CheckboxField,
+  type CheckboxFieldProps,
+  type CheckboxState,
+  type CheckboxValueType,
 } from "./CheckboxField";

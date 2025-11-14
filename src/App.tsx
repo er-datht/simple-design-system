@@ -1,15 +1,9 @@
 import { Tabs } from "./ui/primitives/Tab";
 import { IconsDemo } from "./components/IconsDemo";
-import { ButtonsDemo } from "./components/ButtonsDemo";
-import { AvatarsDemo } from "./components/AvatarsDemo";
-import { NavigationDemo } from "./components/NavigationDemo";
-import { HeaderAuthDemo } from "./components/HeaderAuthDemo";
-import { HeaderDemo } from "./components/HeaderDemo";
+import { PrimitivesDemo } from "./components/PrimitivesDemo";
 import { TypographyDemo } from "./components/TypographyDemo";
-import HeroActionsDemo from "./components/HeroActionsDemo";
-import TestimonialCardDemo from "./components/TestimonialCardDemo";
-import { CheckboxFieldDemo } from "./components/CheckboxFieldDemo";
-import Header from "./ui/sections/Header/Header";
+import { SectionsDemo } from "./components/SectionsDemo";
+import { Header } from "./ui/sections/Header/Header";
 import { IconFigma } from "./ui/icons";
 import type { NavigationPillItem } from "./ui/primitives/Navigation";
 import { useState } from "react";
@@ -54,29 +48,9 @@ function App() {
               content: <IconsDemo />,
             },
             {
-              id: "buttons",
-              label: "Buttons",
-              content: <ButtonsDemo />,
-            },
-            {
-              id: "avatars",
-              label: "Avatars",
-              content: <AvatarsDemo />,
-            },
-            {
-              id: "navigation",
-              label: "Navigation",
-              content: <NavigationDemo />,
-            },
-            {
-              id: "header-auth",
-              label: "Header Auth",
-              content: <HeaderAuthDemo />,
-            },
-            {
-              id: "header",
-              label: "Header",
-              content: <HeaderDemo />,
+              id: "primitives",
+              label: "Primitives",
+              content: <PrimitivesDemo />,
             },
             {
               id: "typography",
@@ -84,19 +58,9 @@ function App() {
               content: <TypographyDemo />,
             },
             {
-              id: "hero-actions",
-              label: "Hero Actions",
-              content: <HeroActionsDemo />,
-            },
-            {
-              id: "testimonial-card",
-              label: "Testimonial Card",
-              content: <TestimonialCardDemo />,
-            },
-            {
-              id: "checkbox-field",
-              label: "Checkbox Field",
-              content: <CheckboxFieldDemo />,
+              id: "sections",
+              label: "Sections",
+              content: <SectionsDemo />,
             },
           ]}
           defaultActiveTab="icons"

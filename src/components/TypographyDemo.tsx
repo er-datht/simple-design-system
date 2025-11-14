@@ -20,82 +20,137 @@ export function TypographyDemo() {
     <Tabs
       items={[
         {
-          id: "text",
-          label: "Text",
-          content: <TextDemo />,
+          id: "titles",
+          label: "Titles",
+          content: (
+            <Tabs
+              items={[
+                {
+                  id: "title-hero",
+                  label: "Title Hero",
+                  content: <TextTitleHeroDemo />,
+                },
+                {
+                  id: "title-page",
+                  label: "Title Page",
+                  content: <TextTitlePageDemo />,
+                },
+                {
+                  id: "content-title",
+                  label: "Content Title",
+                  content: <TextContentTitleDemo />,
+                },
+              ]}
+              defaultActiveTab="title-hero"
+            />
+          ),
         },
         {
-          id: "text-strong",
-          label: "Text Strong",
-          content: <TextStrongDemo />,
+          id: "headings",
+          label: "Headings",
+          content: (
+            <Tabs
+              items={[
+                {
+                  id: "heading",
+                  label: "Heading",
+                  content: <TextHeadingDemo />,
+                },
+                {
+                  id: "subheading",
+                  label: "Subheading",
+                  content: <TextSubheadingDemo />,
+                },
+                {
+                  id: "content-heading",
+                  label: "Content Heading",
+                  content: <TextContentHeadingDemo />,
+                },
+              ]}
+              defaultActiveTab="heading"
+            />
+          ),
         },
         {
-          id: "text-emphasis",
-          label: "Text Emphasis",
-          content: <TextEmphasisDemo />,
+          id: "body-text",
+          label: "Body Text",
+          content: (
+            <Tabs
+              items={[
+                {
+                  id: "text",
+                  label: "Text",
+                  content: <TextDemo />,
+                },
+                {
+                  id: "text-strong",
+                  label: "Text Strong",
+                  content: <TextStrongDemo />,
+                },
+                {
+                  id: "text-emphasis",
+                  label: "Text Emphasis",
+                  content: <TextEmphasisDemo />,
+                },
+                {
+                  id: "text-small",
+                  label: "Text Small",
+                  content: <TextSmallDemo />,
+                },
+                {
+                  id: "subtitle",
+                  label: "Subtitle",
+                  content: <TextSubtitleDemo />,
+                },
+              ]}
+              defaultActiveTab="text"
+            />
+          ),
         },
         {
-          id: "text-content-title",
-          label: "Text Content Title",
-          content: <TextContentTitleDemo />,
+          id: "special",
+          label: "Special",
+          content: (
+            <Tabs
+              items={[
+                {
+                  id: "link",
+                  label: "Link",
+                  content: <TextLinkDemo />,
+                },
+                {
+                  id: "code",
+                  label: "Code",
+                  content: <TextCodeDemo />,
+                },
+              ]}
+              defaultActiveTab="link"
+            />
+          ),
         },
         {
-          id: "text-content-heading",
-          label: "Text Content Heading",
-          content: <TextContentHeadingDemo />,
-        },
-        {
-          id: "text-heading",
-          label: "Text Heading",
-          content: <TextHeadingDemo />,
-        },
-        {
-          id: "text-subheading",
-          label: "Text Subheading",
-          content: <TextSubheadingDemo />,
-        },
-        {
-          id: "text-subtitle",
-          label: "Text Subtitle",
-          content: <TextSubtitleDemo />,
-        },
-        {
-          id: "text-title-hero",
-          label: "Text Title Hero",
-          content: <TextTitleHeroDemo />,
-        },
-        {
-          id: "text-title-page",
-          label: "Text Title Page",
-          content: <TextTitlePageDemo />,
-        },
-        {
-          id: "text-small",
-          label: "Text Small",
-          content: <TextSmallDemo />,
-        },
-        {
-          id: "text-link",
-          label: "Text Link",
-          content: <TextLinkDemo />,
-        },
-        {
-          id: "text-code",
-          label: "Text Code",
-          content: <TextCodeDemo />,
-        },
-        {
-          id: "text-list",
-          label: "Text List",
-          content: <TextListDemo />,
-        },
-        {
-          id: "text-list-item",
-          label: "Text List Item",
-          content: <TextListItemDemo />,
+          id: "lists",
+          label: "Lists",
+          content: (
+            <Tabs
+              items={[
+                {
+                  id: "list",
+                  label: "List",
+                  content: <TextListDemo />,
+                },
+                {
+                  id: "list-item",
+                  label: "List Item",
+                  content: <TextListItemDemo />,
+                },
+              ]}
+              defaultActiveTab="list"
+            />
+          ),
         },
       ]}
-      defaultActiveTab="text"
+      defaultActiveTab="titles"
     />
   );
 }

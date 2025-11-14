@@ -1,5 +1,5 @@
 import { IconActivity, IconAirplay, IconAlertCircle } from "../../../ui/icons";
-import Avatar from "../../../ui/primitives/Avatar";
+import { Avatar } from "../../../ui/primitives/Avatar";
 import { Button } from "../../../ui/primitives/Button";
 import { Tabs } from "../../../ui/primitives/Tab/Tabs";
 import figma from "@figma/code-connect";

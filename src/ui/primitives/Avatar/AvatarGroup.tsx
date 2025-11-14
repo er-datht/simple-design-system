@@ -105,14 +105,18 @@ export function AvatarGroup({
         <>
           <div className="avatar-group-overlap-inner">{visibleChildren}</div>
           {overflowCount > 0 && (
-            <span className="avatar-group-overflow-count">+{overflowCount}</span>
+            <span className="avatar-group-overflow-count">
+              +{overflowCount}
+            </span>
           )}
         </>
       ) : (
         <>
           {visibleChildren}
           {overflowCount > 0 && (
-            <span className="avatar-group-overflow-count">+{overflowCount}</span>
+            <span className="avatar-group-overflow-count">
+              +{overflowCount}
+            </span>
           )}
         </>
       )}

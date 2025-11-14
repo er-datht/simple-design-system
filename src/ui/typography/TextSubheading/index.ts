@@ -1,2 +1,1 @@
-export { TextSubheading, default } from "./TextSubheading";
-export type { TextSubheadingProps } from "./TextSubheading";
+export { TextSubheading, type TextSubheadingProps } from "./TextSubheading";

@@ -1,4 +1,4 @@
-import TextTitlePage from "../../ui/typography/TextTitlePage/TextTitlePage";
+import { TextLink } from "../../../ui/typography/TextLink";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,8 +9,8 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  TextTitlePage,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2087%3A8490",
+  TextLink,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2087%3A8483",
   {
     props: {
       // These props were automatically mapped based on your linked code:
@@ -18,6 +18,6 @@ figma.connect(
       // No matching props could be found for these Figma properties:
       // "text": figma.string('Text')
     },
-    example: (props) => <TextTitlePage text={props.text} />,
+    example: (props) => <TextLink text={props.text} />,
   }
 );

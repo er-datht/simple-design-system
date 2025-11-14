@@ -1,2 +1,1 @@
-export { TextHeading, default } from "./TextHeading";
-export type { TextHeadingProps } from "./TextHeading";
+export { TextHeading, type TextHeadingProps } from "./TextHeading";

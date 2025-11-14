@@ -1,2 +1,1 @@
-export { TextTitleHero, default } from "./TextTitleHero";
-export type { TextTitleHeroProps } from "./TextTitleHero";
+export { TextTitleHero, type TextTitleHeroProps } from "./TextTitleHero";

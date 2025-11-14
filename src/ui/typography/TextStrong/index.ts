@@ -1,2 +1,1 @@
-export { TextStrong, default } from "./TextStrong";
-export type { TextStrongProps } from "./TextStrong";
+export { TextStrong, type TextStrongProps } from "./TextStrong";
