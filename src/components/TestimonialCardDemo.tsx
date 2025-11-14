@@ -1,4 +1,4 @@
-import { TestimonialCard } from "../ui/sections/TestimonialCard";
+import { TestimonialCard } from "../ui/primitives";
 import { Avatar } from "../ui/primitives/Avatar/Avatar";
 
 /**
@@ -26,7 +26,9 @@ export default function TestimonialCardDemo() {
 
       {/* Example 1: With Image Avatar */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Example 1: With Image Avatar</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          Example 1: With Image Avatar
+        </h2>
         <p className="text-gray-600 mb-4">
           Standard testimonial card with an image-based avatar. Shows complete
           customer information.
@@ -48,7 +50,9 @@ export default function TestimonialCardDemo() {
 
       {/* Example 2: With Initial Avatar */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Example 2: With Initial Avatar</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          Example 2: With Initial Avatar
+        </h2>
         <p className="text-gray-600 mb-4">
           Testimonial card using initial-based avatar. Useful when user photos
           aren't available.
@@ -63,7 +67,9 @@ export default function TestimonialCardDemo() {
 
       {/* Example 3: Different Avatar Sizes */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Example 3: Different Avatar Sizes</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          Example 3: Different Avatar Sizes
+        </h2>
         <p className="text-gray-600 mb-4">
           Showcasing the same testimonial with small, medium, and large avatar
           sizes.
@@ -71,25 +77,19 @@ export default function TestimonialCardDemo() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <TestimonialCard
             quote="Exceptional quality and reliability."
-            avatar={
-              <Avatar type="initial" name="Emma Wilson" size="sm" />
-            }
+            avatar={<Avatar type="initial" name="Emma Wilson" size="sm" />}
             name="Emma Wilson"
             role="Designer"
           />
           <TestimonialCard
             quote="Exceptional quality and reliability."
-            avatar={
-              <Avatar type="initial" name="Emma Wilson" size="md" />
-            }
+            avatar={<Avatar type="initial" name="Emma Wilson" size="md" />}
             name="Emma Wilson"
             role="Designer"
           />
           <TestimonialCard
             quote="Exceptional quality and reliability."
-            avatar={
-              <Avatar type="initial" name="Emma Wilson" size="lg" />
-            }
+            avatar={<Avatar type="initial" name="Emma Wilson" size="lg" />}
             name="Emma Wilson"
             role="Designer"
           />
@@ -233,7 +233,9 @@ export default function TestimonialCardDemo() {
         <h2 className="text-2xl font-semibold mb-4">Props Reference</h2>
         <div className="space-y-4 text-sm">
           <div>
-            <code className="bg-gray-100 px-2 py-1 rounded">quote?: string</code>
+            <code className="bg-gray-100 px-2 py-1 rounded">
+              quote?: string
+            </code>
             <p className="text-gray-600 mt-1">
               The testimonial quote text to display. Default: "Quote"
             </p>

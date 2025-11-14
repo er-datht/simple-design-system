@@ -21,7 +21,7 @@ figma.connect(
       //   "Mobile": "mobile"
       // })
     },
-    example: (_props) => (
+    example: () => (
       <HeroActions
         title="Build amazing experiences with our platform"
         subtitle="Start creating beautiful, responsive applications in minutes with our comprehensive design system"
