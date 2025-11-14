@@ -25,7 +25,7 @@ figma.connect(
       //   "Default": "default"
       // })
     },
-    example: (_props) => (
+    example: () => (
       <Header
         logoIcon={<IconFigma size="32" />}
         navigationItems={[

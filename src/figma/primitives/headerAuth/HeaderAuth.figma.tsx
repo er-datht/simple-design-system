@@ -21,7 +21,7 @@ figma.connect(
       //   "Logged In - Hover": "logged-in---hover"
       // })
     },
-    example: (_props) => (
+    example: () => (
       <HeaderAuth
         isLoggedIn={true}
         avatarSrc="/images/user-avatar.jpg"

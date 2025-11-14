@@ -1,68 +1,94 @@
-import { type HTMLAttributes } from "react";
+import { type ReactNode, type HTMLAttributes } from "react";
+import { TextHeading } from "../../typography/TextHeading/TextHeading";
+import { AvatarBlock } from "../../primitives/Avatar/AvatarBlock";
 import { cn } from "../../../utils/cn";
-import { Avatar } from "../Avatar/Avatar";
-import { AvatarBlock } from "../Avatar/AvatarBlock";
 import "./testimonial-card.css";
 
 /**
  * Props for TestimonialCard component
- * Displays a customer testimonial with quote, avatar, name, and title
+ * Displays a testimonial with quote and author information
  */
 export interface TestimonialCardProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * The testimonial quote text
+   * The testimonial quote text to display
+   * @default "Quote"
    */
-  quote: string;
+  quote?: string;
 
   /**
-   * Customer name
+   * Avatar to display (can be image or initial type)
+   * Passed as Avatar component with configured props
+   * @example <Avatar type="image" src="/user.jpg" alt="John Doe" size="md" />
+   * @example <Avatar type="initial" name="Jane Smith" size="md" />
    */
-  customerName: string;
+  avatar: ReactNode;
 
   /**
-   * Customer title/role
+   * Name of the person giving the testimonial
    */
-  customerTitle: string;
+  name: string;
 
   /**
-   * URL for customer avatar image
+   * Role, company, or description of the person
    */
-  avatarUrl: string;
+  role: string;
 
   /**
-   * Additional CSS classes
+   * Additional CSS classes for the card container
    */
   className?: string;
 }
 
 /**
- * TestimonialCard component that displays a customer testimonial
- * Combines a quote, avatar, customer name, and title in a card layout
+ * TestimonialCard component displays customer testimonials in a card layout.
+ *
+ * Features:
+ * - Clean card design with border and rounded corners
+ * - Quote text displayed prominently using TextHeading
+ * - Avatar block showing author photo/initial, name, and role
+ * - Responsive design with min-width constraint
+ * - Uses design system tokens for consistent styling
+ * - Supports both image and initial-based avatars
+ *
+ * Layout:
+ * - Vertical flex layout (column)
+ * - 24px gap between quote and author info
+ * - 24px padding around content
+ * - White background with subtle border
  *
  * @example
- * // Basic usage
+ * // Basic usage with image avatar
  * <TestimonialCard
- *   quote="This product transformed our workflow!"
- *   customerName="Sarah Johnson"
- *   customerTitle="Product Manager at TechCorp"
- *   avatarUrl="/avatars/sarah.jpg"
+ *   quote="This product has transformed our workflow completely. Highly recommended!"
+ *   avatar={<Avatar type="image" src="/user.jpg" alt="Jane Doe" size="md" />}
+ *   name="Jane Doe"
+ *   role="CEO at TechCorp"
  * />
  *
  * @example
- * // With custom className
+ * // With initial avatar
  * <TestimonialCard
- *   quote="Excellent service and support!"
- *   customerName="John Doe"
- *   customerTitle="CEO at StartupCo"
- *   avatarUrl="/avatars/john.jpg"
- *   className="my-custom-class"
+ *   quote="Outstanding service and support."
+ *   avatar={<Avatar type="initial" name="John Smith" size="md" />}
+ *   name="John Smith"
+ *   role="Product Manager"
+ * />
+ *
+ * @example
+ * // With custom styling
+ * <TestimonialCard
+ *   quote="Best investment we've made this year."
+ *   avatar={<Avatar type="initial" name="Alex" size="lg" />}
+ *   name="Alex Johnson"
+ *   role="Founder at StartupXYZ"
+ *   className="shadow-lg hover:shadow-xl transition-shadow"
  * />
  */
 export function TestimonialCard({
-  quote,
-  customerName,
-  customerTitle,
-  avatarUrl,
+  quote = "Quote",
+  avatar,
+  name,
+  role,
   className,
   ...rest
 }: TestimonialCardProps) {
@@ -73,27 +99,11 @@ export function TestimonialCard({
       data-node-id="7717:3946"
       {...rest}
     >
-      <blockquote
-        className="testimonial-card-quote"
-        data-name="Text Heading"
-        data-node-id="611:26195"
-      >
-        "{quote}"
-      </blockquote>
+      <TextHeading text={`"${quote}"`} data-node-id="611:26195" />
       <AvatarBlock
-        avatar={
-          <Avatar
-            type="image"
-            src={avatarUrl}
-            alt={`${customerName}'s profile picture`}
-            size="lg"
-            shape="circle"
-          />
-        }
-        title={customerName}
-        description={customerTitle}
-        className="testimonial-card-avatar-block"
-        data-name="Avatar Block"
+        avatar={avatar}
+        title={name}
+        description={role}
         data-node-id="2010:15583"
       />
     </div>

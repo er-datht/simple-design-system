@@ -10,6 +10,7 @@ import { TextContentHeadingDemo } from "./components/TextContentHeadingDemo";
 import { TextHeadingDemo } from "./components/TextHeadingDemo";
 import HeroActionsDemo from "./components/HeroActionsDemo";
 import TestimonialCardDemo from "./components/TestimonialCardDemo";
+import { CheckboxFieldDemo } from "./components/CheckboxFieldDemo";
 import Header from "./ui/sections/Header/Header";
 import { IconFigma } from "./ui/icons";
 import type { NavigationPillItem } from "./ui/primitives/Navigation";
@@ -103,6 +104,11 @@ function App() {
               id: "testimonial-card",
               label: "Testimonial Card",
               content: <TestimonialCardDemo />,
+            },
+            {
+              id: "checkbox-field",
+              label: "Checkbox Field",
+              content: <CheckboxFieldDemo />,
             },
           ]}
           defaultActiveTab="icons"

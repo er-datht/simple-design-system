@@ -17,7 +17,7 @@ figma.connect(
   "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=3729%3A13362",
   {
     props: {},
-    example: (_props) => (
+    example: () => (
       <Tabs
         items={[
           {
