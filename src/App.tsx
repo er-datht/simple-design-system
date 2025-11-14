@@ -5,9 +5,7 @@ import { AvatarsDemo } from "./components/AvatarsDemo";
 import { NavigationDemo } from "./components/NavigationDemo";
 import { HeaderAuthDemo } from "./components/HeaderAuthDemo";
 import { HeaderDemo } from "./components/HeaderDemo";
-import { TextContentTitleDemo } from "./components/TextContentTitleDemo";
-import { TextContentHeadingDemo } from "./components/TextContentHeadingDemo";
-import { TextHeadingDemo } from "./components/TextHeadingDemo";
+import { TypographyDemo } from "./components/TypographyDemo";
 import HeroActionsDemo from "./components/HeroActionsDemo";
 import TestimonialCardDemo from "./components/TestimonialCardDemo";
 import { CheckboxFieldDemo } from "./components/CheckboxFieldDemo";
@@ -81,19 +79,9 @@ function App() {
               content: <HeaderDemo />,
             },
             {
-              id: "text-content-title",
-              label: "Text Content Title",
-              content: <TextContentTitleDemo />,
-            },
-            {
-              id: "text-content-heading",
-              label: "Text Content Heading",
-              content: <TextContentHeadingDemo />,
-            },
-            {
-              id: "text-heading",
-              label: "Text Heading",
-              content: <TextHeadingDemo />,
+              id: "typography",
+              label: "Typography",
+              content: <TypographyDemo />,
             },
             {
               id: "hero-actions",

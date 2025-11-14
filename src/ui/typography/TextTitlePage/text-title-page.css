@@ -1,0 +1,37 @@
+/* TextTitlePage Container Styles */
+.text-title-page-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  flex-direction: row;
+  background: transparent;
+}
+
+/* TextTitlePage Text Element Styles */
+.text-title-page-text {
+  flex-shrink: 0;
+  position: relative;
+  font-family: var(--sds-typography-title-page-font-family);
+  font-weight: var(--sds-typography-title-page-font-weight);
+  font-size: var(--sds-typography-title-page-size-base);
+  line-height: 1.2;
+  letter-spacing: -0.96px;
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+  margin: 0;
+}
+
+/* Responsive Font Sizing (Optional Enhancement) */
+@media (max-width: 767px) {
+  .text-title-page-text {
+    font-size: 32px;
+    letter-spacing: -0.64px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .text-title-page-text {
+    font-size: 40px;
+    letter-spacing: -0.8px;
+  }
+}

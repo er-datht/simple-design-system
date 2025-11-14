@@ -1,0 +1,20 @@
+/* TextStrong component styles using design system CSS variables */
+
+@layer components {
+  /* Base container */
+  .text-strong-container {
+    @apply flex items-start shrink-0;
+    align-content: stretch;
+  }
+
+  /* Text strong content styling */
+  .text-strong-content {
+    @apply relative whitespace-pre-wrap;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-strong);
+    line-height: 1.4;
+  }
+}
