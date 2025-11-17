@@ -1,5 +1,4 @@
-import { AvatarBlock } from "../../../ui/primitives/Avatar/AvatarBlock";
-import { Avatar } from "../../../ui/primitives/Avatar/Avatar";
+import { AvatarBlock, Avatar } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 
 /**

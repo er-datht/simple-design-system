@@ -1,4 +1,4 @@
-import { TextListItem, TextList } from "../../../ui/typography";
+import { TextLinkList, TextLinkListItem } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,8 +9,8 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  TextList,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=480%3A6149",
+  TextLinkList,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=322%3A9321",
   {
     props: {
       // These props were automatically mapped based on your linked code:
@@ -23,12 +23,16 @@ figma.connect(
       // "hasTitle": figma.boolean('Has Title')
     },
     example: (props) => (
-      <TextList hasTitle={props.hasTitle} density={props.density}>
-        <TextListItem text="First list item" />
-        <TextListItem text="Second list item" />
-        <TextListItem text="Third list item" />
-        <TextListItem text="Fourth list item" />
-      </TextList>
+      <TextLinkList
+        titleText="Text Strong"
+        hasTitle={props.hasTitle}
+        density={props.density}
+      >
+        <TextLinkListItem text="Home" />
+        <TextLinkListItem text="About" />
+        <TextLinkListItem text="Services" />
+        <TextLinkListItem text="Contact" />
+      </TextLinkList>
     ),
   }
 );

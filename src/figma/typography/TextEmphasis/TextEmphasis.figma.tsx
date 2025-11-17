@@ -1,4 +1,4 @@
-import { TextEmphasis } from "../../../ui/typography/TextEmphasis";
+import { TextEmphasis } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

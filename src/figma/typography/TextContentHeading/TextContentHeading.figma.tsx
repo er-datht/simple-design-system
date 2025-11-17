@@ -1,4 +1,4 @@
-import { TextContentHeading } from "../../../ui/typography/TextContentHeading";
+import { TextContentHeading } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

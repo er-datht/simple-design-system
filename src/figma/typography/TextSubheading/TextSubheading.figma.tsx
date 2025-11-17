@@ -1,4 +1,4 @@
-import { TextSubheading } from "../../../ui/typography/TextSubheading";
+import { TextSubheading } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

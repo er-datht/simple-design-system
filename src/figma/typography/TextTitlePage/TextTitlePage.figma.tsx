@@ -1,4 +1,4 @@
-import { TextTitlePage } from "../../../ui/typography/TextTitlePage";
+import { TextTitlePage } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

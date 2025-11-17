@@ -14,6 +14,9 @@ import { TextLinkDemo } from "./TextLinkDemo";
 import { TextCodeDemo } from "./TextCodeDemo";
 import { TextListDemo } from "./TextListDemo";
 import { TextListItemDemo } from "./TextListItemDemo";
+import TextPriceDemo from "./TextPriceDemo";
+import TextLinkListDemo from "./TextLinkListDemo";
+import TextLinkListItemDemo from "./TextLinkListItemDemo";
 
 export function TypographyDemo() {
   return (
@@ -123,6 +126,11 @@ export function TypographyDemo() {
                   label: "Code",
                   content: <TextCodeDemo />,
                 },
+                {
+                  id: "price",
+                  label: "Price",
+                  content: <TextPriceDemo />,
+                },
               ]}
               defaultActiveTab="link"
             />
@@ -143,6 +151,16 @@ export function TypographyDemo() {
                   id: "list-item",
                   label: "List Item",
                   content: <TextListItemDemo />,
+                },
+                {
+                  id: "link-list",
+                  label: "Link List",
+                  content: <TextLinkListDemo />,
+                },
+                {
+                  id: "link-list-item",
+                  label: "Link List Item",
+                  content: <TextLinkListItemDemo />,
                 },
               ]}
               defaultActiveTab="list"
