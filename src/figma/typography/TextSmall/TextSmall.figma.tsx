@@ -1,4 +1,4 @@
-import { TextSmall } from "../../../ui/typography/TextSmall";
+import { TextSmall } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

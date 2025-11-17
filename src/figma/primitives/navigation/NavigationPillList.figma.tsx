@@ -1,4 +1,4 @@
-import { NavigationPillList } from "../../../ui/primitives/Navigation/NavigationPillList";
+import { NavigationPillList } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 
 /**

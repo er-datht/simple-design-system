@@ -1,5 +1,4 @@
-import { AvatarGroup } from "../../../ui/primitives/Avatar/AvatarGroup";
-import { Avatar } from "../../../ui/primitives/Avatar/Avatar";
+import { AvatarGroup, Avatar } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 
 /**

@@ -1,4 +1,4 @@
-import { TextStrong } from "../../../ui/typography/TextStrong";
+import { TextStrong } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

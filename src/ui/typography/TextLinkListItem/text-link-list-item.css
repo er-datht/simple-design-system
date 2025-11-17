@@ -1,0 +1,30 @@
+/* TextLinkListItem Component Styles */
+
+.text-link-list-item {
+  /* Remove default list-item styling */
+  list-style: none;
+
+  /* Dimensions */
+  min-height: 22px;
+
+  /* Simple flexbox for vertical centering */
+  display: flex;
+  align-items: center;
+
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  color: var(--sds-color-text-default-default, #1e1e1e);
+  font-style: normal;
+
+  /* Text behavior */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-link-list-item__text {
+  line-height: 1.4;
+  margin: 0;
+}

@@ -1,4 +1,4 @@
-import { HeaderAuth } from "../../../ui/sections/HeaderAuth/HeaderAuth";
+import { HeaderAuth } from "../../../ui/sections";
 import figma from "@figma/code-connect";
 
 /**

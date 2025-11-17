@@ -1,4 +1,4 @@
-import { TextListItem } from "../../../ui/typography";
+import { TextLinkListItem } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**
@@ -9,8 +9,8 @@ import figma from "@figma/code-connect";
  */
 
 figma.connect(
-  TextListItem,
-  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2077%3A11663",
+  TextLinkListItem,
+  "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2153%3A7973",
   {
     props: {
       // These props were automatically mapped based on your linked code:
@@ -18,6 +18,6 @@ figma.connect(
       // No matching props could be found for these Figma properties:
       // "text": figma.string('Text')
     },
-    example: (props) => <TextListItem text={props.text} />,
+    example: (props) => <TextLinkListItem text={props.text} />,
   }
 );

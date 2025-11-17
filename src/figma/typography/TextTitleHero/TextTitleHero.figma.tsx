@@ -1,4 +1,4 @@
-import { TextTitleHero } from "../../../ui/typography/TextTitleHero";
+import { TextTitleHero } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

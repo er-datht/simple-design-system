@@ -1,4 +1,4 @@
-import { TextLink } from "../../../ui/typography/TextLink";
+import { TextLink } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**

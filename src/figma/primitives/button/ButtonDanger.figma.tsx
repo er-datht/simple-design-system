@@ -1,4 +1,4 @@
-import { ButtonDanger } from "../../../ui/primitives/Button/ButtonDanger";
+import { ButtonDanger } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 
 /**

@@ -1,4 +1,4 @@
-import { Avatar } from "../../../ui/primitives/Avatar/Avatar";
+import { Avatar } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 
 /**

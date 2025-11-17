@@ -36,3 +36,12 @@ export { TextSubheading, type TextSubheadingProps } from "./TextSubheading";
 export { TextListItem, type TextListItemProps } from "./TextListItem";
 
 export { TextList, type TextListProps, type TextListDensity } from "./TextList";
+
+export { TextPrice, type TextPriceProps } from "./TextPrice";
+
+export {
+  TextLinkListItem,
+  type TextLinkListItemProps,
+} from "./TextLinkListItem";
+
+export { TextLinkList, type TextLinkListProps } from "./TextLinkList";

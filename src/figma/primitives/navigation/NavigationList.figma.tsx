@@ -1,4 +1,4 @@
-import { NavigationList } from "../../../ui/primitives/Navigation/NavigationList";
+import { NavigationList } from "../../../ui/primitives";
 import figma from "@figma/code-connect";
 import {
   IconActivity,

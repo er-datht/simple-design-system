@@ -1,4 +1,4 @@
-import { Text } from "../../../ui/typography/Text";
+import { Text } from "../../../ui/typography";
 import figma from "@figma/code-connect";
 
 /**
