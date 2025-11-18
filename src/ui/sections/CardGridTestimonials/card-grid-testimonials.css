@@ -1,0 +1,267 @@
+/**
+ * CardGridTestimonials Component Styles
+ *
+ * A responsive section component displaying a grid of customer testimonials
+ * with heading, subheading, and testimonial cards.
+ *
+ * Responsive Behavior:
+ * - Desktop (≥768px): 1200px max-width, 64px padding, 48px gaps, 3-column grid
+ * - Mobile (<768px): 375px max-width, 24px padding, 24px gaps, 1-column grid
+ *
+ * Design System Tokens Used:
+ * - Colors: --sds-color-text-default-*, --sds-color-background-default-default
+ * - Typography: --sds-typography-heading-*, --sds-typography-subheading-*, --sds-typography-body-*
+ * - Spacing: --sds-size-space-* (050, 200, 300, 600, 1200, 1600)
+ * - Sizing: --sds-size-icon-large, --sds-size-radius-*, --sds-size-stroke-border
+ */
+
+/* ========================================
+   ROOT CONTAINER
+   ======================================== */
+
+.card-grid-testimonials {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-size-space-1200, 48px);
+
+  /* Sizing - Mobile first */
+  width: 100%;
+  max-width: var(--sds-responsive-device-width, 375px);
+  box-sizing: border-box;
+
+  /* Spacing - Mobile */
+  padding: var(--sds-size-space-600, 24px);
+
+  /* Visual Styling */
+  background-color: var(--sds-color-background-default-default, #ffffff);
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+/* Desktop Layout (≥768px) */
+@media (min-width: 768px) {
+  .card-grid-testimonials {
+    /* Desktop width */
+    max-width: var(--sds-responsive-device-width, 1200px);
+
+    /* Desktop padding */
+    padding: var(--sds-size-space-1600, 64px);
+  }
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.card-grid-testimonials__header {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200, 8px);
+  align-items: flex-start;
+
+  /* Sizing */
+  width: 100%;
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+/* ========================================
+   HEADING
+   ======================================== */
+
+.card-grid-testimonials__heading {
+  /* Typography */
+  font-family: var(--sds-typography-heading-font-family, "Inter", sans-serif);
+  font-size: var(--sds-typography-heading-size-base, 24px);
+  font-weight: var(--sds-typography-heading-font-weight, 600);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+
+  /* Color */
+  color: var(--sds-color-text-default-default, #1e1e1e);
+
+  /* Alignment */
+  text-align: left;
+
+  /* Reset margin */
+  margin: 0;
+}
+
+/* ========================================
+   SUBHEADING
+   ======================================== */
+
+.card-grid-testimonials__subheading {
+  /* Typography */
+  font-family: var(
+    --sds-typography-subheading-font-family,
+    "Inter",
+    sans-serif
+  );
+  font-size: var(--sds-typography-subheading-size-medium, 20px);
+  font-weight: var(--sds-typography-subheading-font-weight, 400);
+  line-height: 1.2;
+
+  /* Color */
+  color: var(--sds-color-text-default-secondary, #757575);
+
+  /* Alignment */
+  text-align: left;
+
+  /* Reset margin */
+  margin: 0;
+}
+
+/* ========================================
+   CARD GRID
+   ======================================== */
+
+.card-grid-testimonials__grid {
+  /* Layout */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  /* Sizing */
+  width: 100%;
+
+  /* Spacing - Mobile */
+  gap: var(--sds-size-space-600, 24px);
+
+  .testimonial-card {
+    flex: 1 0 0;
+  }
+}
+
+/* Desktop Grid (≥768px) */
+@media (min-width: 768px) {
+  .card-grid-testimonials__grid {
+    /* Desktop gap */
+    gap: var(--sds-size-space-1200, 48px);
+  }
+}
+
+/* ========================================
+   FALLBACK CARD STYLES
+   (Used when TestimonialCard component not provided)
+   ======================================== */
+
+.card-grid-testimonials__card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-size-space-600, 24px);
+
+  /* Sizing */
+  min-width: 300px;
+  flex: 1 0 0;
+  box-sizing: border-box;
+
+  /* Spacing */
+  padding: var(--sds-size-space-600, 24px);
+
+  /* Visual Styling */
+  background-color: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
+  border-radius: var(--sds-size-radius-200, 8px);
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+.card-grid-testimonials__quote {
+  /* Typography */
+  font-family: var(--sds-typography-heading-font-family, "Inter", sans-serif);
+  font-size: var(--sds-typography-heading-size-base, 24px);
+  font-weight: var(--sds-typography-heading-font-weight, 600);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+
+  /* Color */
+  color: var(--sds-color-text-default-default, #1e1e1e);
+
+  /* Sizing */
+  flex: 1 0 0;
+  width: 100%;
+
+  /* Alignment */
+  text-align: left;
+}
+
+.card-grid-testimonials__avatar-block {
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  gap: var(--sds-size-space-300, 12px);
+  align-items: flex-start;
+
+  /* Sizing */
+  width: auto;
+}
+
+.card-grid-testimonials__avatar {
+  /* Sizing */
+  width: var(--sds-size-icon-large, 40px);
+  height: var(--sds-size-icon-large, 40px);
+  flex-shrink: 0;
+
+  /* Shape */
+  border-radius: var(--sds-size-radius-full, 9999px);
+  overflow: hidden;
+}
+
+.card-grid-testimonials__avatar img {
+  /* Image Sizing */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.card-grid-testimonials__info {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-050, 2px);
+  align-items: flex-start;
+
+  /* Sizing */
+  flex: 1 0 0;
+}
+
+.card-grid-testimonials__name {
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  font-weight: var(--sds-typography-body-font-weight-strong, 600);
+  line-height: 1.4;
+
+  /* Color */
+  color: var(--sds-color-text-default-secondary, #757575);
+
+  /* Alignment */
+  text-align: left;
+}
+
+.card-grid-testimonials__role {
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  line-height: 1.4;
+
+  /* Color */
+  color: var(--sds-color-text-default-tertiary, #b3b3b3);
+
+  /* Alignment */
+  text-align: left;
+}
