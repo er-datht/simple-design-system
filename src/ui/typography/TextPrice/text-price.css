@@ -16,7 +16,6 @@
   align-items: flex-start;
   flex-shrink: 0;
   position: relative;
-  line-height: 0;
 }
 
 /* Common styles for price elements */
@@ -34,7 +33,11 @@
 
 /* Large Variant - Currency */
 .text-price--large .text-price__currency {
-  font-family: var(--sds-typography-title-page-font-family, "Inter", sans-serif);
+  font-family: var(
+    --sds-typography-title-page-font-family,
+    "Inter",
+    sans-serif
+  );
   font-weight: var(--sds-typography-title-page-font-weight, 700);
   font-size: var(--sds-typography-subtitle-size-small, 24px);
   letter-spacing: -0.48px;
@@ -54,7 +57,11 @@
 
 /* Large Variant - Amount */
 .text-price--large .text-price__amount {
-  font-family: var(--sds-typography-title-page-font-family, "Inter", sans-serif);
+  font-family: var(
+    --sds-typography-title-page-font-family,
+    "Inter",
+    sans-serif
+  );
   font-weight: var(--sds-typography-title-page-font-weight, 700);
   font-size: var(--sds-typography-title-page-size-base, 48px);
   letter-spacing: -0.96px;

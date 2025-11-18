@@ -4,6 +4,11 @@ import { NavigationDemo } from "./NavigationDemo";
 import TestimonialCardDemo from "./TestimonialCardDemo";
 import { CheckboxFieldDemo } from "./CheckboxFieldDemo";
 import { Tabs } from "../ui/primitives/Tab";
+import CardDemo from "./CardDemo";
+import PricingCardDemo from "./PricingCardDemo";
+import ProductInfoCardDemo from "./ProductInfoCardDemo";
+import ReviewCardDemo from "./ReviewCardDemo";
+import StatsCardDemo from "./StatsCardDemo";
 
 export function PrimitivesDemo() {
   return (
@@ -31,12 +36,37 @@ export function PrimitivesDemo() {
             <Tabs
               items={[
                 {
+                  id: "card",
+                  label: "Card",
+                  content: <CardDemo />,
+                },
+                {
+                  id: "pricing-card",
+                  label: "PricingCard",
+                  content: <PricingCardDemo />,
+                },
+                {
                   id: "testimonial-card",
                   label: "Testimonial Card",
                   content: <TestimonialCardDemo />,
                 },
+                {
+                  id: "product-info-card",
+                  label: "Product Info Card",
+                  content: <ProductInfoCardDemo />,
+                },
+                {
+                  id: "review-card",
+                  label: "Review Card",
+                  content: <ReviewCardDemo />,
+                },
+                {
+                  id: "stats-card",
+                  label: "Stats Card",
+                  content: <StatsCardDemo />,
+                },
               ]}
-              defaultActiveTab="testimonial-card"
+              defaultActiveTab="card"
             />
           ),
         },

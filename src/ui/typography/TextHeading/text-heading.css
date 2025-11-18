@@ -4,7 +4,6 @@
   /* Base container */
   .text-heading-container {
     @apply flex items-start;
-    width: 100%;
   }
 
   /* Heading text styling */

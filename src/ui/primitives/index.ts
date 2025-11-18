@@ -57,3 +57,21 @@ export { Tabs, type TabsProps, type TabItem } from "./Tab";
 
 // TestimonialCard component
 export { TestimonialCard, type TestimonialCardProps } from "./TestimonialCard";
+
+// Card components
+export {
+  Card,
+  type CardProps,
+  type CardAssetType,
+  type CardVariant,
+  type CardDirection,
+  PricingCard,
+  type PricingCardProps,
+  type PricingCardVariant,
+  ProductInfoCard,
+  type ProductInfoCardProps,
+  ReviewCard,
+  type ReviewCardProps,
+  StatsCard,
+  type StatsCardProps,
+} from "./Card";
