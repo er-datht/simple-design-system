@@ -1,0 +1,587 @@
+/* Card Component Styles */
+
+.card {
+  /* Base Layout */
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+
+  /* Sizing */
+  width: 440px;
+  min-width: 240px;
+
+  /* Alignment */
+  align-items: flex-start;
+}
+
+/* Direction Variants */
+.card--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--sds-size-space-600, 24px);
+}
+
+.card--vertical {
+  flex-direction: column;
+  gap: var(--sds-size-space-600, 24px);
+}
+
+/* Style Variants */
+.card--default {
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.card--stroke {
+  background: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
+  padding: var(--sds-size-space-600, 24px);
+  border-radius: var(--sds-size-radius-200, 8px);
+}
+
+/* Asset Container */
+.card__asset {
+  position: relative;
+  flex-shrink: 0;
+  overflow: clip;
+}
+
+/* Icon Wrapper */
+.card__icon-wrapper {
+  position: relative;
+  overflow: clip;
+  flex-shrink: 0;
+}
+
+.card__custom-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Image Placeholder */
+.card__image-placeholder {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
+  background: var(--sds-color-slate-200, #e3e3e3);
+  border-radius: var(--sds-size-radius-200, 8px);
+}
+
+/* Custom Image */
+.card__image {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--sds-size-radius-200, 8px);
+}
+
+.card__image-background {
+  position: absolute;
+  inset: 0;
+  background: var(--sds-color-slate-200, #e3e3e3);
+}
+
+.card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--sds-color-text-default-default, #1e1e1e);
+  opacity: 0.2;
+}
+
+/* Body Container */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400, 16px);
+  position: relative;
+  flex: 1 0 0;
+  min-width: 160px;
+}
+
+.card--vertical .card__body {
+  width: 100%;
+}
+
+/* Text Section */
+.card__text-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200, 8px);
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Heading */
+.card__heading {
+  /* Typography */
+  font-family: var(
+    --sds-typography-heading-font-family,
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  font-weight: var(--sds-typography-heading-font-weight, 600);
+  font-size: var(--sds-typography-heading-size-base, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+
+  /* Color */
+  color: var(--sds-color-text-default-default, #1e1e1e);
+
+  /* Layout */
+  width: 100%;
+  flex-shrink: 0;
+  margin: 0;
+
+  /* Text Rendering */
+  text-transform: none;
+  font-style: normal;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Body Text */
+.card__body-text {
+  /* Typography */
+  font-family: var(
+    --sds-typography-body-font-family,
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif
+  );
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  line-height: 1.4;
+
+  /* Color */
+  color: var(--sds-color-text-default-secondary, #757575);
+
+  /* Layout */
+  width: 100%;
+  flex-shrink: 0;
+  margin: 0;
+
+  /* Text Rendering */
+  text-transform: none;
+  font-style: normal;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Button Container */
+.card__button-container {
+  width: 100%;
+}
+
+/* Responsive Behavior (Mobile) */
+@media (max-width: 640px) {
+  .card {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .card--horizontal {
+    /* Force vertical layout on mobile */
+    flex-direction: column;
+  }
+
+  .card__image-placeholder {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+  }
+
+  .card__image {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+  }
+
+  .card--stroke {
+    padding: var(--sds-size-space-400, 16px);
+  }
+}
+
+/* PricingCard Component Styles */
+
+.pricing-card {
+  /* Container */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600, 24px);
+  width: 300px;
+  min-width: 240px;
+
+  /* Border & Radius */
+  border-radius: var(--sds-size-radius-200, 8px);
+  border: var(--sds-size-stroke-border, 1px) solid;
+
+  /* Position */
+  position: relative;
+
+  /* Default: Desktop styles (32px padding) */
+  padding: var(--sds-size-space-800, 32px);
+}
+
+/* Stroke variant (light background, dark button) */
+.pricing-card--stroke {
+  background-color: var(--sds-color-background-default-default, #ffffff);
+  border-color: var(--sds-color-border-default-default, #d9d9d9);
+}
+
+/* Brand variant (dark background, light button) */
+.pricing-card--brand {
+  background-color: var(--sds-color-background-brand-default, #2c2c2c);
+  border-color: var(--sds-color-border-brand-default, #2c2c2c);
+}
+
+/* Content Container */
+.pricing-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600, 24px);
+  width: 100%;
+}
+
+/* Top Section - Default: Desktop (centered) */
+.pricing-card__top-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400, 16px);
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+
+/* Desktop: Title and Price visible, Mobile row hidden */
+.pricing-card__title-desktop,
+.pricing-card__price-desktop {
+  display: block;
+  width: 100%;
+}
+
+/* Mobile only: Title + Price Row - Hidden by default */
+.pricing-card__title-price-row {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Button */
+.pricing-card__button {
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  gap: var(--sds-size-space-200, 8px);
+  align-items: center;
+  justify-content: center;
+  padding: var(--sds-size-space-300, 12px);
+  width: 100%;
+  flex-shrink: 0;
+
+  /* Border & Radius */
+  border-radius: var(--sds-size-radius-200, 8px);
+  border: var(--sds-size-stroke-border, 1px) solid;
+
+  /* Cursor & Transition */
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+
+  /* Reset browser button styles */
+  font: inherit;
+  outline: none;
+}
+
+/* Button: Stroke variant (dark button on light card) */
+.pricing-card__button--stroke {
+  background-color: var(--sds-color-background-brand-default, #2c2c2c);
+  border-color: var(--sds-color-border-brand-default, #2c2c2c);
+  color: var(--sds-color-text-brand-on-brand, #f5f5f5);
+}
+
+/* Button: Brand variant (light button on dark card) */
+.pricing-card__button--brand {
+  background-color: var(--sds-color-background-neutral-tertiary, #e3e3e3);
+  border-color: var(--sds-color-border-neutral-secondary, #767676);
+  color: var(--sds-color-text-default-default, #1e1e1e);
+}
+
+/* Button hover states */
+.pricing-card__button:hover {
+  opacity: 0.8;
+}
+
+/* Button focus state (accessibility) */
+.pricing-card__button:focus-visible {
+  outline: 2px solid var(--sds-color-border-brand-default, #2c2c2c);
+  outline-offset: 2px;
+}
+
+/* Button text */
+.pricing-card__button-text {
+  font-family: var(--sds-typography-body-font-family, Inter, sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  line-height: 1;
+}
+
+/* Responsive: Mobile Layout (< 768px) */
+@media (max-width: 768px) {
+  .pricing-card {
+    /* Mobile: Smaller padding */
+    padding: var(--sds-size-space-600, 24px);
+  }
+
+  .pricing-card__top-section {
+    /* Mobile: Left-aligned */
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Mobile: Hide desktop title and price */
+  .pricing-card__title-desktop,
+  .pricing-card__price-desktop {
+    display: none;
+  }
+
+  /* Mobile: Show title-price horizontal row */
+  .pricing-card__title-price-row {
+    display: flex;
+  }
+
+  /* Mobile: Tighter spacing for features list (if needed, handled by TextList density prop) */
+  .pricing-card__list {
+    /* TextList component handles density internally */
+  }
+}
+
+/* ProductInfoCard Component Styles */
+
+.product-info-card {
+  /* Container Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400, 16px);
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+
+  /* Sizing */
+  min-width: 240px;
+  width: 240px;
+
+  /* Card Styling */
+  background: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
+  border-radius: var(--sds-size-radius-200, 8px);
+  padding: var(--sds-size-space-400, 16px);
+}
+
+/* Image Section */
+.product-info-card__image {
+  position: relative;
+  width: 100%;
+  height: 247px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Image Placeholder Container */
+.product-info-card__image-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--sds-color-slate-200, #e3e3e3);
+  pointer-events: none;
+}
+
+/* Image Asset */
+.product-info-card__image-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Body Section */
+.product-info-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200, 8px);
+  align-items: flex-start;
+  width: 208px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Responsive Behavior */
+@media (max-width: 640px) {
+  .product-info-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .product-info-card__image {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-info-card__body {
+    width: 100%;
+  }
+}
+
+/* ReviewCard Component Styles */
+
+.review-card {
+  /* Container Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600, 24px);
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+
+  /* Sizing */
+  min-width: 240px;
+  width: 100%;
+  max-width: 500px;
+
+  /* Card Styling */
+  background: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
+  border-radius: var(--sds-size-radius-200, 8px);
+  padding: var(--sds-size-space-600, 24px);
+}
+
+/* Star Rating Container */
+.review-card__rating {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sds-size-space-100, 4px);
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Individual Star */
+.review-card__star {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: clip;
+  flex-shrink: 0;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.review-card__star--filled {
+  opacity: 1;
+}
+
+/* Review Body Container */
+.review-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-100, 4px);
+  align-items: flex-start;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Avatar Container */
+.review-card__avatar-container {
+  width: 100%;
+}
+
+/* Responsive Behavior */
+@media (max-width: 640px) {
+  .review-card {
+    padding: var(--sds-size-space-400, 16px);
+  }
+}
+
+/* StatsCard Component Styles */
+
+.stats-card {
+  /* Container Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600, 24px);
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+
+  /* Sizing */
+  min-width: 240px;
+  width: 100%;
+  max-width: 300px;
+
+  /* Card Styling */
+  background: var(--sds-color-background-default-default, #ffffff);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
+  border-radius: var(--sds-size-radius-200, 8px);
+  padding: var(--sds-size-space-600, 24px);
+}
+
+/* Icon Section */
+.stats-card__icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  overflow: clip;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content Section */
+.stats-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-100, 4px);
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Responsive Behavior */
+@media (max-width: 640px) {
+  .stats-card {
+    padding: var(--sds-size-space-400, 16px);
+  }
+}
