@@ -6,3 +6,5 @@ export {
   CardGridTestimonials,
   type CardGridTestimonialsProps,
 } from "./CardGridTestimonials";
+
+export { Footer, type FooterProps } from "./Footer";

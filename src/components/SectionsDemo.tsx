@@ -2,6 +2,7 @@ import HeroActionsDemo from "./HeroActionsDemo";
 import { HeaderAuthDemo } from "./HeaderAuthDemo";
 import { HeaderDemo } from "./HeaderDemo";
 import CardGridTestimonialsDemo from "./CardGridTestimonialsDemo";
+import FooterDemo from "./FooterDemo";
 import { Tabs } from "../ui/primitives/Tab";
 
 export function SectionsDemo() {
@@ -27,6 +28,11 @@ export function SectionsDemo() {
           id: "card-grid-testimonials",
           label: "Card Grid Testimonials",
           content: <CardGridTestimonialsDemo />,
+        },
+        {
+          id: "footer",
+          label: "Footer",
+          content: <FooterDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"
