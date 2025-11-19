@@ -5,6 +5,7 @@
 @import "./ui/primitives/Button/button.css";
 @import "./ui/primitives/Tab/tabs.css";
 @import "./ui/primitives/Navigation/navigation.css";
+@import "./ui/layout/Container/container.css";
 
 :root {
   --global-focus-ring-size: var(--sds-size-stroke-focus-ring);
