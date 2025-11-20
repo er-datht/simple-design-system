@@ -8,7 +8,7 @@ export {
 } from "./CardGridTestimonials";
 export { Footer, type FooterProps } from "./Footer";
 
-// Re-export all form components from forms folder
+// Form components
 export {
   FormContact,
   FormForgotPassword,
@@ -24,3 +24,5 @@ export {
   type FormShippingProps,
   type RegisterFormData,
 } from "../forms";
+
+export { ImageSection, type ImageSectionProps } from "./ImageSection";

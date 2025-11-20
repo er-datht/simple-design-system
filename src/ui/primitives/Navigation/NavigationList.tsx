@@ -1,6 +1,16 @@
 import { type ReactNode, useState, useCallback, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../../utils/cn";
 import "./navigation.css";
+
+/**
+ * Helper function to determine if a link is internal
+ */
+const isInternalLink = (href: string): boolean => {
+  return href.startsWith('/') ||
+    (!href.startsWith('http://') && !href.startsWith('https://') &&
+     !href.startsWith('mailto:') && !href.startsWith('tel:'));
+};
 
 /**
  * Direction variants for navigation layout
@@ -261,8 +271,26 @@ export function NavigationList({
         "aria-disabled": item.disabled || undefined,
       };
 
-      // If item has href, render as anchor tag
+      // If item has href, render as Link for internal routes or anchor for external
       if (item.href && !item.disabled) {
+        if (isInternalLink(item.href)) {
+          return (
+            <Link
+              key={item.id}
+              to={item.href}
+              {...commonProps}
+              onClick={(e) => {
+                // Allow custom onClick to potentially prevent default
+                if (item.onClick || onItemClick) {
+                  e.preventDefault();
+                  handleItemClick(item);
+                }
+              }}
+            >
+              {content}
+            </Link>
+          );
+        }
         return (
           <a
             key={item.id}

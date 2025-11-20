@@ -27,10 +27,10 @@ figma.connect(
         subtitle="Start creating beautiful, responsive applications in minutes with our comprehensive design system"
         buttons={
           <>
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size="md">
               Get Started
             </Button>
-            <Button variant="neutral" size="lg">
+            <Button variant="neutral" size="md">
               Learn More
             </Button>
           </>

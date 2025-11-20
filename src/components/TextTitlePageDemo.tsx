@@ -73,10 +73,10 @@ export function TextTitlePageDemo() {
                   collaborate, ship, and scale.
                 </p>
                 <div className="flex gap-4 justify-center mt-8">
-                  <Button variant="primary" size="lg">
+                  <Button variant="primary" size="md">
                     Get Started
                   </Button>
-                  <Button variant="neutral" size="lg">
+                  <Button variant="neutral" size="md">
                     Learn More
                   </Button>
                 </div>
@@ -160,7 +160,7 @@ export function TextTitlePageDemo() {
                   Experience unprecedented speed and simplicity with our
                   completely redesigned platform.
                 </p>
-                <Button variant="primary" size="lg">
+                <Button variant="primary" size="md">
                   Start Free Trial
                 </Button>
               </div>

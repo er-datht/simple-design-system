@@ -37,8 +37,8 @@ export interface CardGridTestimonialsProps extends HTMLAttributes<HTMLDivElement
  * - Flexible children pattern for rendering any testimonial components
  *
  * Layout:
- * - Desktop (≥768px): 1200px max-width, 64px padding, 48px gaps, 3-column grid
- * - Mobile (<768px): 375px max-width, 24px padding, 24px gaps, 1-column grid
+ * - Desktop (≥768px): full width, 64px padding, 48px gaps, 3-column grid
+ * - Mobile (<768px): full width, 24px padding, 24px gaps, 1-column grid
  *
  * Design Tokens:
  * - Colors: text-default-default, text-default-secondary, background-default-default
