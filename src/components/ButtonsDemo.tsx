@@ -31,7 +31,6 @@ function ButtonBasics() {
         <div className="flex flex-wrap gap-4 items-center">
           <Button size="sm">Small Button</Button>
           <Button size="md">Medium Button</Button>
-          <Button size="lg">Large Button</Button>
         </div>
       </section>
 
@@ -75,9 +74,9 @@ function ButtonBasics() {
           />
           <IconButton
             variant="primary"
-            size="lg"
+            size="md"
             icon={<IconCheckCircle size="24" />}
-            aria-label="Large check"
+            aria-label="Medium check"
           />
           <IconButton
             variant="primary"
@@ -115,7 +114,7 @@ function ButtonBasics() {
             Delete with Icon
           </ButtonDanger>
           <ButtonDanger size="sm">Small Danger</ButtonDanger>
-          <ButtonDanger size="lg">Large Danger</ButtonDanger>
+          <ButtonDanger size="md">Medium Danger</ButtonDanger>
         </div>
       </section>
     </div>

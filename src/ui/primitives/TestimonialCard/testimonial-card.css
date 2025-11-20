@@ -18,7 +18,8 @@
   gap: var(--sds-size-space-600, 24px);
 
   /* Sizing */
-  min-width: 240px;
+  min-width: 300px;
+  max-width: 325px;
   box-sizing: border-box;
 
   /* Spacing */
@@ -26,7 +27,8 @@
 
   /* Visual Styling */
   background-color: var(--sds-color-background-default-default, #ffffff);
-  border: var(--sds-size-stroke-border, 1px) solid var(--sds-color-border-default-default, #d9d9d9);
+  border: var(--sds-size-stroke-border, 1px) solid
+    var(--sds-color-border-default-default, #d9d9d9);
   border-radius: var(--sds-size-radius-200, 8px);
 
   /* Content Alignment */

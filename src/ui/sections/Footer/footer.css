@@ -145,3 +145,8 @@
     gap: var(--sds-size-space-200, 8px);
   }
 }
+
+/* Sticky Footer Modifier - footer stays at bottom when content is short */
+.footer--fixed {
+  margin-top: auto;
+}

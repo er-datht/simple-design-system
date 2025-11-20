@@ -1,14 +1,16 @@
-# Figma Code Connect - Icon System
+# Figma Code Connect - Design System
 
-A React + TypeScript project that demonstrates automated icon generation from Figma using the Figma Code Connect API. This project fetches icon components from Figma, generates React components, and creates Code Connect documentation to sync your design system with your codebase.
+A React + TypeScript design system that demonstrates automated component generation from Figma using the Figma Code Connect API. This project syncs UI components from Figma to React code with bidirectional documentation, including icons, typography, primitives, and page sections.
 
 ## Features
 
+- **Complete Design System**: Icons, typography, primitives (Button, Avatar, Card), and page sections (Header, Footer, Hero)
 - **Automated Icon Generation**: Fetch icon components directly from Figma and generate React components
 - **Figma Code Connect Integration**: Automatically create Code Connect documentation linking Figma components to React code
-- **Type-Safe Components**: All icons are TypeScript-based with proper prop types
-- **Customizable Sizes**: Icons support multiple size variants (20, 24, 32, 40, 48)
-- **Tailwind CSS**: Styled with Tailwind CSS for easy integration
+- **Type-Safe Components**: All components are TypeScript-based with proper prop types
+- **Customizable Sizes**: Icons support multiple size variants (14, 16, 20, 24, 32, 40, 48)
+- **Tailwind CSS 4**: Styled with Tailwind CSS for easy integration
+- **React Router**: Multi-page navigation with HomePage and DemosPage
 - **Fast Development**: Built with Vite for instant HMR and optimized builds
 
 ## Tech Stack
@@ -16,9 +18,38 @@ A React + TypeScript project that demonstrates automated icon generation from Fi
 - **React 19** with React DOM
 - **TypeScript** for type safety
 - **Vite** for fast development and building
-- **Tailwind CSS** for styling
+- **Tailwind CSS 4** for styling
+- **React Router v7** for navigation
 - **Figma Code Connect** for design-code synchronization
 - **ESLint** for code quality
+
+## Project Structure
+
+```
+src/
+├── pages/                   # Page-level components
+│   ├── HomePage/           # Landing page with design system sections
+│   └── DemosPage/          # Component demos showcase
+├── routes/                  # React Router configuration
+├── components/              # Demo components (*Demo.tsx)
+├── ui/                      # Design system components
+│   ├── icons/              # Auto-generated icons (DO NOT EDIT)
+│   ├── primitives/         # Base components (Button, Avatar, Card, etc.)
+│   ├── sections/           # Page sections (Header, Footer, Hero)
+│   └── typography/         # Text styling components
+├── figma/                  # Code Connect documentation
+│   ├── icons/              # Icon Code Connect (auto-generated)
+│   ├── primitives/         # Primitive Code Connect
+│   ├── sections/           # Section Code Connect
+│   └── typography/         # Typography Code Connect
+└── utils/                  # Utility functions
+
+scripts/
+├── icons/                  # Icon generation automation
+├── dev-resources/          # Dev resources management
+├── figma-publish/          # Code Connect publishing
+└── tokens/                 # Design token generation
+```
 
 ## Getting Started
 
@@ -134,19 +165,19 @@ Some example integrations are available in `scripts` directory. They may require
 
 ### [scripts/icons](./scripts/icons)
 
-- `npm run script:icons:rest`
+- `yarn script:icons:rest`
 - Gets all icons from the file, and generates components in the [src/ui/icons](./src/ui/icons) directory.
 - Also generates [src/figma/icons/Icons.figma.tsx](./src/figma/icons/Icons.figma.tsx) for Code Connect.
 
 ### [scripts/tokens](./scripts/tokens)
 
-- `npm run script:tokens:rest`
+- `yarn script:tokens:rest`
 - Gets all variables and styles from Figma, and converts them to [src/theme.css](./src/theme.css).
 - Creates [scripts/tokens/tokensCodeSyntaxes.js](./scripts/tokens/tokensCodeSyntaxes.js) which is a script you can run in the JS console in Figma to update all the variable's [codeSyntaxes](https://www.figma.com/plugin-docs/api/Variable/#codesyntax) with CSS that matches this repo.
 - Includes some example plugins for how to get the same data without the Variables REST API.
   - [Install plugins](https://www.figma.com/plugin-docs/plugin-quickstart-guide/) in Development
   - Run plugins, and copy plugin outputs into [scripts/tokens/styles.json](./scripts/tokens/styles.json) and [scripts/tokens/tokens.json](./scripts/tokens/tokens.json)
-  - Run `npm run script:tokens` (without `:rest`) and it will reference the JSON files directly without making a REST API request to update them
+  - Run `yarn script:tokens` (without `:rest`) and it will reference the JSON files directly without making a REST API request to update them
 
 ## Figma Code Connect Publisher ([script:figma-publish](./scripts/figma-publish))
 
@@ -207,14 +238,16 @@ yarn script:figma-publish
 Required in `.env`:
 
 ```env
-FIGMA_ACCESS_TOKEN=figd_...  # Get from Figma account settings
+FIGMA_ACCESS_TOKEN  # Get from Figma account settings
 ```
 
 ### What Gets Published
 
 The script publishes Code Connect documentation defined in:
 
-- `src/figma/primitives/*.figma.tsx` - Primitive components
+- `src/figma/primitives/**/*.figma.tsx` - Primitive components (Button, Avatar, Card, etc.)
+- `src/figma/sections/**/*.figma.tsx` - Section components (Header, Footer, Hero)
+- `src/figma/typography/**/*.figma.tsx` - Typography components
 - `src/figma/icons/Icons.figma.tsx` - Auto-generated icon components
 - Any other `.figma.tsx` files in configured paths
 

@@ -8,3 +8,4 @@ export {
 } from "./CardGridTestimonials";
 
 export { Footer, type FooterProps } from "./Footer";
+export { ImageSection, type ImageSectionProps } from "./ImageSection";

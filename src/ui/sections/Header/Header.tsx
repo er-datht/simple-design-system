@@ -1,4 +1,5 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   NavigationPillList,
   type NavigationPillItem,
@@ -15,6 +16,16 @@ export interface HeaderProps {
    * Logo icon or component to display in the header
    */
   logoIcon: ReactNode;
+
+  /**
+   * Optional href to make the logo clickable
+   */
+  logoHref?: string;
+
+  /**
+   * Callback when logo is clicked
+   */
+  onLogoClick?: () => void;
 
   /**
    * Array of navigation items for the NavigationPillList
@@ -125,6 +136,8 @@ export interface HeaderProps {
  */
 export const Header = ({
   logoIcon,
+  logoHref,
+  onLogoClick,
   navigationItems,
   activeNavigationId,
   isLoggedIn,
@@ -140,6 +153,19 @@ export const Header = ({
 }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
@@ -154,7 +180,19 @@ export const Header = ({
     >
       {/* Logo Block */}
       <div className="header-logo-block">
-        <div className="header-logo">{logoIcon}</div>
+        <div className="header-logo">
+          {logoHref || onLogoClick ? (
+            <Link
+              to={logoHref || "/"}
+              onClick={onLogoClick}
+              className="header-logo-link"
+            >
+              {logoIcon}
+            </Link>
+          ) : (
+            logoIcon
+          )}
+        </div>
 
         {/* Mobile Menu Toggle Button */}
         <IconButton

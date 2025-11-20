@@ -1,0 +1,12 @@
+/* HomePage Component Styles */
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.home-page main {
+  flex: 1;
+}

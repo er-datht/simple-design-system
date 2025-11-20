@@ -38,7 +38,9 @@
 
 @layer components {
   .button-shared {
-    @apply inline-flex items-center justify-center gap-(--sds-size-space-200) rounded-(--sds-size-radius-200) font-medium transition-colors duration-150  focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-(--sds-size-space-200) rounded-(--sds-size-radius-200) transition-colors duration-150  focus:outline-none focus:ring-2 focus:ring-offset-2;
+    font-weight: var(--sds-typography-body-font-weight-regular);
+    line-height: 16px !important;
   }
 
   .button-size-sm {
