@@ -19,7 +19,7 @@ export function SwitchFieldDemo() {
         <SwitchField
           label="Dark mode"
           description="Switch to dark theme"
-          valueType="Unchecked"
+          isChecked={false}
         />
       </div>
 
@@ -28,7 +28,7 @@ export function SwitchFieldDemo() {
         <SwitchField
           label="Email notifications"
           description="Receive email updates"
-          valueType="Checked"
+          isChecked
         />
       </div>
 
@@ -38,7 +38,7 @@ export function SwitchFieldDemo() {
           label="Feature access"
           description="Enable advanced features"
           errorMessage="This feature requires a Pro subscription"
-          valueType="Unchecked"
+          isChecked={false}
         />
       </div>
 
@@ -48,7 +48,7 @@ export function SwitchFieldDemo() {
           label="Premium feature"
           description="Available in Pro plan"
           disabled
-          valueType="Unchecked"
+          isChecked={false}
         />
       </div>
 
@@ -58,7 +58,7 @@ export function SwitchFieldDemo() {
           label="System setting"
           description="Managed by administrator"
           disabled
-          valueType="Checked"
+          isChecked
         />
       </div>
 
@@ -68,7 +68,7 @@ export function SwitchFieldDemo() {
           <SwitchField
             label="Auto-save"
             description="Automatically save changes as you work"
-            valueType={isEnabled ? "Checked" : "Unchecked"}
+            isChecked={isEnabled}
             onChange={(checked) => setIsEnabled(checked)}
           />
           <p className="text-sm text-gray-500 mt-4">

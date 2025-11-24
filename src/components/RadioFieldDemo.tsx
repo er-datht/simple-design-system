@@ -20,7 +20,7 @@ export function RadioFieldDemo() {
           label="Small"
           description="Select small size"
           name="size-demo"
-          valueType="Unchecked"
+          isChecked={false}
         />
       </div>
 
@@ -30,7 +30,7 @@ export function RadioFieldDemo() {
           label="Medium"
           description="Select medium size"
           name="size-demo"
-          valueType="Checked"
+          isChecked
         />
       </div>
 
@@ -41,19 +41,19 @@ export function RadioFieldDemo() {
             <RadioField
               label="Small"
               name="size-interactive"
-              valueType={selectedSize === "small" ? "Checked" : "Unchecked"}
+              isChecked={selectedSize === "small"}
               onChange={() => setSelectedSize("small")}
             />
             <RadioField
               label="Medium"
               name="size-interactive"
-              valueType={selectedSize === "medium" ? "Checked" : "Unchecked"}
+              isChecked={selectedSize === "medium"}
               onChange={() => setSelectedSize("medium")}
             />
             <RadioField
               label="Large"
               name="size-interactive"
-              valueType={selectedSize === "large" ? "Checked" : "Unchecked"}
+              isChecked={selectedSize === "large"}
               onChange={() => setSelectedSize("large")}
             />
           </div>

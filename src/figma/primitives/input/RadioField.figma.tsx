@@ -15,20 +15,19 @@ figma.connect(
     props: {
       description: figma.string("Description"),
       label: figma.string("Label"),
-      state: figma.enum("State", {
-        Default: false,
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
-      // valueType: figma.enum("Value Type", {
-      //   Checked: "Checked",
-      //   Unchecked: "Unchecked",
-      // }),
+      isChecked: figma.enum("Value Type", {
+        Checked: true,
+      }),
     },
     example: (props) => (
       <RadioField
         label={props.label}
         description={props.description}
-        disabled={props.state}
+        disabled={props.disabled}
+        isChecked={props.isChecked}
         onChange={() => {}}
       />
     ),

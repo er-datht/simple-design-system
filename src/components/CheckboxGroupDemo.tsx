@@ -139,19 +139,19 @@ export function CheckboxGroupDemo() {
             <CheckboxField
               label="Basic Features"
               description="Access to core functionality"
-              valueType="Checked"
+              isChecked
             />
             <CheckboxField
               label="Premium Features"
               description="Advanced tools and integrations"
               disabled
-              valueType="Unchecked"
+              isChecked={false}
             />
             <CheckboxField
               label="Beta Features"
               description="Early access to experimental features"
               errorMessage="Beta program is currently full"
-              valueType="Unchecked"
+              isChecked={false}
             />
           </CheckboxGroup>
         </div>
@@ -167,33 +167,25 @@ export function CheckboxGroupDemo() {
             <CheckboxField
               label="Email"
               description="Receive updates via email"
-              valueType={
-                notifications.includes("email") ? "Checked" : "Unchecked"
-              }
+              isChecked={notifications.includes("email")}
               onChange={(checked) => handleNotificationToggle("email", checked)}
             />
             <CheckboxField
               label="SMS"
               description="Get text message notifications"
-              valueType={
-                notifications.includes("sms") ? "Checked" : "Unchecked"
-              }
+              isChecked={notifications.includes("sms")}
               onChange={(checked) => handleNotificationToggle("sms", checked)}
             />
             <CheckboxField
               label="Push Notifications"
               description="Browser and mobile push notifications"
-              valueType={
-                notifications.includes("push") ? "Checked" : "Unchecked"
-              }
+              isChecked={notifications.includes("push")}
               onChange={(checked) => handleNotificationToggle("push", checked)}
             />
             <CheckboxField
               label="In-App"
               description="Notifications within the application"
-              valueType={
-                notifications.includes("inapp") ? "Checked" : "Unchecked"
-              }
+              isChecked={notifications.includes("inapp")}
               onChange={(checked) => handleNotificationToggle("inapp", checked)}
             />
           </CheckboxGroup>
@@ -210,7 +202,7 @@ export function CheckboxGroupDemo() {
 <CheckboxGroup label="How would you like to be notified?">
   <CheckboxField
     label="Email"
-    valueType={notifications.includes("email") ? "Checked" : "Unchecked"}
+    isChecked={notifications.includes("email")}
     onChange={(checked) => handleToggle("email", checked)}
   />
   {/* ... more checkboxes */}
@@ -229,25 +221,19 @@ export function CheckboxGroupDemo() {
               <CheckboxField
                 label="Read"
                 description="View document contents"
-                valueType={
-                  permissions.includes("read") ? "Checked" : "Unchecked"
-                }
+                isChecked={permissions.includes("read")}
                 onChange={(checked) => handlePermissionToggle("read", checked)}
               />
               <CheckboxField
                 label="Write"
                 description="Edit and modify documents"
-                valueType={
-                  permissions.includes("write") ? "Checked" : "Unchecked"
-                }
+                isChecked={permissions.includes("write")}
                 onChange={(checked) => handlePermissionToggle("write", checked)}
               />
               <CheckboxField
                 label="Delete"
                 description="Remove documents permanently"
-                valueType={
-                  permissions.includes("delete") ? "Checked" : "Unchecked"
-                }
+                isChecked={permissions.includes("delete")}
                 onChange={(checked) =>
                   handlePermissionToggle("delete", checked)
                 }
@@ -255,9 +241,7 @@ export function CheckboxGroupDemo() {
               <CheckboxField
                 label="Share"
                 description="Share documents with other users"
-                valueType={
-                  permissions.includes("share") ? "Checked" : "Unchecked"
-                }
+                isChecked={permissions.includes("share")}
                 onChange={(checked) => handlePermissionToggle("share", checked)}
               />
             </CheckboxGroup>
@@ -282,33 +266,25 @@ export function CheckboxGroupDemo() {
             <CheckboxField
               label="Dark Mode"
               description="Switch to dark theme"
-              valueType={
-                features.includes("darkMode") ? "Checked" : "Unchecked"
-              }
+              isChecked={features.includes("darkMode")}
               onChange={(checked) => handleFeatureToggle("darkMode", checked)}
             />
             <CheckboxField
               label="Keyboard Shortcuts"
               description="Enable keyboard navigation"
-              valueType={
-                features.includes("shortcuts") ? "Checked" : "Unchecked"
-              }
+              isChecked={features.includes("shortcuts")}
               onChange={(checked) => handleFeatureToggle("shortcuts", checked)}
             />
             <CheckboxField
               label="Auto-save"
               description="Automatically save changes"
-              valueType={
-                features.includes("autosave") ? "Checked" : "Unchecked"
-              }
+              isChecked={features.includes("autosave")}
               onChange={(checked) => handleFeatureToggle("autosave", checked)}
             />
             <CheckboxField
               label="Analytics"
               description="Help improve the product with usage data"
-              valueType={
-                features.includes("analytics") ? "Checked" : "Unchecked"
-              }
+              isChecked={features.includes("analytics")}
               onChange={(checked) => handleFeatureToggle("analytics", checked)}
             />
           </CheckboxGroup>

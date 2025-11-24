@@ -141,7 +141,7 @@ export function RadioGroupDemo() {
               description="Basic features included"
               name="subscription"
               value="free"
-              valueType="Checked"
+              isChecked
             />
             <RadioField
               label="Pro"
@@ -149,7 +149,7 @@ export function RadioGroupDemo() {
               name="subscription"
               value="pro"
               disabled
-              valueType="Unchecked"
+              isChecked={false}
             />
             <RadioField
               label="Enterprise"
@@ -157,7 +157,7 @@ export function RadioGroupDemo() {
               name="subscription"
               value="enterprise"
               errorMessage="Not available in your region"
-              valueType="Unchecked"
+              isChecked={false}
             />
           </RadioGroup>
         </div>
@@ -180,7 +180,7 @@ export function RadioGroupDemo() {
               description="$9/month - Perfect for individuals"
               name="plan-selection"
               value="basic"
-              valueType={plan === "basic" ? "Checked" : "Unchecked"}
+              isChecked={plan === "basic"}
               onChange={(checked) => checked && setPlan("basic")}
             />
             <RadioField
@@ -188,7 +188,7 @@ export function RadioGroupDemo() {
               description="$29/month - Great for small teams"
               name="plan-selection"
               value="professional"
-              valueType={plan === "professional" ? "Checked" : "Unchecked"}
+              isChecked={plan === "professional"}
               onChange={(checked) => checked && setPlan("professional")}
             />
             <RadioField
@@ -196,7 +196,7 @@ export function RadioGroupDemo() {
               description="$99/month - For large organizations"
               name="plan-selection"
               value="enterprise"
-              valueType={plan === "enterprise" ? "Checked" : "Unchecked"}
+              isChecked={plan === "enterprise"}
               onChange={(checked) => checked && setPlan("enterprise")}
             />
           </RadioGroup>
@@ -212,7 +212,7 @@ export function RadioGroupDemo() {
     label="Basic"
     name="plan-selection"
     value="basic"
-    valueType={plan === "basic" ? "Checked" : "Unchecked"}
+    isChecked={plan === "basic"}
     onChange={(checked) => checked && setPlan("basic")}
   />
   {/* ... more options */}
@@ -237,7 +237,7 @@ export function RadioGroupDemo() {
               description="Get notified immediately for every update"
               name="email-frequency"
               value="realtime"
-              valueType={frequency === "realtime" ? "Checked" : "Unchecked"}
+              isChecked={frequency === "realtime"}
               onChange={(checked) => checked && setFrequency("realtime")}
             />
             <RadioField
@@ -245,7 +245,7 @@ export function RadioGroupDemo() {
               description="Receive a daily summary of all updates"
               name="email-frequency"
               value="daily"
-              valueType={frequency === "daily" ? "Checked" : "Unchecked"}
+              isChecked={frequency === "daily"}
               onChange={(checked) => checked && setFrequency("daily")}
             />
             <RadioField
@@ -253,7 +253,7 @@ export function RadioGroupDemo() {
               description="Get a weekly overview every Monday"
               name="email-frequency"
               value="weekly"
-              valueType={frequency === "weekly" ? "Checked" : "Unchecked"}
+              isChecked={frequency === "weekly"}
               onChange={(checked) => checked && setFrequency("weekly")}
             />
             <RadioField
@@ -261,7 +261,7 @@ export function RadioGroupDemo() {
               description="Turn off email notifications completely"
               name="email-frequency"
               value="never"
-              valueType={frequency === "never" ? "Checked" : "Unchecked"}
+              isChecked={frequency === "never"}
               onChange={(checked) => checked && setFrequency("never")}
             />
           </RadioGroup>
@@ -288,21 +288,21 @@ export function RadioGroupDemo() {
               label="Light"
               name="theme-selection"
               value="light"
-              valueType={theme === "light" ? "Checked" : "Unchecked"}
+              isChecked={theme === "light"}
               onChange={(checked) => checked && setTheme("light")}
             />
             <RadioField
               label="Dark"
               name="theme-selection"
               value="dark"
-              valueType={theme === "dark" ? "Checked" : "Unchecked"}
+              isChecked={theme === "dark"}
               onChange={(checked) => checked && setTheme("dark")}
             />
             <RadioField
               label="System"
               name="theme-selection"
               value="system"
-              valueType={theme === "system" ? "Checked" : "Unchecked"}
+              isChecked={theme === "system"}
               onChange={(checked) => checked && setTheme("system")}
             />
           </RadioGroup>
@@ -329,7 +329,7 @@ export function RadioGroupDemo() {
               description="Can be completed when time permits"
               name="priority"
               value="low"
-              valueType={priority === "low" ? "Checked" : "Unchecked"}
+              isChecked={priority === "low"}
               onChange={(checked) => checked && setPriority("low")}
             />
             <RadioField
@@ -337,7 +337,7 @@ export function RadioGroupDemo() {
               description="Should be completed within the week"
               name="priority"
               value="medium"
-              valueType={priority === "medium" ? "Checked" : "Unchecked"}
+              isChecked={priority === "medium"}
               onChange={(checked) => checked && setPriority("medium")}
             />
             <RadioField
@@ -345,7 +345,7 @@ export function RadioGroupDemo() {
               description="Needs immediate attention"
               name="priority"
               value="high"
-              valueType={priority === "high" ? "Checked" : "Unchecked"}
+              isChecked={priority === "high"}
               onChange={(checked) => checked && setPriority("high")}
             />
             <RadioField
@@ -353,7 +353,7 @@ export function RadioGroupDemo() {
               description="Blocker - requires urgent resolution"
               name="priority"
               value="critical"
-              valueType={priority === "critical" ? "Checked" : "Unchecked"}
+              isChecked={priority === "critical"}
               onChange={(checked) => checked && setPriority("critical")}
             />
           </RadioGroup>

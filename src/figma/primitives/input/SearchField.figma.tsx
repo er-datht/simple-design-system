@@ -13,14 +13,13 @@ figma.connect(
   "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=2236%3A14989",
   {
     props: {
-      state: figma.enum("State", {
-        Default: false,
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
       value: figma.string("Value"),
     },
     example: (props) => (
-      <SearchField disabled={props.state} value={props.value} />
+      <SearchField disabled={props.disabled} value={props.value} />
     ),
   }
 );

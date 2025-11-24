@@ -2,8 +2,6 @@ import { type InputHTMLAttributes, useId, useState } from "react";
 import { cn } from "../../../../utils/cn";
 import "./switch-field.css";
 
-export type SwitchValueType = "Checked" | "Unchecked";
-
 export interface SwitchFieldProps
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -34,17 +32,17 @@ export interface SwitchFieldProps
   errorMessage?: string;
 
   /**
-   * Visual state of the switch control (controlled mode)
+   * Whether the switch is checked (controlled mode)
    * If not provided, component manages its own state (uncontrolled mode)
    * @default undefined (uncontrolled)
    */
-  valueType?: SwitchValueType;
+  isChecked?: boolean;
 
   /**
-   * Default visual state for uncontrolled mode
-   * @default "Unchecked"
+   * Default checked state for uncontrolled mode
+   * @default false
    */
-  defaultValueType?: SwitchValueType;
+  defaultIsChecked?: boolean;
 
   /**
    * Additional CSS classes for the root container
@@ -69,7 +67,7 @@ export interface SwitchFieldProps
  * // Controlled mode
  * <SwitchField
  *   label="Dark mode"
- *   valueType={isDark ? "Checked" : "Unchecked"}
+ *   isChecked={isDark}
  *   onChange={(checked) => setIsDark(checked)}
  * />
  */
@@ -78,8 +76,8 @@ export function SwitchField({
   description,
   disabled = false,
   errorMessage,
-  valueType,
-  defaultValueType = "Unchecked",
+  isChecked,
+  defaultIsChecked = false,
   className,
   onChange,
   ...rest
@@ -92,22 +90,20 @@ export function SwitchField({
   const descriptionId = hasDescription ? `${id}-description` : undefined;
 
   // Internal state for uncontrolled mode
-  const [internalValue, setInternalValue] =
-    useState<SwitchValueType>(defaultValueType);
+  const [internalChecked, setInternalChecked] =
+    useState<boolean>(defaultIsChecked);
 
   // Determine if component is controlled or uncontrolled
-  const isControlled = valueType !== undefined;
-  const currentValue = isControlled ? valueType : internalValue;
-  const isChecked = currentValue === "Checked";
+  const isControlled = isChecked !== undefined;
+  const currentChecked = isControlled ? isChecked : internalChecked;
 
   // Handle switch changes
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newChecked = event.target.checked;
-    const newValue: SwitchValueType = newChecked ? "Checked" : "Unchecked";
 
     // Update internal state if uncontrolled
     if (!isControlled) {
-      setInternalValue(newValue);
+      setInternalChecked(newChecked);
     }
 
     // Call parent's onChange if provided
@@ -138,10 +134,10 @@ export function SwitchField({
           type="checkbox"
           id={id}
           className="switch-field__input"
-          checked={isChecked}
+          checked={currentChecked}
           disabled={disabled}
           aria-invalid={hasError}
-          aria-checked={isChecked}
+          aria-checked={currentChecked}
           aria-describedby={hasError ? errorId : descriptionId}
           onChange={handleChange}
           {...rest}
@@ -151,7 +147,7 @@ export function SwitchField({
         <div
           className={cn(
             "switch-field__switch",
-            isChecked
+            currentChecked
               ? "switch-field__switch--checked"
               : "switch-field__switch--unchecked",
             disabled && "switch-field__switch--disabled",
@@ -168,7 +164,7 @@ export function SwitchField({
           <span
             className={cn(
               "switch-field__thumb",
-              isChecked
+              currentChecked
                 ? "switch-field__thumb--checked"
                 : "switch-field__thumb--unchecked",
               disabled && "switch-field__thumb--disabled"

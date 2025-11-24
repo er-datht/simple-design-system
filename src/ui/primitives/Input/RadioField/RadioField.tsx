@@ -2,8 +2,6 @@ import { type InputHTMLAttributes, useId, useState } from "react";
 import { cn } from "../../../../utils/cn";
 import "./radio-field.css";
 
-export type RadioValueType = "Checked" | "Unchecked";
-
 export interface RadioFieldProps
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -34,17 +32,17 @@ export interface RadioFieldProps
   label?: string;
 
   /**
-   * Visual state of the radio control (controlled mode)
+   * Whether the radio is checked (controlled mode)
    * If not provided, component manages its own state (uncontrolled mode)
    * @default undefined (uncontrolled)
    */
-  valueType?: RadioValueType;
+  isChecked?: boolean;
 
   /**
-   * Default visual state for uncontrolled mode
-   * @default "Unchecked"
+   * Default checked state for uncontrolled mode
+   * @default false
    */
-  defaultValueType?: RadioValueType;
+  defaultIsChecked?: boolean;
 
   /**
    * Additional CSS classes for the root container
@@ -63,7 +61,7 @@ export interface RadioFieldProps
  *
  * Can be used in controlled or uncontrolled mode:
  * - Uncontrolled (default): Component manages its own state internally
- * - Controlled: Parent manages state via valueType prop
+ * - Controlled: Parent manages state via isChecked prop
  *
  * @example
  * // Uncontrolled mode
@@ -73,7 +71,7 @@ export interface RadioFieldProps
  * // Controlled mode
  * <RadioField
  *   label="Option 1"
- *   valueType={selected === "option1" ? "Checked" : "Unchecked"}
+ *   isChecked={selected === "option1"}
  *   onChange={(checked) => checked && setSelected("option1")}
  * />
  */
@@ -82,8 +80,8 @@ export function RadioField({
   disabled = false,
   errorMessage,
   label = "Label",
-  valueType,
-  defaultValueType = "Unchecked",
+  isChecked,
+  defaultIsChecked = false,
   className,
   onChange,
   ...rest
@@ -95,21 +93,20 @@ export function RadioField({
   const descriptionId = hasDescription ? `${id}-description` : undefined;
 
   // Internal state for uncontrolled mode
-  const [internalValue, setInternalValue] =
-    useState<RadioValueType>(defaultValueType);
+  const [internalChecked, setInternalChecked] =
+    useState<boolean>(defaultIsChecked);
 
   // Determine if component is controlled or uncontrolled
-  const isControlled = valueType !== undefined;
-  const currentValue = isControlled ? valueType : internalValue;
+  const isControlled = isChecked !== undefined;
+  const currentChecked = isControlled ? isChecked : internalChecked;
 
   // Handle radio changes
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newChecked = event.target.checked;
-    const newValue: RadioValueType = newChecked ? "Checked" : "Unchecked";
 
     // Update internal state if uncontrolled
     if (!isControlled) {
-      setInternalValue(newValue);
+      setInternalChecked(newChecked);
     }
 
     // Call parent's onChange if provided
@@ -125,7 +122,7 @@ export function RadioField({
         type="radio"
         id={id}
         className="radio-field__input"
-        checked={currentValue === "Checked"}
+        checked={currentChecked}
         disabled={disabled}
         aria-invalid={hasError}
         aria-describedby={hasError ? errorId : descriptionId}
@@ -137,8 +134,8 @@ export function RadioField({
       <div
         className={cn(
           "radio-field__button",
-          currentValue === "Unchecked" && "radio-field__button--unchecked",
-          currentValue === "Checked" && "radio-field__button--checked",
+          !currentChecked && "radio-field__button--unchecked",
+          currentChecked && "radio-field__button--checked",
           disabled && "radio-field__button--disabled",
           hasError && "radio-field__button--error"
         )}

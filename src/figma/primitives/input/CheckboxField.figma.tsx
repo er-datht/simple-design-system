@@ -15,21 +15,23 @@ figma.connect(
     props: {
       label: figma.string("Label"),
       description: figma.string("Description"),
-      state: figma.enum("State", {
-        Default: false,
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
-      // valueType: figma.enum("Value Type", {
-      //   Unchecked: "Unchecked",
-      //   Checked: "Checked",
-      //   Indeterminate: "Indeterminate",
-      // }),
+      isChecked: figma.enum("Value Type", {
+        Checked: true,
+      }),
+      isIndeterminate: figma.enum("Value Type", {
+        Indeterminate: true,
+      }),
     },
     example: (props) => (
       <CheckboxField
         label={props.label}
         description={props.description}
-        disabled={props.state}
+        disabled={props.disabled}
+        isChecked={props.isChecked}
+        isIndeterminate={props.isIndeterminate}
       />
     ),
   }

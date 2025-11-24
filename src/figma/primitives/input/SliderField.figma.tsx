@@ -15,8 +15,7 @@ figma.connect(
     props: {
       label: figma.string("Label"),
       description: figma.string("Description"),
-      state: figma.enum("State", {
-        Default: false,
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
     },
@@ -24,7 +23,7 @@ figma.connect(
       <SliderField
         label={props.label}
         description={props.description}
-        disabled={props.state}
+        disabled={props.disabled}
       />
     ),
   }

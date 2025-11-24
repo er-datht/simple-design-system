@@ -14,26 +14,28 @@ figma.connect(
   {
     props: {
       label: figma.string("Label"),
-      state: figma.enum("State", {
-        Default: false,
-        Error: false,
+      hasError: figma.enum("State", {
+        Error: true,
+      }),
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
       value: figma.string("Value"),
-      hasError: figma.boolean("Has Error"),
       errorMessage: figma.string("Error"),
       description: figma.string("Description"),
     },
     example: (props) => (
       <SelectField
         label={props.label}
-        disabled={props.state}
+        hasError={props.hasError}
+        disabled={props.disabled}
         value={props.value}
         options={[
           { label: "United States", value: "us" },
           { label: "Canada", value: "ca" },
         ]}
         description={props.description}
+        errorMessage={props.errorMessage}
       />
     ),
   }

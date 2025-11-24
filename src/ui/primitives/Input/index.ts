@@ -3,7 +3,6 @@
 export {
   CheckboxField,
   type CheckboxFieldProps,
-  type CheckboxValueType,
 } from "./CheckboxField";
 
 export { CheckboxGroup, type CheckboxGroupProps } from "./CheckboxGroup";
@@ -27,7 +26,6 @@ export { SliderField, type SliderFieldProps } from "./SliderField";
 export {
   SwitchField,
   type SwitchFieldProps,
-  type SwitchValueType,
 } from "./SwitchField";
 
 export { TextareaField, type TextareaFieldProps } from "./TextareaField";
