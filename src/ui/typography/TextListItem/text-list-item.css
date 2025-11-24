@@ -15,10 +15,10 @@
   justify-content: center;
 
   /* Typography tokens */
-  font-family: var(--sds-typography-body-font-family, 'Inter', sans-serif);
-  font-weight: var(--sds-typography-body-font-weight-regular, 400);
-  font-size: var(--sds-typography-body-size-medium, 16px);
-  color: var(--sds-color-text-default-secondary, #757575);
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-medium);
+  color: var(--sds-color-text-default-secondary);
 
   /* Prevent text wrapping at container level */
   white-space: nowrap;

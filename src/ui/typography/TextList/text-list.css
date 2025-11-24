@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  padding-bottom: var(--sds-size-space-400, 16px);
+  padding-bottom: var(--sds-size-space-400);
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;
@@ -29,11 +29,11 @@
   display: flex;
   align-items: flex-start;
   width: 100%;
-  font-family: var(--sds-typography-body-font-family, 'Inter', sans-serif);
-  font-weight: var(--sds-typography-body-font-weight-strong, 600);
-  font-size: var(--sds-typography-body-size-medium, 16px);
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  font-size: var(--sds-typography-body-size-medium);
   line-height: 1.4;
-  color: var(--sds-color-text-default-default, #1e1e1e);
+  color: var(--sds-color-text-default-default);
   position: relative;
   flex-shrink: 0;
   margin: 0;

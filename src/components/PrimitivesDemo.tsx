@@ -2,13 +2,13 @@ import { ButtonsDemo } from "./ButtonsDemo";
 import { AvatarsDemo } from "./AvatarsDemo";
 import { NavigationDemo } from "./NavigationDemo";
 import TestimonialCardDemo from "./TestimonialCardDemo";
-import { CheckboxFieldDemo } from "./CheckboxFieldDemo";
 import { Tabs } from "../ui/primitives/Tab";
 import CardDemo from "./CardDemo";
 import PricingCardDemo from "./PricingCardDemo";
 import ProductInfoCardDemo from "./ProductInfoCardDemo";
 import ReviewCardDemo from "./ReviewCardDemo";
 import StatsCardDemo from "./StatsCardDemo";
+import { InputDemo } from "./InputDemo";
 
 export function PrimitivesDemo() {
   return (
@@ -73,18 +73,7 @@ export function PrimitivesDemo() {
         {
           id: "input",
           label: "Input",
-          content: (
-            <Tabs
-              items={[
-                {
-                  id: "checkbox-field",
-                  label: "Checkbox Field",
-                  content: <CheckboxFieldDemo />,
-                },
-              ]}
-              defaultActiveTab="checkbox-field"
-            />
-          ),
+          content: <InputDemo />,
         },
       ]}
       defaultActiveTab="buttons"

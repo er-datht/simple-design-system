@@ -13,41 +13,23 @@ figma.connect(
   "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=9762%3A1441",
   {
     props: {
-      // These props were automatically mapped based on your linked code:
-      hasDescription: figma.boolean("Has Description"),
-      description: figma.string("Description"),
       label: figma.string("Label"),
+      description: figma.string("Description"),
       state: figma.enum("State", {
-        Default: "Default",
-        Disabled: "Disabled",
-      }),
-      valueType: figma.enum("Value Type", {
-        Unchecked: "Unchecked",
-        Checked: "Checked",
-        Indeterminate: "Indeterminate",
-      }),
-      checked: figma.enum("Value Type", {
-        Checked: true,
-      }),
-      disabled: figma.enum("State", {
+        Default: false,
         Disabled: true,
       }),
-      src: figma.string("Description"),
-      // No matching props could be found for these Figma properties:
-      // "hasDescription": figma.boolean('Has Description'),
-      // "description": figma.string('Description'),
-      // "label": figma.string('Label')
+      // valueType: figma.enum("Value Type", {
+      //   Unchecked: "Unchecked",
+      //   Checked: "Checked",
+      //   Indeterminate: "Indeterminate",
+      // }),
     },
     example: (props) => (
       <CheckboxField
-        hasDescription={props.hasDescription}
-        description={props.description}
         label={props.label}
-        state={props.state}
-        valueType={props.valueType}
-        checked={props.checked}
-        disabled={props.disabled}
-        src={props.src}
+        description={props.description}
+        disabled={props.state}
       />
     ),
   }

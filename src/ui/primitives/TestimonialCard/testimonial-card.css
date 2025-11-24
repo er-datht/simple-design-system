@@ -15,19 +15,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--sds-size-space-600, 24px);
+  gap: var(--sds-size-space-600);
 
   /* Sizing */
   min-width: 240px;
   box-sizing: border-box;
 
   /* Spacing */
-  padding: var(--sds-size-space-600, 24px);
+  padding: var(--sds-size-space-600);
 
   /* Visual Styling */
-  background-color: var(--sds-color-background-default-default, #ffffff);
-  border: var(--sds-size-stroke-border, 1px) solid var(--sds-color-border-default-default, #d9d9d9);
-  border-radius: var(--sds-size-radius-200, 8px);
+  background-color: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
 
   /* Content Alignment */
   align-content: stretch;

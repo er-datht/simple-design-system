@@ -24,18 +24,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--sds-size-space-1200, 48px);
+  gap: var(--sds-size-space-1200);
 
   /* Sizing - Mobile first */
   width: 100%;
-  max-width: var(--sds-responsive-device-width, 375px);
+  max-width: var(--sds-responsive-device-width);
   box-sizing: border-box;
 
   /* Spacing - Mobile */
-  padding: var(--sds-size-space-600, 24px);
+  padding: var(--sds-size-space-600);
 
   /* Visual Styling */
-  background-color: var(--sds-color-background-default-default, #ffffff);
+  background-color: var(--sds-color-background-default-default);
 
   /* Content Alignment */
   align-content: stretch;
@@ -45,10 +45,10 @@
 @media (min-width: 768px) {
   .card-grid-testimonials {
     /* Desktop width */
-    max-width: var(--sds-responsive-device-width, 1200px);
+    max-width: var(--sds-responsive-device-width);
 
     /* Desktop padding */
-    padding: var(--sds-size-space-1600, 64px);
+    padding: var(--sds-size-space-1600);
   }
 }
 
@@ -60,7 +60,7 @@
   /* Layout */
   display: flex;
   flex-direction: column;
-  gap: var(--sds-size-space-200, 8px);
+  gap: var(--sds-size-space-200);
   align-items: flex-start;
 
   /* Sizing */
@@ -76,14 +76,14 @@
 
 .card-grid-testimonials__heading {
   /* Typography */
-  font-family: var(--sds-typography-heading-font-family, "Inter", sans-serif);
-  font-size: var(--sds-typography-heading-size-base, 24px);
-  font-weight: var(--sds-typography-heading-font-weight, 600);
+  font-family: var(--sds-typography-heading-font-family);
+  font-size: var(--sds-typography-heading-size-base);
+  font-weight: var(--sds-typography-heading-font-weight);
   line-height: 1.2;
   letter-spacing: -0.48px;
 
   /* Color */
-  color: var(--sds-color-text-default-default, #1e1e1e);
+  color: var(--sds-color-text-default-default);
 
   /* Alignment */
   text-align: left;
@@ -98,17 +98,13 @@
 
 .card-grid-testimonials__subheading {
   /* Typography */
-  font-family: var(
-    --sds-typography-subheading-font-family,
-    "Inter",
-    sans-serif
-  );
-  font-size: var(--sds-typography-subheading-size-medium, 20px);
-  font-weight: var(--sds-typography-subheading-font-weight, 400);
+  font-family: var(--sds-typography-subheading-font-family);
+  font-size: var(--sds-typography-subheading-size-medium);
+  font-weight: var(--sds-typography-subheading-font-weight);
   line-height: 1.2;
 
   /* Color */
-  color: var(--sds-color-text-default-secondary, #757575);
+  color: var(--sds-color-text-default-secondary);
 
   /* Alignment */
   text-align: left;
@@ -133,7 +129,7 @@
   width: 100%;
 
   /* Spacing - Mobile */
-  gap: var(--sds-size-space-600, 24px);
+  gap: var(--sds-size-space-600);
 
   .testimonial-card {
     flex: 1 0 0;
@@ -144,7 +140,7 @@
 @media (min-width: 768px) {
   .card-grid-testimonials__grid {
     /* Desktop gap */
-    gap: var(--sds-size-space-1200, 48px);
+    gap: var(--sds-size-space-1200);
   }
 }
 
@@ -158,7 +154,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--sds-size-space-600, 24px);
+  gap: var(--sds-size-space-600);
 
   /* Sizing */
   min-width: 300px;
@@ -166,13 +162,13 @@
   box-sizing: border-box;
 
   /* Spacing */
-  padding: var(--sds-size-space-600, 24px);
+  padding: var(--sds-size-space-600);
 
   /* Visual Styling */
-  background-color: var(--sds-color-background-default-default, #ffffff);
-  border: var(--sds-size-stroke-border, 1px) solid
-    var(--sds-color-border-default-default, #d9d9d9);
-  border-radius: var(--sds-size-radius-200, 8px);
+  background-color: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
 
   /* Content Alignment */
   align-content: stretch;
@@ -180,14 +176,14 @@
 
 .card-grid-testimonials__quote {
   /* Typography */
-  font-family: var(--sds-typography-heading-font-family, "Inter", sans-serif);
-  font-size: var(--sds-typography-heading-size-base, 24px);
-  font-weight: var(--sds-typography-heading-font-weight, 600);
+  font-family: var(--sds-typography-heading-font-family);
+  font-size: var(--sds-typography-heading-size-base);
+  font-weight: var(--sds-typography-heading-font-weight);
   line-height: 1.2;
   letter-spacing: -0.48px;
 
   /* Color */
-  color: var(--sds-color-text-default-default, #1e1e1e);
+  color: var(--sds-color-text-default-default);
 
   /* Sizing */
   flex: 1 0 0;
@@ -201,7 +197,7 @@
   /* Layout */
   display: flex;
   flex-direction: row;
-  gap: var(--sds-size-space-300, 12px);
+  gap: var(--sds-size-space-300);
   align-items: flex-start;
 
   /* Sizing */
@@ -210,12 +206,12 @@
 
 .card-grid-testimonials__avatar {
   /* Sizing */
-  width: var(--sds-size-icon-large, 40px);
-  height: var(--sds-size-icon-large, 40px);
+  width: var(--sds-size-icon-large);
+  height: var(--sds-size-icon-large);
   flex-shrink: 0;
 
   /* Shape */
-  border-radius: var(--sds-size-radius-full, 9999px);
+  border-radius: var(--sds-size-radius-full);
   overflow: hidden;
 }
 
@@ -231,7 +227,7 @@
   /* Layout */
   display: flex;
   flex-direction: column;
-  gap: var(--sds-size-space-050, 2px);
+  gap: var(--sds-size-space-050);
   align-items: flex-start;
 
   /* Sizing */
@@ -240,13 +236,13 @@
 
 .card-grid-testimonials__name {
   /* Typography */
-  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
-  font-size: var(--sds-typography-body-size-medium, 16px);
-  font-weight: var(--sds-typography-body-font-weight-strong, 600);
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-strong);
   line-height: 1.4;
 
   /* Color */
-  color: var(--sds-color-text-default-secondary, #757575);
+  color: var(--sds-color-text-default-secondary);
 
   /* Alignment */
   text-align: left;
@@ -254,13 +250,13 @@
 
 .card-grid-testimonials__role {
   /* Typography */
-  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
-  font-size: var(--sds-typography-body-size-medium, 16px);
-  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
   line-height: 1.4;
 
   /* Color */
-  color: var(--sds-color-text-default-tertiary, #b3b3b3);
+  color: var(--sds-color-text-default-tertiary);
 
   /* Alignment */
   text-align: left;

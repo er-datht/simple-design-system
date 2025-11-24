@@ -18,7 +18,7 @@
 
 /* Logged in state - focus (for accessibility) */
 .header-auth-logged-in:focus-visible {
-  outline: 2px solid var(--sds-color-border-focus, #0066cc);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 

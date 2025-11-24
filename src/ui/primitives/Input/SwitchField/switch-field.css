@@ -1,0 +1,174 @@
+/* SwitchField Component Styles */
+
+/* Root Container */
+.switch-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 340px;
+}
+
+/* Switch and Label Container */
+.switch-field__switch-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sds-size-space-300);
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* Label Text */
+.switch-field__label {
+  flex: 1 0 0;
+  min-width: 1px;
+  min-height: 1px;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-default);
+  white-space: pre-wrap;
+  overflow: visible;
+  cursor: pointer;
+}
+
+/* Label - Disabled */
+.switch-field__label--disabled {
+  color: var(--sds-color-text-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Switch Toggle Container */
+.switch-field__switch {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: var(--sds-size-radius-full);
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* Hidden native input */
+.switch-field__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Switch - Unchecked Default */
+.switch-field__switch--unchecked {
+  background-color: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-brand-tertiary);
+}
+
+/* Switch - Checked Default */
+.switch-field__switch--checked {
+  background-color: var(--sds-color-background-brand-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-brand-default);
+}
+
+/* Switch - Unchecked Disabled */
+.switch-field__switch--unchecked.switch-field__switch--disabled {
+  background-color: var(--sds-color-background-disabled-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Switch - Checked Disabled */
+.switch-field__switch--checked.switch-field__switch--disabled {
+  background-color: var(--sds-color-background-disabled-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Switch - Error State */
+.switch-field__switch--error {
+  border-color: var(--sds-color-border-danger-default);
+}
+
+/* Switch Thumb (sliding circle) */
+.switch-field__thumb {
+  position: absolute;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--sds-color-background-default-default);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+/* Thumb - Unchecked position */
+.switch-field__thumb--unchecked {
+  left: 2px;
+  transform: translateX(0);
+  background-color: var(--sds-color-icon-brand-tertiary);
+}
+
+/* Thumb - Checked position */
+.switch-field__thumb--checked {
+  left: 2px;
+  transform: translateX(16px);
+  background-color: var(--sds-color-icon-brand-on-brand);
+}
+
+/* Thumb - Disabled */
+.switch-field__thumb--disabled {
+  background-color: var(--sds-color-background-brand-secondary);
+}
+
+/* Focus ring for switch */
+.switch-field__input:focus-visible + .switch-field__switch {
+  outline: 2px solid var(--sds-color-border-brand-default);
+  outline-offset: 2px;
+}
+
+/* Description Text */
+.switch-field__description {
+  width: 100%;
+  min-width: 1px;
+  min-height: 1px;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-secondary);
+  white-space: pre-wrap;
+  overflow: visible;
+}
+
+/* Description - Disabled */
+.switch-field__description--disabled {
+  color: var(--sds-color-text-disabled-default);
+}
+
+/* Error Message */
+.switch-field__error {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: 14px;
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-danger-default);
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .switch-field {
+    width: 100%;
+  }
+}
