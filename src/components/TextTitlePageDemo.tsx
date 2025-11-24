@@ -8,10 +8,10 @@ export function TextTitlePageDemo() {
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold mb-4">TextTitlePage Component</h2>
-        <p className="text-[color:var(--sds-color-text-default-secondary)] mb-8">
+        <p className="text-(--sds-color-text-default-secondary) mb-8">
           A large, bold heading component designed for page titles and major
-          section headings. Uses the Title Page typography token with 48px
-          base size, 700 font weight, and optimized letter spacing for visual
+          section headings. Uses the Title Page typography token with 48px base
+          size, 700 font weight, and optimized letter spacing for visual
           balance.
         </p>
       </div>
@@ -29,9 +29,7 @@ export function TextTitlePageDemo() {
         <h3 className="text-xl font-semibold mb-4">Custom Text Examples</h3>
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-medium mb-3">
-              Welcome Page Title
-            </h4>
+            <h4 className="text-lg font-medium mb-3">Welcome Page Title</h4>
             <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
               <TextTitlePage text="Welcome to Our Platform" />
             </div>
@@ -45,18 +43,14 @@ export function TextTitlePageDemo() {
           </div>
 
           <div>
-            <h4 className="text-lg font-medium mb-3">
-              Features Section Title
-            </h4>
+            <h4 className="text-lg font-medium mb-3">Features Section Title</h4>
             <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
               <TextTitlePage text="Powerful Features for Modern Teams" />
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-medium mb-3">
-              About Page Title
-            </h4>
+            <h4 className="text-lg font-medium mb-3">About Page Title</h4>
             <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
               <TextTitlePage text="About Our Story" />
             </div>
@@ -71,10 +65,10 @@ export function TextTitlePageDemo() {
           {/* Hero Section */}
           <div>
             <h4 className="text-lg font-medium mb-3">Hero Section</h4>
-            <div className="border-2 border-dashed border-amber-400 p-12 rounded-lg bg-gradient-to-br from-slate-50 to-slate-100">
+            <div className="border-2 border-dashed border-amber-400 p-12 rounded-lg bg-linear-to-br from-slate-50 to-slate-100">
               <div className="max-w-4xl mx-auto text-center space-y-6">
                 <TextTitlePage text="Build Amazing Products Faster" />
-                <p className="text-xl text-[color:var(--sds-color-text-default-secondary)] max-w-2xl mx-auto">
+                <p className="text-xl text-(--sds-color-text-default-secondary) max-w-2xl mx-auto">
                   The complete platform for modern development teams to
                   collaborate, ship, and scale.
                 </p>
@@ -97,7 +91,7 @@ export function TextTitlePageDemo() {
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
                   <TextTitlePage text="Everything You Need to Succeed" />
-                  <p className="text-lg text-[color:var(--sds-color-text-default-secondary)] mt-4 max-w-2xl mx-auto">
+                  <p className="text-lg text-(--sds-color-text-default-secondary) mt-4 max-w-2xl mx-auto">
                     Powerful features designed to help you work smarter and
                     faster
                   </p>
@@ -105,11 +99,14 @@ export function TextTitlePageDemo() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {["Fast Performance", "Easy Integration", "24/7 Support"].map(
                     (feature) => (
-                      <div key={feature} className="p-6 bg-white rounded-lg border border-[color:var(--sds-color-border-brand-default)]">
+                      <div
+                        key={feature}
+                        className="p-6 bg-white rounded-lg border border-(--sds-color-border-brand-default)"
+                      >
                         <h4 className="text-xl font-semibold mb-2">
                           {feature}
                         </h4>
-                        <p className="text-[color:var(--sds-color-text-default-secondary)]">
+                        <p className="text-(--sds-color-text-default-secondary)">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit.
                         </p>
@@ -134,11 +131,10 @@ export function TextTitlePageDemo() {
                   subheading="Empowering teams worldwide to achieve more"
                   align="Start"
                 />
-                <p className="text-lg text-[color:var(--sds-color-text-default-secondary)] leading-relaxed">
-                  We believe in creating tools that make work more enjoyable
-                  and productive. Our mission is to provide the best
-                  experience for teams of all sizes, from startups to
-                  enterprises.
+                <p className="text-lg text-(--sds-color-text-default-secondary) leading-relaxed">
+                  We believe in creating tools that make work more enjoyable and
+                  productive. Our mission is to provide the best experience for
+                  teams of all sizes, from startups to enterprises.
                 </p>
               </div>
             </div>
@@ -179,7 +175,7 @@ export function TextTitlePageDemo() {
             <div className="border-2 border-dashed border-amber-400 p-12 rounded-lg">
               <article className="max-w-3xl mx-auto">
                 <div className="mb-8">
-                  <div className="text-sm text-[color:var(--sds-color-text-default-secondary)] mb-4">
+                  <div className="text-sm text-(--sds-color-text-default-secondary) mb-4">
                     Published on January 14, 2025 • 5 min read
                   </div>
                   <TextTitlePage text="How to Build Scalable Design Systems" />
@@ -187,17 +183,17 @@ export function TextTitlePageDemo() {
                     <div className="w-12 h-12 rounded-full bg-slate-300"></div>
                     <div>
                       <div className="font-semibold">Jane Doe</div>
-                      <div className="text-sm text-[color:var(--sds-color-text-default-secondary)]">
+                      <div className="text-sm text-(--sds-color-text-default-secondary)">
                         Product Designer
                       </div>
                     </div>
                   </div>
                 </div>
-                <p className="text-lg text-[color:var(--sds-color-text-default-secondary)] leading-relaxed">
+                <p className="text-lg text-(--sds-color-text-default-secondary) leading-relaxed">
                   Design systems are essential for maintaining consistency
                   across large-scale applications. In this article, we'll
-                  explore best practices for creating design systems that
-                  scale with your team and product.
+                  explore best practices for creating design systems that scale
+                  with your team and product.
                 </p>
               </article>
             </div>
@@ -231,7 +227,7 @@ export function TextTitlePageDemo() {
               </div>
             </div>
             <div className="mt-6 pt-6 border-t border-gray-200">
-              <p className="text-sm text-[color:var(--sds-color-text-default-secondary)]">
+              <p className="text-sm text-(--sds-color-text-default-secondary)">
                 <strong>Design Token:</strong> Title Page typography token
                 <br />
                 <strong>Responsive:</strong> 32px on mobile, 40px on tablet,
@@ -252,23 +248,23 @@ export function TextTitlePageDemo() {
           <div className="space-y-6">
             <div>
               <h4 className="font-semibold mb-2">Desktop (1024px+)</h4>
-              <p className="text-sm text-[color:var(--sds-color-text-default-secondary)]">
+              <p className="text-sm text-(--sds-color-text-default-secondary)">
                 Full 48px font size with -0.96px letter spacing for optimal
                 readability on large screens.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Tablet (768px - 1023px)</h4>
-              <p className="text-sm text-[color:var(--sds-color-text-default-secondary)]">
+              <p className="text-sm text-(--sds-color-text-default-secondary)">
                 Reduced to 40px with -0.8px letter spacing to better fit
                 medium-sized viewports.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-2">Mobile (Below 768px)</h4>
-              <p className="text-sm text-[color:var(--sds-color-text-default-secondary)]">
-                Scaled down to 32px with -0.64px letter spacing for
-                comfortable reading on mobile devices.
+              <p className="text-sm text-(--sds-color-text-default-secondary)">
+                Scaled down to 32px with -0.64px letter spacing for comfortable
+                reading on mobile devices.
               </p>
             </div>
           </div>

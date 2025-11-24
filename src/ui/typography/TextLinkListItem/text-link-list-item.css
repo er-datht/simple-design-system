@@ -14,10 +14,10 @@
 
 .text-link-list-item__link {
   /* Typography */
-  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
-  font-weight: var(--sds-typography-body-font-weight-regular, 400);
-  font-size: var(--sds-typography-body-size-medium, 16px);
-  color: var(--sds-color-text-default-default, #1e1e1e);
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-medium);
+  color: var(--sds-color-text-default-default);
   font-style: normal;
   line-height: 1.4;
 
@@ -37,15 +37,15 @@
 
 .text-link-list-item__link:hover {
   text-decoration: underline;
-  color: var(--sds-color-text-link-hover, #0056b3);
+  color: var(--sds-color-text-link-hover);
 }
 
 .text-link-list-item__link:focus-visible {
-  outline: 2px solid var(--sds-color-focus-outline, #4a90e2);
+  outline: 2px solid var(--sds-color-focus-outline);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 .text-link-list-item__link:active {
-  color: var(--sds-color-text-link-active, #003d82);
+  color: var(--sds-color-text-link-active);
 }

@@ -1,417 +1,552 @@
 import { useState } from "react";
 import { CheckboxField } from "../ui/primitives/Input/CheckboxField";
-import type { CheckboxValueType } from "../ui/primitives/Input/CheckboxField";
 
 export function CheckboxFieldDemo() {
-  // State for interactive examples
-  const [termsAccepted, setTermsAccepted] =
-    useState<CheckboxValueType>("Unchecked");
-  const [newsletterAccepted, setNewsletterAccepted] =
-    useState<CheckboxValueType>("Checked");
-  const [selectAllState, setSelectAllState] =
-    useState<CheckboxValueType>("Indeterminate");
+  const [isChecked, setIsChecked] = useState(false);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+  const allItems = ["Option 1", "Option 2", "Option 3"];
+  const allSelected = selectedItems.length === allItems.length;
+  const someSelected =
+    selectedItems.length > 0 && selectedItems.length < allItems.length;
+
+  const handleSelectAll = () => {
+    if (allSelected) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems([...allItems]);
+    }
+  };
+
+  const handleItemToggle = (item: string) => {
+    setSelectedItems((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
+  };
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="space-y-12">
       {/* Header */}
-      <div>
-        <h2 className="text-2xl font-bold mb-4">CheckboxField Component</h2>
-        <p className="text-(--sds-color-text-default-secondary) mb-8">
-          A composite form component that combines a checkbox input with an
-          optional label and description text. Supports multiple states
-          (checked, unchecked, indeterminate) and both enabled and disabled
-          modes.
+      <section>
+        <h2 className="text-3xl font-bold mb-4">CheckboxField</h2>
+        <p className="text-lg text-gray-600 mb-4">
+          A form input component that allows users to select one or more options
+          from a set. It combines a checkbox input element with a label and
+          optional description text, supporting multiple states (checked,
+          unchecked, indeterminate) and interaction states (default, disabled).
         </p>
-      </div>
+        <p className="text-sm text-gray-500">
+          <strong>Figma Source:</strong>{" "}
+          <a
+            href="https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk/Simple-Design-System--Community-?node-id=9762:1441"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            CheckboxField Component
+          </a>
+        </p>
+      </section>
 
       {/* Basic Usage */}
       <section>
-        <h3 className="text-xl font-semibold mb-4">
-          Basic Usage (Uncontrolled)
-        </h3>
-        <p className="text-sm text-(--sds-color-text-default-secondary) mb-4">
-          Component manages its own state internally. No state management
-          needed.
-        </p>
+        <h3 className="text-2xl font-semibold mb-4">Basic Usage</h3>
+        <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+          <CheckboxField label="Accept terms and conditions" />
+        </div>
+        <div className="mt-4 bg-gray-50 p-4 rounded">
+          <code className="text-sm">{`<CheckboxField label="Accept terms and conditions" />`}</code>
+        </div>
+      </section>
+
+      {/* With Description */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">With Description</h3>
         <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
           <CheckboxField
-            label="I agree to the terms and conditions"
-            description="By checking this box, you accept our terms of service and privacy policy."
+            label="Subscribe to newsletter"
+            description="Receive updates about new features and promotions"
           />
         </div>
+        <div className="mt-4 bg-gray-50 p-4 rounded">
+          <code className="text-sm whitespace-pre">{`<CheckboxField
+  label="Subscribe to newsletter"
+  description="Receive updates about new features and promotions"
+/>`}</code>
+        </div>
       </section>
 
-      {/* All State Combinations */}
+      {/* All Value Types - Default State */}
       <section>
-        <h3 className="text-xl font-semibold mb-4">
-          All State Combinations (6 Variants)
+        <h3 className="text-2xl font-semibold mb-4">
+          Value Types (Default State)
         </h3>
-        <p className="text-sm text-(--sds-color-text-default-secondary) mb-4">
-          These examples use controlled mode with fixed valueType props to
-          showcase all visual states.
-        </p>
-        <div className="space-y-6">
-          {/* Default State - Unchecked */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">Default - Unchecked</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Default unchecked checkbox"
-                description="This is the default unchecked state with description text."
-                state="Default"
-                valueType="Unchecked"
-              />
-            </div>
+        <div className="grid gap-6">
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">Unchecked</p>
+            <CheckboxField
+              label="Unchecked option"
+              description="This checkbox is not selected"
+              valueType="Unchecked"
+            />
           </div>
-
-          {/* Default State - Checked */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">Default - Checked</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Default checked checkbox"
-                description="This is the default checked state with description text."
-                state="Default"
-                valueType="Checked"
-              />
-            </div>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">Checked</p>
+            <CheckboxField
+              label="Checked option"
+              description="This checkbox is selected"
+              valueType="Checked"
+            />
           </div>
-
-          {/* Default State - Indeterminate */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">
-              Default - Indeterminate
-            </h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Default indeterminate checkbox"
-                description="This is the indeterminate state, often used for 'select all' functionality."
-                state="Default"
-                valueType="Indeterminate"
-              />
-            </div>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
+              Indeterminate
+            </p>
+            <CheckboxField
+              label="Indeterminate option"
+              description="Represents partial selection in nested checkboxes"
+              valueType="Indeterminate"
+            />
           </div>
+        </div>
+      </section>
 
-          {/* Disabled State - Unchecked */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">Disabled - Unchecked</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Disabled unchecked checkbox"
-                description="This checkbox is disabled and cannot be interacted with."
-                state="Disabled"
-                valueType="Unchecked"
-              />
-            </div>
+      {/* Disabled States */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">Disabled States</h3>
+        <div className="grid gap-6">
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
+              Disabled - Unchecked
+            </p>
+            <CheckboxField
+              label="Disabled unchecked"
+              description="This option is not available"
+              disabled
+              valueType="Unchecked"
+            />
           </div>
-
-          {/* Disabled State - Checked */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">Disabled - Checked</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Disabled checked checkbox"
-                description="This checkbox is checked but disabled, preserving the selected state."
-                state="Disabled"
-                valueType="Checked"
-              />
-            </div>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
+              Disabled - Checked
+            </p>
+            <CheckboxField
+              label="Disabled checked"
+              description="This option is selected but cannot be changed"
+              disabled
+              valueType="Checked"
+            />
           </div>
-
-          {/* Disabled State - Indeterminate */}
-          <div>
-            <h4 className="text-lg font-medium mb-3">
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
               Disabled - Indeterminate
-            </h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Disabled indeterminate checkbox"
-                description="This checkbox is in indeterminate state and disabled."
-                state="Disabled"
-                valueType="Indeterminate"
-              />
-            </div>
+            </p>
+            <CheckboxField
+              label="Disabled indeterminate"
+              description="Partial selection state, cannot be modified"
+              disabled
+              valueType="Indeterminate"
+            />
           </div>
         </div>
       </section>
 
-      {/* With and Without Description */}
+      {/* Error States */}
       <section>
-        <h3 className="text-xl font-semibold mb-4">
-          With and Without Description
-        </h3>
-        <div className="space-y-6">
-          <div>
-            <h4 className="text-lg font-medium mb-3">With Description</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <div className="space-y-4">
-                <CheckboxField
-                  label="Enable notifications"
-                  description="Receive email notifications about important updates."
-                  hasDescription={true}
-                  valueType="Checked"
-                />
-                <CheckboxField
-                  label="Enable marketing emails"
-                  description="Get promotional offers and product updates."
-                  hasDescription={true}
-                  valueType="Unchecked"
-                />
-              </div>
-            </div>
+        <h3 className="text-2xl font-semibold mb-4">Error States</h3>
+        <div className="grid gap-6">
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
+              Error - Unchecked
+            </p>
+            <CheckboxField
+              label="I accept the terms and conditions"
+              description="You must accept the terms to continue"
+              errorMessage="Please accept the terms and conditions"
+              valueType="Unchecked"
+            />
           </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-3">Without Description</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <div className="space-y-4">
-                <CheckboxField
-                  label="I accept the terms"
-                  hasDescription={false}
-                  valueType="Checked"
-                />
-                <CheckboxField
-                  label="Subscribe to newsletter"
-                  hasDescription={false}
-                  valueType="Unchecked"
-                />
-                <CheckboxField
-                  label="Select all items"
-                  hasDescription={false}
-                  valueType="Indeterminate"
-                />
-              </div>
-            </div>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <p className="text-sm text-gray-500 mb-4 font-medium">
+              Error - Checked
+            </p>
+            <CheckboxField
+              label="Send me promotional emails"
+              errorMessage="This option conflicts with your privacy settings"
+              valueType="Checked"
+            />
           </div>
         </div>
       </section>
 
-      {/* Interactive Examples */}
+      {/* Interactive Example - Simple Toggle */}
       <section>
-        <h3 className="text-xl font-semibold mb-4">Interactive Examples</h3>
-        <div className="space-y-6">
-          <div>
-            <h4 className="text-lg font-medium mb-3">
-              User Consent Form (Controlled)
-            </h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <div className="space-y-4">
-                <CheckboxField
-                  label="I agree to the terms and conditions"
-                  description="You must accept our terms of service to continue."
-                  valueType={termsAccepted}
-                  onChange={(e) => {
-                    setTermsAccepted(
-                      e.target.checked ? "Checked" : "Unchecked"
-                    );
-                  }}
-                />
-                <CheckboxField
-                  label="Subscribe to newsletter (optional)"
-                  description="Receive updates about new features and products."
-                  valueType={newsletterAccepted}
-                  onChange={(e) => {
-                    setNewsletterAccepted(
-                      e.target.checked ? "Checked" : "Unchecked"
-                    );
-                  }}
-                />
-                <div className="mt-6 pt-4 border-t border-gray-200">
-                  <p className="text-sm text-(--sds-color-text-default-secondary)">
-                    Current state: Terms {termsAccepted.toLowerCase()},{" "}
-                    Newsletter {newsletterAccepted.toLowerCase()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-3">
-              Select All with Indeterminate State
-            </h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-              <CheckboxField
-                label="Select all notifications"
-                description="Toggle all notification preferences at once."
-                valueType={selectAllState}
-                hasDescription={true}
-                onChange={() => {
-                  // Cycle through states: Unchecked -> Checked -> Indeterminate
-                  if (selectAllState === "Unchecked") {
-                    setSelectAllState("Checked");
-                  } else if (selectAllState === "Checked") {
-                    setSelectAllState("Indeterminate");
-                  } else {
-                    setSelectAllState("Unchecked");
-                  }
-                }}
-              />
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <p className="text-sm text-(--sds-color-text-default-secondary)">
-                  Current state: {selectAllState} (click to cycle through
-                  states)
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Real-world Examples */}
-      <section>
-        <h3 className="text-xl font-semibold mb-4">
-          Real-world Examples (Uncontrolled)
-        </h3>
-        <p className="text-sm text-(--sds-color-text-default-secondary) mb-4">
-          These examples use uncontrolled mode. Try clicking the checkboxes -
-          they work!
-        </p>
-        <div className="space-y-6">
-          <div>
-            <h4 className="text-lg font-medium mb-3">Account Settings Form</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg bg-white">
-              <div className="max-w-md">
-                <h3 className="text-lg font-semibold mb-4">Privacy Settings</h3>
-                <div className="space-y-4">
-                  <CheckboxField
-                    label="Make my profile public"
-                    description="Your profile will be visible to all users."
-                    defaultValueType="Checked"
-                  />
-                  <CheckboxField
-                    label="Show my email address"
-                    description="Other users can see your email on your profile."
-                    defaultValueType="Unchecked"
-                  />
-                  <CheckboxField
-                    label="Allow search engines to index my profile"
-                    description="Your profile may appear in search results."
-                    defaultValueType="Unchecked"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-3">
-              Subscription Preferences
-            </h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg bg-white">
-              <div className="max-w-md">
-                <h3 className="text-lg font-semibold mb-4">
-                  Email Notifications
-                </h3>
-                <div className="space-y-4">
-                  <CheckboxField
-                    label="Product updates"
-                    description="Get notified when we release new features."
-                    defaultValueType="Checked"
-                  />
-                  <CheckboxField
-                    label="Weekly digest"
-                    description="A weekly summary of your activity."
-                    defaultValueType="Checked"
-                  />
-                  <CheckboxField
-                    label="Marketing emails"
-                    description="Special offers and promotions."
-                    defaultValueType="Unchecked"
-                  />
-                  <CheckboxField
-                    label="Security alerts (required)"
-                    description="Critical security notifications about your account."
-                    state="Disabled"
-                    valueType="Checked"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-medium mb-3">Checkout Agreement</h4>
-            <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg bg-white">
-              <div className="max-w-md p-6 border border-gray-200 rounded-lg">
-                <h3 className="text-lg font-semibold mb-4">
-                  Complete Your Order
-                </h3>
-                <div className="space-y-4 mb-6">
-                  <CheckboxField
-                    label="I agree to the terms and conditions"
-                    description="Required to complete your purchase."
-                    defaultValueType="Unchecked"
-                  />
-                  <CheckboxField
-                    label="Save payment method for future purchases"
-                    description="Your payment information will be securely stored."
-                    defaultValueType="Checked"
-                    hasDescription={true}
-                  />
-                </div>
-                <button
-                  className="w-full py-3 px-4 bg-(--sds-color-background-brand-default) text-white rounded-lg font-medium"
-                  disabled
-                >
-                  Place Order
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Design Details */}
-      <section>
-        <h3 className="text-xl font-semibold mb-4">Design Details</h3>
+        <h3 className="text-2xl font-semibold mb-4">Interactive Example</h3>
         <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
-          <div className="space-y-4 text-sm">
+          <CheckboxField
+            label="Enable notifications"
+            description="Receive push notifications for important updates"
+            valueType={isChecked ? "Checked" : "Unchecked"}
+            onChange={(checked) => setIsChecked(checked)}
+          />
+          <p className="text-sm text-gray-500 mt-4">
+            Current state:{" "}
+            <strong>{isChecked ? "Checked" : "Unchecked"}</strong>
+          </p>
+        </div>
+        <div className="mt-4 bg-gray-50 p-4 rounded">
+          <code className="text-sm whitespace-pre">{`const [isChecked, setIsChecked] = useState(false);
+
+<CheckboxField
+  label="Enable notifications"
+  description="Receive push notifications for important updates"
+  valueType={isChecked ? "Checked" : "Unchecked"}
+  onChange={(checked) => setIsChecked(checked)}
+/>`}</code>
+        </div>
+      </section>
+
+      {/* Real-world Example - Select All Pattern */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">Real-world Examples</h3>
+
+        {/* Select All Pattern */}
+        <div className="mb-8">
+          <h4 className="text-lg font-medium mb-4">Select All Pattern</h4>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <div className="space-y-4">
+              <CheckboxField
+                label="Select all options"
+                valueType={
+                  allSelected
+                    ? "Checked"
+                    : someSelected
+                    ? "Indeterminate"
+                    : "Unchecked"
+                }
+                onChange={handleSelectAll}
+              />
+              <div className="ml-6 space-y-2">
+                {allItems.map((item) => (
+                  <CheckboxField
+                    key={item}
+                    label={item}
+                    valueType={
+                      selectedItems.includes(item) ? "Checked" : "Unchecked"
+                    }
+                    onChange={() => handleItemToggle(item)}
+                  />
+                ))}
+              </div>
+            </div>
+            <p className="text-sm text-gray-500 mt-4">
+              Selected: {selectedItems.length} of {allItems.length}
+            </p>
+          </div>
+        </div>
+
+        {/* Terms and Conditions */}
+        <div className="mb-8">
+          <h4 className="text-lg font-medium mb-4">
+            Terms and Conditions Form
+          </h4>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <div className="space-y-4">
+              <CheckboxField
+                label="I agree to the Terms of Service"
+                description="You must agree to our Terms of Service to create an account"
+              />
+              <CheckboxField
+                label="I agree to the Privacy Policy"
+                description="Learn how we collect, use, and protect your data"
+              />
+              <CheckboxField
+                label="Subscribe to marketing emails"
+                description="Receive news, updates, and promotional offers (optional)"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Settings Panel */}
+        <div>
+          <h4 className="text-lg font-medium mb-4">Settings Panel</h4>
+          <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
+            <div className="space-y-4">
+              <CheckboxField
+                label="Enable dark mode"
+                description="Switch to dark theme for better viewing at night"
+                valueType="Checked"
+              />
+              <CheckboxField
+                label="Auto-save documents"
+                description="Automatically save your work every 5 minutes"
+                valueType="Checked"
+              />
+              <CheckboxField
+                label="Enable spell check"
+                description="Highlight spelling errors as you type"
+                disabled
+                valueType="Checked"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Design Tokens Used */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">Design Tokens Used</h3>
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold mb-2">Typography</h4>
-              <ul className="space-y-1 text-(--sds-color-text-default-secondary)">
+              <h4 className="font-semibold mb-3">Colors</h4>
+              <ul className="space-y-2 text-sm">
                 <li>
-                  Label: Inter, Regular 400, 16px, Line height 1.4, Color
-                  #1e1e1e
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-background-default-default
+                  </code>{" "}
+                  - Unchecked background
                 </li>
                 <li>
-                  Description: Inter, Regular 400, 16px, Line height 1.4, Color
-                  #757575
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-background-brand-default
+                  </code>{" "}
+                  - Checked/Indeterminate background
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-background-disabled-default
+                  </code>{" "}
+                  - Disabled background
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-text-default-default
+                  </code>{" "}
+                  - Label text
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-text-default-secondary
+                  </code>{" "}
+                  - Description text
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-border-brand-tertiary
+                  </code>{" "}
+                  - Unchecked border
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-color-icon-brand-on-brand
+                  </code>{" "}
+                  - Icon on dark background
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">Colors</h4>
-              <ul className="space-y-1 text-(--sds-color-text-default-secondary)">
-                <li>Checked background: #2c2c2c</li>
-                <li>Unchecked background: #ffffff</li>
-                <li>Disabled background: #d9d9d9</li>
-                <li>Unchecked border: #757575</li>
-                <li>Disabled border: #b2b2b2</li>
-                <li>Check icon: #f5f5f5</li>
-                <li>Disabled icon: #b3b3b3</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">Spacing & Sizing</h4>
-              <ul className="space-y-1 text-(--sds-color-text-default-secondary)">
-                <li>Checkbox size: 16x16px</li>
-                <li>Border radius: 4px</li>
-                <li>Gap between checkbox and label: 12px</li>
-                <li>Container width: 240px</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">Accessibility</h4>
-              <ul className="space-y-1 text-(--sds-color-text-default-secondary)">
-                <li>Keyboard accessible (Tab and Space key)</li>
-                <li>aria-checked reflects state (true/false/mixed)</li>
-                <li>aria-describedby links description to checkbox</li>
-                <li>Label associated via htmlFor attribute</li>
-                <li>WCAG AAA contrast for label text (21.2:1)</li>
+              <h4 className="font-semibold mb-3">Typography & Spacing</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-typography-body-font-family
+                  </code>{" "}
+                  - Inter font
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-typography-body-size-medium
+                  </code>{" "}
+                  - 16px text
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-typography-body-font-weight-regular
+                  </code>{" "}
+                  - 400 weight
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-size-space-300
+                  </code>{" "}
+                  - 12px gap
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 rounded">
+                    --sds-size-radius-100
+                  </code>{" "}
+                  - 4px border radius
+                </li>
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Accessibility Features */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">Accessibility Features</h3>
+        <div className="bg-gray-50 p-6 rounded-lg">
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>Semantic HTML:</strong> Uses native{" "}
+                <code className="bg-gray-200 px-1 rounded">
+                  &lt;input type="checkbox"&gt;
+                </code>{" "}
+                element for proper form behavior
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>Label Association:</strong> Label is connected to input
+                via <code className="bg-gray-200 px-1 rounded">htmlFor</code>/
+                <code className="bg-gray-200 px-1 rounded">id</code> attributes
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>ARIA Attributes:</strong> Uses{" "}
+                <code className="bg-gray-200 px-1 rounded">
+                  aria-checked="mixed"
+                </code>{" "}
+                for indeterminate state and{" "}
+                <code className="bg-gray-200 px-1 rounded">
+                  aria-describedby
+                </code>{" "}
+                for description
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>Keyboard Navigation:</strong> Supports Tab for focus and
+                Space to toggle
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>Focus Indicator:</strong> Clear outline ring when
+                focused via keyboard
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-green-600 mr-2 mt-0.5">&#10003;</span>
+              <span>
+                <strong>Disabled State:</strong> Native{" "}
+                <code className="bg-gray-200 px-1 rounded">disabled</code>{" "}
+                attribute prevents interaction and removes from tab order
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Props Reference */}
+      <section>
+        <h3 className="text-2xl font-semibold mb-4">Props Reference</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">
+                  Prop
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">
+                  Type
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">
+                  Default
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 border-b">
+                  Description
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">label</td>
+                <td className="px-4 py-3 text-sm font-mono">string</td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Text content for the main label. When provided, label is
+                  displayed.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">description</td>
+                <td className="px-4 py-3 text-sm font-mono">string</td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Text for the description section. When provided, description
+                  row is displayed.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">disabled</td>
+                <td className="px-4 py-3 text-sm font-mono">boolean</td>
+                <td className="px-4 py-3 text-sm">false</td>
+                <td className="px-4 py-3 text-sm">
+                  Whether the field is disabled.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">errorMessage</td>
+                <td className="px-4 py-3 text-sm font-mono">string</td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Error message text. When provided, shows error state.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">valueType</td>
+                <td className="px-4 py-3 text-sm font-mono">
+                  "Unchecked" | "Checked" | "Indeterminate"
+                </td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Visual state of the checkbox (controlled mode). If not
+                  provided, component manages its own state.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">
+                  defaultValueType
+                </td>
+                <td className="px-4 py-3 text-sm font-mono">
+                  "Unchecked" | "Checked" | "Indeterminate"
+                </td>
+                <td className="px-4 py-3 text-sm">"Unchecked"</td>
+                <td className="px-4 py-3 text-sm">
+                  Default visual state for uncontrolled mode.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">onChange</td>
+                <td className="px-4 py-3 text-sm font-mono">
+                  (checked: boolean) =&gt; void
+                </td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Change handler called when checkbox state changes.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">className</td>
+                <td className="px-4 py-3 text-sm font-mono">string</td>
+                <td className="px-4 py-3 text-sm">-</td>
+                <td className="px-4 py-3 text-sm">
+                  Additional CSS classes for the root container.
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </div>

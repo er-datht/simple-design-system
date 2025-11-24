@@ -11,10 +11,10 @@
   .text-subtitle-text {
     @apply relative whitespace-pre-wrap not-italic;
     color: var(--sds-color-text-default-default);
-    font-family: var(--sds-typography-subtitle-font-family, 'Inter', sans-serif);
-    font-size: var(--sds-typography-subtitle-size-base, 32px);
+    font-family: var(--sds-typography-subtitle-font-family);
+    font-size: var(--sds-typography-subtitle-size-base);
     font-style: normal;
-    font-weight: var(--sds-typography-subtitle-font-weight, 400);
+    font-weight: var(--sds-typography-subtitle-font-weight);
     line-height: 1.2;
     letter-spacing: normal;
   }

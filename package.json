@@ -15,13 +15,14 @@
     "script:figma-publish": "cd scripts/figma-publish && node --env-file=../../.env app.mjs"
   },
   "dependencies": {
-    "@figma/code-connect": "^1.3.9",
+    "@figma/code-connect": "^1.3.10",
     "@tailwindcss/vite": "^4.1.16",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "flowbite-react": "^0.12.10",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-range": "^1.10.0",
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
