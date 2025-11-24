@@ -14,23 +14,24 @@ figma.connect(
   {
     props: {
       label: figma.string("Label"),
-      hasError: figma.boolean("Has Error"),
-      state: figma.enum("State", {
-        Default: undefined,
-        Error: undefined,
+      hasError: figma.enum("State", {
+        Error: true,
+      }),
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
       value: figma.string("Value"),
-      error: figma.string("Error"),
+      errorMessage: figma.string("Error"),
       description: figma.string("Description"),
     },
     example: (props) => (
       <InputField
         label={props.label}
         hasError={props.hasError}
-        disabled={props.state}
+        disabled={props.disabled}
         value={props.value}
         description={props.description}
+        errorMessage={props.errorMessage}
       />
     ),
   }

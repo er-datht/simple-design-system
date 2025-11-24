@@ -87,7 +87,7 @@ export function CheckboxFieldDemo() {
             <CheckboxField
               label="Unchecked option"
               description="This checkbox is not selected"
-              valueType="Unchecked"
+              isChecked={false}
             />
           </div>
           <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
@@ -95,7 +95,7 @@ export function CheckboxFieldDemo() {
             <CheckboxField
               label="Checked option"
               description="This checkbox is selected"
-              valueType="Checked"
+              isChecked
             />
           </div>
           <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
@@ -105,7 +105,7 @@ export function CheckboxFieldDemo() {
             <CheckboxField
               label="Indeterminate option"
               description="Represents partial selection in nested checkboxes"
-              valueType="Indeterminate"
+              isIndeterminate
             />
           </div>
         </div>
@@ -123,7 +123,7 @@ export function CheckboxFieldDemo() {
               label="Disabled unchecked"
               description="This option is not available"
               disabled
-              valueType="Unchecked"
+              isChecked={false}
             />
           </div>
           <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
@@ -134,7 +134,7 @@ export function CheckboxFieldDemo() {
               label="Disabled checked"
               description="This option is selected but cannot be changed"
               disabled
-              valueType="Checked"
+              isChecked
             />
           </div>
           <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
@@ -145,7 +145,7 @@ export function CheckboxFieldDemo() {
               label="Disabled indeterminate"
               description="Partial selection state, cannot be modified"
               disabled
-              valueType="Indeterminate"
+              isIndeterminate
             />
           </div>
         </div>
@@ -163,7 +163,7 @@ export function CheckboxFieldDemo() {
               label="I accept the terms and conditions"
               description="You must accept the terms to continue"
               errorMessage="Please accept the terms and conditions"
-              valueType="Unchecked"
+              isChecked={false}
             />
           </div>
           <div className="border-2 border-dashed border-amber-400 p-8 rounded-lg">
@@ -173,7 +173,7 @@ export function CheckboxFieldDemo() {
             <CheckboxField
               label="Send me promotional emails"
               errorMessage="This option conflicts with your privacy settings"
-              valueType="Checked"
+              isChecked
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export function CheckboxFieldDemo() {
           <CheckboxField
             label="Enable notifications"
             description="Receive push notifications for important updates"
-            valueType={isChecked ? "Checked" : "Unchecked"}
+            isChecked={isChecked}
             onChange={(checked) => setIsChecked(checked)}
           />
           <p className="text-sm text-gray-500 mt-4">
@@ -200,7 +200,7 @@ export function CheckboxFieldDemo() {
 <CheckboxField
   label="Enable notifications"
   description="Receive push notifications for important updates"
-  valueType={isChecked ? "Checked" : "Unchecked"}
+  isChecked={isChecked}
   onChange={(checked) => setIsChecked(checked)}
 />`}</code>
         </div>
@@ -217,13 +217,8 @@ export function CheckboxFieldDemo() {
             <div className="space-y-4">
               <CheckboxField
                 label="Select all options"
-                valueType={
-                  allSelected
-                    ? "Checked"
-                    : someSelected
-                    ? "Indeterminate"
-                    : "Unchecked"
-                }
+                isChecked={allSelected}
+                isIndeterminate={someSelected}
                 onChange={handleSelectAll}
               />
               <div className="ml-6 space-y-2">
@@ -231,9 +226,7 @@ export function CheckboxFieldDemo() {
                   <CheckboxField
                     key={item}
                     label={item}
-                    valueType={
-                      selectedItems.includes(item) ? "Checked" : "Unchecked"
-                    }
+                    isChecked={selectedItems.includes(item)}
                     onChange={() => handleItemToggle(item)}
                   />
                 ))}
@@ -276,18 +269,18 @@ export function CheckboxFieldDemo() {
               <CheckboxField
                 label="Enable dark mode"
                 description="Switch to dark theme for better viewing at night"
-                valueType="Checked"
+                isChecked
               />
               <CheckboxField
                 label="Auto-save documents"
                 description="Automatically save your work every 5 minutes"
-                valueType="Checked"
+                isChecked
               />
               <CheckboxField
                 label="Enable spell check"
                 description="Highlight spelling errors as you type"
                 disabled
-                valueType="Checked"
+                isChecked
               />
             </div>
           </div>
@@ -505,26 +498,28 @@ export function CheckboxFieldDemo() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm font-mono">valueType</td>
-                <td className="px-4 py-3 text-sm font-mono">
-                  "Unchecked" | "Checked" | "Indeterminate"
-                </td>
+                <td className="px-4 py-3 text-sm font-mono">isChecked</td>
+                <td className="px-4 py-3 text-sm font-mono">boolean</td>
                 <td className="px-4 py-3 text-sm">-</td>
                 <td className="px-4 py-3 text-sm">
-                  Visual state of the checkbox (controlled mode). If not
+                  Whether the checkbox is checked (controlled mode). If not
                   provided, component manages its own state.
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm font-mono">
-                  defaultValueType
-                </td>
-                <td className="px-4 py-3 text-sm font-mono">
-                  "Unchecked" | "Checked" | "Indeterminate"
-                </td>
-                <td className="px-4 py-3 text-sm">"Unchecked"</td>
+                <td className="px-4 py-3 text-sm font-mono">defaultIsChecked</td>
+                <td className="px-4 py-3 text-sm font-mono">boolean</td>
+                <td className="px-4 py-3 text-sm">false</td>
                 <td className="px-4 py-3 text-sm">
-                  Default visual state for uncontrolled mode.
+                  Default checked state for uncontrolled mode.
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-3 text-sm font-mono">isIndeterminate</td>
+                <td className="px-4 py-3 text-sm font-mono">boolean</td>
+                <td className="px-4 py-3 text-sm">false</td>
+                <td className="px-4 py-3 text-sm">
+                  Whether the checkbox is in indeterminate state.
                 </td>
               </tr>
               <tr>

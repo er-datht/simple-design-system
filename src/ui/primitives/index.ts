@@ -35,7 +35,6 @@ export { Icon, type IconProps, type IconSize } from "./Icon";
 export {
   CheckboxField,
   type CheckboxFieldProps,
-  type CheckboxValueType,
   CheckboxGroup,
   type CheckboxGroupProps,
   InputField,
@@ -53,7 +52,6 @@ export {
   type SliderFieldProps,
   SwitchField,
   type SwitchFieldProps,
-  type SwitchValueType,
   TextareaField,
   type TextareaFieldProps,
 } from "./Input";

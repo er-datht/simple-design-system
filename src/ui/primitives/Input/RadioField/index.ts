@@ -1,1 +1,1 @@
-export { RadioField, type RadioFieldProps, type RadioValueType } from "./RadioField";
+export { RadioField, type RadioFieldProps } from "./RadioField";

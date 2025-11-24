@@ -1,1 +1,1 @@
-export { SwitchField, type SwitchFieldProps, type SwitchValueType } from "./SwitchField";
+export { SwitchField, type SwitchFieldProps } from "./SwitchField";

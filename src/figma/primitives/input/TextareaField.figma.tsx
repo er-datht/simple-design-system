@@ -14,9 +14,10 @@ figma.connect(
   {
     props: {
       label: figma.string("Label"),
-      state: figma.enum("State", {
-        Default: false,
-        Error: false,
+      hasError: figma.enum("State", {
+        Error: true,
+      }),
+      disabled: figma.enum("State", {
         Disabled: true,
       }),
       value: figma.string("Value"),
@@ -26,9 +27,11 @@ figma.connect(
     example: (props) => (
       <TextareaField
         label={props.label}
-        disabled={props.state}
+        hasError={props.hasError}
+        disabled={props.disabled}
         value={props.value}
         description={props.description}
+        errorMessage={props.errorMessage}
       />
     ),
   }

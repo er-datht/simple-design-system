@@ -8,8 +8,6 @@ import {
 import { cn } from "../../../../utils/cn";
 import "./checkbox-field.css";
 
-export type CheckboxValueType = "Unchecked" | "Checked" | "Indeterminate";
-
 /**
  * Props for the CheckboxField component.
  */
@@ -43,17 +41,24 @@ export interface CheckboxFieldProps
   errorMessage?: string;
 
   /**
-   * Visual state of the checkbox control (controlled mode)
+   * Whether the checkbox is checked (controlled mode)
    * If not provided, component manages its own state (uncontrolled mode)
    * @default undefined (uncontrolled)
    */
-  valueType?: CheckboxValueType;
+  isChecked?: boolean;
 
   /**
-   * Default visual state for uncontrolled mode
-   * @default "Unchecked"
+   * Default checked state for uncontrolled mode
+   * @default false
    */
-  defaultValueType?: CheckboxValueType;
+  defaultIsChecked?: boolean;
+
+  /**
+   * Whether the checkbox is in indeterminate state
+   * Used for "select all" patterns where some but not all children are selected
+   * @default false
+   */
+  isIndeterminate?: boolean;
 
   /**
    * Additional CSS classes for the root container
@@ -89,7 +94,7 @@ export interface CheckboxFieldProps
  * // Controlled mode
  * <CheckboxField
  *   label="Select all"
- *   valueType={isChecked ? "Checked" : "Unchecked"}
+ *   isChecked={isChecked}
  *   onChange={(checked) => setIsChecked(checked)}
  * />
  *
@@ -98,7 +103,7 @@ export interface CheckboxFieldProps
  * <CheckboxField
  *   label="Unavailable option"
  *   disabled
- *   valueType="Checked"
+ *   isChecked
  * />
  *
  * @example
@@ -107,14 +112,24 @@ export interface CheckboxFieldProps
  *   label="Required field"
  *   errorMessage="This field is required"
  * />
+ *
+ * @example
+ * // Indeterminate state (for select all patterns)
+ * <CheckboxField
+ *   label="Select all"
+ *   isIndeterminate={someSelected && !allSelected}
+ *   isChecked={allSelected}
+ *   onChange={handleSelectAll}
+ * />
  */
 export function CheckboxField({
   label,
   description,
   disabled = false,
   errorMessage,
-  valueType,
-  defaultValueType = "Unchecked",
+  isChecked,
+  defaultIsChecked = false,
+  isIndeterminate = false,
   className,
   onChange,
   ...rest
@@ -128,52 +143,43 @@ export function CheckboxField({
   const descriptionId = hasDescription ? `${id}-description` : undefined;
 
   // Internal state for uncontrolled mode
-  const [internalValue, setInternalValue] =
-    useState<CheckboxValueType>(defaultValueType);
+  const [internalChecked, setInternalChecked] =
+    useState<boolean>(defaultIsChecked);
 
   // Determine if component is controlled or uncontrolled
-  const isControlled = valueType !== undefined;
-  const currentValue = isControlled ? valueType : internalValue;
+  const isControlled = isChecked !== undefined;
+  const currentChecked = isControlled ? isChecked : internalChecked;
 
   // Determine node ID based on disabled state and value type
   const getNodeId = (): string => {
     if (!disabled) {
-      switch (currentValue) {
-        case "Unchecked":
-          return "565:15610";
-        case "Checked":
-          return "9762:1442";
-        case "Indeterminate":
-          return "565:15635";
+      if (isIndeterminate) {
+        return "565:15635";
       }
+      return currentChecked ? "9762:1442" : "565:15610";
     } else {
       // Disabled
-      switch (currentValue) {
-        case "Unchecked":
-          return "9762:1448";
-        case "Checked":
-          return "565:15661";
-        case "Indeterminate":
-          return "587:16995";
+      if (isIndeterminate) {
+        return "587:16995";
       }
+      return currentChecked ? "565:15661" : "9762:1448";
     }
   };
 
   // Handle indeterminate state
   useEffect(() => {
     if (checkboxRef.current) {
-      checkboxRef.current.indeterminate = currentValue === "Indeterminate";
+      checkboxRef.current.indeterminate = isIndeterminate;
     }
-  }, [currentValue]);
+  }, [isIndeterminate]);
 
   // Handle checkbox changes
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newChecked = event.target.checked;
-    const newValue: CheckboxValueType = newChecked ? "Checked" : "Unchecked";
 
     // Update internal state if uncontrolled
     if (!isControlled) {
-      setInternalValue(newValue);
+      setInternalChecked(newChecked);
     }
 
     // Call parent's onChange if provided
@@ -203,14 +209,10 @@ export function CheckboxField({
           type="checkbox"
           id={id}
           className="checkbox-field__input"
-          checked={currentValue === "Checked"}
+          checked={currentChecked}
           disabled={disabled}
           aria-invalid={hasError}
-          aria-checked={
-            currentValue === "Indeterminate"
-              ? "mixed"
-              : currentValue === "Checked"
-          }
+          aria-checked={isIndeterminate ? "mixed" : currentChecked}
           aria-describedby={hasError ? errorId : descriptionId}
           onChange={handleChange}
           {...rest}
@@ -220,11 +222,13 @@ export function CheckboxField({
         <div
           className={cn(
             "checkbox-field__checkbox",
-            currentValue === "Unchecked" &&
+            !currentChecked &&
+              !isIndeterminate &&
               "checkbox-field__checkbox--unchecked",
-            currentValue === "Checked" && "checkbox-field__checkbox--checked",
-            currentValue === "Indeterminate" &&
-              "checkbox-field__checkbox--indeterminate",
+            currentChecked &&
+              !isIndeterminate &&
+              "checkbox-field__checkbox--checked",
+            isIndeterminate && "checkbox-field__checkbox--indeterminate",
             disabled && "checkbox-field__checkbox--disabled",
             hasError && "checkbox-field__checkbox--error"
           )}
@@ -232,7 +236,7 @@ export function CheckboxField({
           aria-hidden="true"
         >
           {/* Check Icon */}
-          {currentValue === "Checked" && (
+          {currentChecked && !isIndeterminate && (
             <span
               className={cn(
                 "checkbox-field__icon",
@@ -252,7 +256,7 @@ export function CheckboxField({
           )}
 
           {/* Minus Icon - shown when Indeterminate */}
-          {currentValue === "Indeterminate" && (
+          {isIndeterminate && (
             <span
               className={cn(
                 "checkbox-field__icon",

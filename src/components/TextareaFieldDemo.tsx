@@ -35,6 +35,17 @@ export function TextareaFieldDemo() {
       </div>
 
       <div className="border-2 border-dashed border-amber-400 p-6 rounded-lg">
+        <p className="text-sm text-gray-500 mb-3">Error State (hasError only)</p>
+        <TextareaField
+          label="Review"
+          placeholder="Write your review..."
+          hasError={true}
+          description="This field has error styling without a message"
+          rows={3}
+        />
+      </div>
+
+      <div className="border-2 border-dashed border-amber-400 p-6 rounded-lg">
         <p className="text-sm text-gray-500 mb-3">Error State</p>
         <TextareaField
           label="Comments"

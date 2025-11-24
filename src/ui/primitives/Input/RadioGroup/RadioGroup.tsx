@@ -149,7 +149,7 @@ export function RadioGroup({
     // Clone the child with enhanced props
     return React.cloneElement(child, {
       name,
-      valueType: isChecked ? "Checked" : "Unchecked",
+      isChecked,
       onChange: enhancedOnChange,
     });
   });

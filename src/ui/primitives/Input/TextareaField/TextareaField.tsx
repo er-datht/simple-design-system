@@ -34,6 +34,13 @@ export interface TextareaFieldProps
   errorMessage?: string;
 
   /**
+   * Whether the field should display error styling
+   * Can be used independently of errorMessage for visual error indication
+   * @default false
+   */
+  hasError?: boolean;
+
+  /**
    * Description/helper text
    * When provided, description will be displayed
    */
@@ -88,6 +95,7 @@ export function TextareaField({
   defaultValue,
   placeholder = "Placeholder",
   errorMessage,
+  hasError = false,
   description,
   className,
   onChange,
@@ -98,7 +106,7 @@ export function TextareaField({
   const errorId = `${id}-error`;
   const descriptionId = `${id}-description`;
   const hasLabel = label !== undefined;
-  const hasError = errorMessage !== undefined;
+  const hasErrorState = hasError || errorMessage !== undefined;
   const showDescription = description !== undefined;
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -123,7 +131,7 @@ export function TextareaField({
       )}
 
       {/* Description */}
-      {showDescription && !hasError && (
+      {showDescription && !hasErrorState && (
         <span
           id={descriptionId}
           className={cn(
@@ -142,13 +150,13 @@ export function TextareaField({
         placeholder={placeholder}
         disabled={disabled}
         rows={rows}
-        aria-invalid={hasError}
+        aria-invalid={hasErrorState}
         aria-describedby={
-          hasError ? errorId : showDescription ? descriptionId : undefined
+          hasErrorState ? errorId : showDescription ? descriptionId : undefined
         }
         className={cn(
           "textarea-field__textarea",
-          hasError && "textarea-field__textarea--error",
+          hasErrorState && "textarea-field__textarea--error",
           disabled && "textarea-field__textarea--disabled"
         )}
         onChange={handleChange}
@@ -156,7 +164,7 @@ export function TextareaField({
       />
 
       {/* Error Message */}
-      {hasError && (
+      {errorMessage && (
         <span id={errorId} className="textarea-field__error">
           {errorMessage}
         </span>
