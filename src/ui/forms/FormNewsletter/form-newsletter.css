@@ -1,0 +1,37 @@
+/**
+ * FormNewsletter Component Styles
+ * Figma Node ID: 197:19743
+ */
+
+.form-newsletter {
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  /* Spacing */
+  gap: var(--sds-size-space-300);
+
+  /* Sizing */
+  width: 338px;
+}
+
+/* Email field wrapper */
+.form-newsletter__email-wrapper {
+  flex: 1;
+}
+
+/* Submit button wrapper - aligns with label height */
+.form-newsletter__submit-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200);
+}
+
+/* Invisible spacer to match label height */
+.form-newsletter__submit-button-wrapper::before {
+  content: "";
+  display: block;
+  height: calc(var(--sds-typography-body-size-medium) * 1.4); /* Label height */
+  visibility: hidden;
+}

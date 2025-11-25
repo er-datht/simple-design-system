@@ -1,0 +1,42 @@
+/**
+ * FormContact Component Styles
+ * Figma Node ID: 197:19741
+ */
+
+.form-contact {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: stretch;
+
+  /* Spacing */
+  gap: var(--sds-size-space-600);
+  padding: var(--sds-size-space-600);
+
+  /* Sizing */
+  min-width: 320px;
+  width: 100%;
+
+  /* Background */
+  background: var(--sds-color-background-default-default);
+
+  /* Border */
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-default-default);
+  border-radius: var(--sds-size-radius-200);
+
+  /* Positioning */
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Submit button group */
+.form-contact__button-group {
+  width: 100%;
+}
+
+/* Submit button */
+.form-contact__submit-button {
+  width: 100%;
+}

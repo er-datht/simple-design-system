@@ -35,7 +35,7 @@ function extractTokenReferences(styleSheets: StyleSheetList): Set<string> {
             });
           }
         }
-      } catch (e) {
+      } catch {
         // Silently skip inaccessible stylesheets (CORS)
         console.debug("Could not access stylesheet:", sheet.href);
       }

@@ -1,6 +1,7 @@
 import { type SelectHTMLAttributes, useId } from "react";
 import { cn } from "../../../../utils/cn";
 import { IconChevronDown } from "../../../icons";
+import "./select-field.css";
 
 export interface SelectOption {
   label: string;
@@ -131,6 +132,7 @@ export function SelectField({
   const hasLabel = label !== undefined;
   const hasErrorState = hasError || errorMessage !== undefined;
   const showDescription = description !== undefined;
+  const isPlaceholder = !value && !defaultValue;
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
@@ -139,14 +141,14 @@ export function SelectField({
   };
 
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("select-field", className)}>
       {/* Label */}
       {hasLabel && (
         <label
           htmlFor={id}
           className={cn(
-            "text-base font-medium",
-            disabled ? "text-gray-400" : "text-gray-900"
+            "select-field__label",
+            disabled && "select-field__label--disabled"
           )}
         >
           {label}
@@ -154,7 +156,7 @@ export function SelectField({
       )}
 
       {/* Select Container */}
-      <div className="relative">
+      <div className="select-field__container">
         <select
           id={id}
           {...(value !== undefined ? { value } : { defaultValue })}
@@ -168,14 +170,10 @@ export function SelectField({
               : undefined
           }
           className={cn(
-            "w-full h-11 px-3 pr-10 border rounded-md text-base appearance-none bg-white",
-            "focus:outline-none focus:ring-2 focus:ring-offset-0",
-            disabled
-              ? "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed"
-              : hasErrorState
-              ? "border-red-700 text-gray-900 focus:ring-red-700"
-              : "border-gray-200 text-gray-900 focus:ring-gray-900 focus:border-gray-900",
-            !value && !defaultValue && "text-gray-400"
+            "select-field__select",
+            hasErrorState && "select-field__select--error",
+            disabled && "select-field__select--disabled",
+            isPlaceholder && "select-field__select--placeholder"
           )}
           onChange={handleChange}
           {...rest}
@@ -194,17 +192,25 @@ export function SelectField({
         </select>
 
         {/* Chevron Icon */}
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-          <IconChevronDown
-            size="16"
-            className={cn(disabled ? "text-gray-400" : "text-gray-500")}
-          />
+        <div
+          className={cn(
+            "select-field__icon",
+            disabled && "select-field__icon--disabled"
+          )}
+        >
+          <IconChevronDown size="16" />
         </div>
       </div>
 
       {/* Error Message */}
       {errorMessage && (
-        <span id={errorId} className="text-sm text-red-700">
+        <span
+          id={errorId}
+          className={cn(
+            "select-field__error",
+            disabled && "select-field__error--disabled"
+          )}
+        >
           {errorMessage}
         </span>
       )}
@@ -214,8 +220,8 @@ export function SelectField({
         <span
           id={descriptionId}
           className={cn(
-            "text-sm",
-            disabled ? "text-gray-400" : "text-gray-500"
+            "select-field__description",
+            disabled && "select-field__description--disabled"
           )}
         >
           {description}
