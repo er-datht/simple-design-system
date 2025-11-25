@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   NavigationPillList,
   type NavigationPillItem,
@@ -34,6 +34,7 @@ export interface HeaderProps {
 
   /**
    * Currently active navigation item ID
+   * If not provided, will be automatically determined from current route
    */
   activeNavigationId?: string;
 
@@ -152,17 +153,24 @@ export const Header = ({
   itemClassName,
 }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Determine active navigation based on current location if not explicitly provided
+  const computedActiveNavId =
+    activeNavigationId ??
+    navigationItems.find((item) => item.href === location.pathname)?.id ??
+    navigationItems[0]?.id;
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
 
@@ -211,7 +219,7 @@ export const Header = ({
       <NavigationPillList
         items={navigationItems}
         direction={isMobileMenuOpen ? "column" : "row"}
-        activeItemId={activeNavigationId}
+        activeItemId={computedActiveNavId}
         onItemClick={onNavigationItemClick}
         className={cn(
           "header-navigation-block",

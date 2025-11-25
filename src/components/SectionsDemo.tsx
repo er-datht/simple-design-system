@@ -3,7 +3,6 @@ import { HeaderAuthDemo } from "./HeaderAuthDemo";
 import { HeaderDemo } from "./HeaderDemo";
 import CardGridTestimonialsDemo from "./CardGridTestimonialsDemo";
 import FooterDemo from "./FooterDemo";
-import { FormContactDemo } from "./FormContactDemo";
 import { Tabs } from "../ui/primitives/Tab";
 
 export function SectionsDemo() {
@@ -34,11 +33,6 @@ export function SectionsDemo() {
           id: "footer",
           label: "Footer",
           content: <FooterDemo />,
-        },
-        {
-          id: "form-contact",
-          label: "Form Contact",
-          content: <FormContactDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"
