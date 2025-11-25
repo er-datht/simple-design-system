@@ -15,6 +15,7 @@ import type { NavigationPillItem } from "./ui/primitives/Navigation";
 import { useState } from "react";
 import { Footer } from "./ui/sections/Footer";
 import { Container } from "./ui/layout/Container";
+import { FormsDemo } from "./components/FormsDemo";
 
 const navigationItems: NavigationPillItem[] = [
   { id: "products", label: "Products", href: "/products" },
@@ -70,6 +71,11 @@ function App() {
                 id: "sections",
                 label: "Sections",
                 content: <SectionsDemo />,
+              },
+              {
+                id: "forms",
+                label: "Forms",
+                content: <FormsDemo />,
               },
             ]}
             defaultActiveTab="icons"

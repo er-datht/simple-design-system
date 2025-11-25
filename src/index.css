@@ -60,11 +60,13 @@ textarea,
 input,
 select {
   font: var(--sds-font-body-base);
+  line-height: 100%;
 }
 
 pre,
 code {
   font: var(--sds-font-body-code);
+  line-height: 100%;
 }
 
 h1,
@@ -74,6 +76,7 @@ h4,
 h5,
 h6 {
   font: var(--sds-font-heading);
+  line-height: 100%;
 }
 
 h1,

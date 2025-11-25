@@ -1,5 +1,6 @@
 import { type InputHTMLAttributes, useId } from "react";
 import { cn } from "../../../../utils/cn";
+import "./input-field.css";
 
 export interface InputFieldProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange"> {
@@ -116,14 +117,14 @@ export function InputField({
   };
 
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("input-field", className)}>
       {/* Label */}
       {hasLabel && (
         <label
           htmlFor={id}
           className={cn(
-            "text-base font-medium",
-            disabled ? "text-gray-400" : "text-gray-900"
+            "input-field__label",
+            disabled && "input-field__label--disabled"
           )}
         >
           {label}
@@ -142,14 +143,9 @@ export function InputField({
           hasErrorState ? errorId : showDescription ? descriptionId : undefined
         }
         className={cn(
-          "w-full h-11 px-3 border rounded-md text-base",
-          "focus:outline-none focus:ring-2 focus:ring-offset-0",
-          "placeholder:text-gray-400",
-          disabled
-            ? "border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed"
-            : hasErrorState
-            ? "border-red-700 bg-white text-gray-900 focus:ring-red-700"
-            : "border-gray-200 bg-white text-gray-900 focus:ring-gray-900 focus:border-gray-900"
+          "input-field__input",
+          hasErrorState && "input-field__input--error",
+          disabled && "input-field__input--disabled"
         )}
         onChange={handleChange}
         {...rest}
@@ -157,7 +153,13 @@ export function InputField({
 
       {/* Error Message */}
       {errorMessage && (
-        <span id={errorId} className="text-sm text-red-700">
+        <span
+          id={errorId}
+          className={cn(
+            "input-field__error",
+            disabled && "input-field__error--disabled"
+          )}
+        >
           {errorMessage}
         </span>
       )}
@@ -167,8 +169,8 @@ export function InputField({
         <span
           id={descriptionId}
           className={cn(
-            "text-sm",
-            disabled ? "text-gray-400" : "text-gray-500"
+            "input-field__description",
+            disabled && "input-field__description--disabled"
           )}
         >
           {description}

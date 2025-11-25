@@ -1,0 +1,78 @@
+/* FormShipping Component Styles */
+/* Uses design tokens from the design system */
+
+.form-shipping {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600);
+  align-items: flex-start;
+  min-width: 320px;
+  background-color: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid var(--sds-color-border-default-default);
+  padding: var(--sds-size-space-600);
+  border-radius: var(--sds-size-radius-200);
+}
+
+/* Fieldset - Remove default styling */
+.form-shipping__fieldset {
+  display: contents;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Legend - Header Section */
+.form-shipping__legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-100);
+  width: 100%;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+/* Heading */
+.form-shipping__heading {
+  font-family: var(--sds-typography-heading-font-family);
+  font-size: var(--sds-typography-heading-size-base);
+  font-weight: var(--sds-typography-heading-font-weight);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+  color: var(--sds-color-text-default-default);
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+/* Subheading */
+.form-shipping__subheading {
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+/* Field Wrapper */
+.form-shipping__field {
+  width: 100%;
+}
+
+/* Actions (ButtonGroup) */
+.form-shipping__actions {
+  width: 100%;
+}
+
+/* Responsive Behavior */
+@media (max-width: 767px) {
+  .form-shipping {
+    padding: var(--sds-size-space-400);
+  }
+
+  .form-shipping__heading {
+    font-size: 20px;
+  }
+}
