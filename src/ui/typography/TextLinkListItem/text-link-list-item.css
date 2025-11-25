@@ -1,0 +1,51 @@
+/* TextLinkListItem Component Styles */
+
+.text-link-list-item {
+  /* Remove default list-item styling */
+  list-style: none;
+
+  /* Dimensions */
+  min-height: 22px;
+
+  /* Simple flexbox for vertical centering */
+  display: flex;
+  align-items: center;
+}
+
+.text-link-list-item__link {
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-medium);
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+  line-height: 1.4;
+
+  /* Text behavior */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Link styling */
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+
+  /* Smooth transitions */
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+.text-link-list-item__link:hover {
+  text-decoration: underline;
+  color: var(--sds-color-text-link-hover);
+}
+
+.text-link-list-item__link:focus-visible {
+  outline: 2px solid var(--sds-color-focus-outline);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.text-link-list-item__link:active {
+  color: var(--sds-color-text-link-active);
+}

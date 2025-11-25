@@ -1,0 +1,86 @@
+/* TextPrice Component Styles */
+
+.text-price {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+}
+
+/* Price Group Container */
+.text-price__price-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Common styles for price elements */
+.text-price__currency,
+.text-price__amount,
+.text-price__label {
+  flex-shrink: 0;
+  position: relative;
+  margin: 0;
+}
+
+/* Currency Symbol Styles */
+.text-price__currency {
+}
+
+/* Large Variant - Currency */
+.text-price--large .text-price__currency {
+  font-family: var(--sds-typography-title-page-font-family);
+  font-weight: var(--sds-typography-title-page-font-weight);
+  font-size: var(--sds-typography-subtitle-size-small);
+  letter-spacing: -0.48px;
+}
+
+/* Small Variant - Currency */
+.text-price--small .text-price__currency {
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  font-size: var(--sds-typography-body-size-medium);
+  letter-spacing: -0.32px;
+}
+
+/* Price Amount Styles */
+.text-price__amount {
+}
+
+/* Large Variant - Amount */
+.text-price--large .text-price__amount {
+  font-family: var(--sds-typography-title-page-font-family);
+  font-weight: var(--sds-typography-title-page-font-weight);
+  font-size: var(--sds-typography-title-page-size-base);
+  letter-spacing: -0.96px;
+}
+
+/* Small Variant - Amount */
+.text-price--small .text-price__amount {
+  font-family: var(--sds-typography-heading-font-family);
+  font-weight: var(--sds-typography-heading-font-weight);
+  font-size: var(--sds-typography-heading-size-base);
+  letter-spacing: -0.48px;
+}
+
+/* Label Styles */
+.text-price__label {
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-small);
+  letter-spacing: 0;
+}
+
+/* Large Variant - Label */
+.text-price--large .text-price__label {
+  line-height: 1.8;
+}
+
+/* Small Variant - Label */
+.text-price--small .text-price__label {
+  line-height: 1.2;
+}

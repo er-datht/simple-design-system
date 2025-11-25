@@ -1,0 +1,138 @@
+.button {
+  > .icon {
+    --icon-color: var(--button-color);
+  }
+}
+
+.icon-button {
+  border-radius: var(--sds-typography-scale-06);
+}
+
+.button-group {
+  /* Add any CSS variables here if needed */
+}
+
+.button-variant-primary {
+  --button-color: var(--sds-color-text-brand-on-brand);
+}
+.button-variant-neutral {
+  --button-color: var(--sds-color-text-default-default);
+}
+.button-variant-subtle {
+  --button-color: var(--sds-color-text-neutral-default);
+}
+
+.button-danger-variant-primary {
+  --button-color: var(--sds-color-text-danger-on-danger);
+}
+.button-danger-variant-neutral {
+  --button-color: var(--sds-color-text-default-default);
+}
+.button-danger-variant-subtle {
+  --button-color: var(--sds-color-text-danger-default);
+}
+
+.button-disabled {
+  --button-color: var(--sds-color-text-disabled-on-disabled);
+}
+
+@layer components {
+  .button-shared {
+    @apply inline-flex items-center  justify-center  gap-(--sds-size-space-200) rounded-(--sds-size-radius-200) font-(--sds-typography-body-font-weight-regular) transition-colors duration-150  focus:outline-none focus:ring-2 focus:ring-offset-2;
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+  }
+
+  .button-size-sm {
+    @apply p-(--sds-size-space-200);
+  }
+  .button-size-md {
+    @apply p-(--sds-size-space-300);
+  }
+  .button-size-lg {
+    @apply p-(--sds-size-space-300);
+  }
+  /* Button */
+  .button-variant-primary {
+    @apply cursor-pointer bg-(--sds-color-background-brand-default) text-(--sds-color-text-brand-on-brand) border border-(--sds-color-border-brand-default);
+  }
+  .button-variant-primary-hover {
+    @apply hover:bg-(--sds-color-background-brand-hover);
+  }
+
+  .button-variant-neutral {
+    @apply cursor-pointer bg-(--sds-color-background-neutral-tertiary) text-(--sds-color-text-default-default) border border-(--sds-color-border-neutral-secondary);
+  }
+  .button-variant-neutral-hover {
+    @apply hover:bg-(--sds-color-background-neutral-tertiary-hover);
+  }
+
+  .button-variant-subtle {
+    @apply cursor-pointer bg-transparent text-(--sds-color-text-neutral-default);
+  }
+  .button-variant-subtle-hover {
+    @apply border border-transparent hover:border-(--sds-color-border-default-default);
+  }
+
+  /* Button Danger */
+  .button-danger-variant-primary {
+    @apply cursor-pointer bg-(--sds-color-background-danger-default) text-(--sds-color-text-danger-on-danger) border border-(--sds-color-border-danger-secondary);
+  }
+  .button-danger-variant-primary-hover {
+    @apply text-(--sds-color-text-danger-on-danger) hover:bg-(--sds-color-background-danger-hover) hover:border-(--sds-color-border-danger-default);
+  }
+
+  .button-danger-variant-neutral {
+    @apply cursor-pointer bg-(--sds-color-background-neutral-tertiary) text-(--sds-color-text-default-default) border border-(--sds-color-border-neutral-secondary);
+  }
+  .button-danger-variant-neutral-hover {
+    @apply hover:bg-(--sds-color-background-neutral-tertiary-hover);
+  }
+
+  .button-danger-variant-subtle {
+    @apply cursor-pointer bg-transparent text-(--sds-color-text-danger-default);
+  }
+  .button-danger-variant-subtle-hover {
+    @apply border border-transparent hover:border-(--sds-color-border-danger-default) hover:bg-(--sds-color-background-danger-tertiary-hover);
+  }
+
+  /* Button Disabled */
+  .button-disabled {
+    @apply cursor-default opacity-50 bg-(--sds-color-background-disabled-default) text-(--sds-color-text-disabled-on-disabled) border border-(--sds-color-border-disabled-default);
+  }
+
+  /* Button Group */
+  .button-group-shared {
+    @apply flex gap-(--sds-size-space-400);
+  }
+
+  .button-group-align-justify {
+    @apply justify-between items-center;
+
+    & > button,
+    & > .button {
+      @apply w-full;
+    }
+  }
+
+  .button-group-align-start {
+    @apply justify-start items-center;
+  }
+
+  .button-group-align-center {
+    @apply justify-center items-center;
+  }
+
+  .button-group-align-end {
+    @apply justify-end items-center;
+  }
+
+  .button-group-align-stack {
+    @apply flex-col justify-center items-start;
+
+    & > button,
+    & > .button {
+      @apply w-full;
+    }
+  }
+}

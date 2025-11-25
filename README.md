@@ -128,3 +128,135 @@ export default defineConfig([
 ]);
 ```
 
+## Scripts
+
+Some example integrations are available in `scripts` directory. They may require additional API scope that your org may or may not have access to. Where possible, there are some plugin examples to help fill gaps.
+
+### [scripts/icons](./scripts/icons)
+
+- `npm run script:icons:rest`
+- Gets all icons from the file, and generates components in the [src/ui/icons](./src/ui/icons) directory.
+- Also generates [src/figma/icons/Icons.figma.tsx](./src/figma/icons/Icons.figma.tsx) for Code Connect.
+
+### [scripts/tokens](./scripts/tokens)
+
+- `npm run script:tokens:rest`
+- Gets all variables and styles from Figma, and converts them to [src/theme.css](./src/theme.css).
+- Creates [scripts/tokens/tokensCodeSyntaxes.js](./scripts/tokens/tokensCodeSyntaxes.js) which is a script you can run in the JS console in Figma to update all the variable's [codeSyntaxes](https://www.figma.com/plugin-docs/api/Variable/#codesyntax) with CSS that matches this repo.
+- Includes some example plugins for how to get the same data without the Variables REST API.
+  - [Install plugins](https://www.figma.com/plugin-docs/plugin-quickstart-guide/) in Development
+  - Run plugins, and copy plugin outputs into [scripts/tokens/styles.json](./scripts/tokens/styles.json) and [scripts/tokens/tokens.json](./scripts/tokens/tokens.json)
+  - Run `npm run script:tokens` (without `:rest`) and it will reference the JSON files directly without making a REST API request to update them
+
+## Figma Code Connect Publisher ([script:figma-publish](./scripts/figma-publish))
+
+This script publishes Code Connect documentation to Figma, making your React component props and usage examples visible in Figma Dev Mode.
+
+### Prerequisites
+
+- `.env` file in the repository root with `FIGMA_ACCESS_TOKEN`
+- Code Connect files (`.figma.tsx`) in your codebase
+- `@figma/code-connect` package installed
+
+### Usage
+
+#### Publish All Code Connect Files (Default)
+
+```bash
+yarn script:figma-publish
+```
+
+This will publish all Code Connect files configured in `figma.config.json`.
+
+#### Publish from Specific Directory
+
+```bash
+yarn script:figma-publish src/figma/primitives/navigation
+```
+
+Pass a directory path as an argument to publish only Code Connect files from that directory.
+
+#### Examples
+
+```bash
+# Publish only navigation components
+yarn script:figma-publish src/figma/primitives/navigation
+
+# Publish only tabs components
+yarn script:figma-publish src/figma/primitives/tabs
+
+# Publish only icons
+yarn script:figma-publish src/figma/icons
+
+# Publish all primitives
+yarn script:figma-publish src/figma/primitives
+
+# Publish all Code Connect files
+yarn script:figma-publish
+```
+
+### How It Works
+
+1. Reads `FIGMA_ACCESS_TOKEN` from `.env` file
+2. Runs from the repository root (to find component source files for import resolution)
+3. If a directory is provided, uses `--dir` flag to specify the target directory
+4. Runs `npx figma connect publish --token=<token>` with optional `--dir` parameter
+
+### Environment Variables
+
+Required in `.env`:
+
+```env
+FIGMA_ACCESS_TOKEN=figd_...  # Get from Figma account settings
+```
+
+### What Gets Published
+
+The script publishes Code Connect documentation defined in:
+
+- `src/figma/primitives/*.figma.tsx` - Primitive components
+- `src/figma/icons/Icons.figma.tsx` - Auto-generated icon components
+- Any other `.figma.tsx` files in configured paths
+
+### Configuration
+
+The `figma.config.json` in the repository root controls which files are included:
+
+```json
+{
+  "codeConnect": {
+    "include": ["src/ui/primitives/**/*.{tsx,jsx}"],
+    "label": "React"
+  }
+}
+```
+
+### Troubleshooting
+
+#### "FIGMA_ACCESS_TOKEN not found"
+
+- Ensure `.env` file exists in repository root
+- Check that `FIGMA_ACCESS_TOKEN` is set correctly
+
+#### "Failed to publish Code Connect"
+
+- Verify your Figma access token is valid
+- Ensure Code Connect files have valid syntax
+- Check that component node IDs match your Figma file
+
+#### No Components Published
+
+- Verify directory path is correct
+- Check that `.figma.tsx` files exist in the target directory
+- Ensure `figma.config.json` includes the correct file patterns
+
+### Related Scripts
+
+- `yarn script:icons` - Generate icon components from Figma
+- `yarn script:icons:rest` - Fetch fresh icon data and regenerate
+- `yarn script:dev-resources` - Manage dev resource links
+
+### Learn More
+
+- [Figma Code Connect Documentation](https://www.figma.com/developers/code-connect)
+- [Code Connect CLI Reference](https://github.com/figma/code-connect)

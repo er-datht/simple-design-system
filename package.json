@@ -8,16 +8,25 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "figma:connect": "npx figma connect",
     "script:icons": "cd scripts/icons; node --env-file=../../.env app.mjs --skip-rest-api; cd -;",
-    "script:icons:rest": "cd scripts/icons; node --env-file=../../.env app.mjs; cd -;"
+    "script:icons:rest": "cd scripts/icons; node --env-file=../../.env app.mjs; cd -;",
+    "script:dev-resources": "cd scripts/dev-resources; node --env-file=../../.env app.mjs; cd -;",
+    "script:figma-publish": "cd scripts/figma-publish && node --env-file=../../.env app.mjs"
   },
   "dependencies": {
-    "@figma/code-connect": "^1.3.8",
+    "@figma/code-connect": "^1.3.10",
+    "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/vite": "^4.1.16",
     "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
+    "flowbite-react": "^0.12.10",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.16"
+    "react-hook-form": "^7.66.1",
+    "react-range": "^1.10.0",
+    "tailwindcss": "^4.1.16",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

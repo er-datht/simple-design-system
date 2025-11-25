@@ -1,0 +1,181 @@
+/* CheckboxField Component Styles */
+
+/* Root Container */
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 240px;
+}
+
+/* Checkbox and Label Container */
+.checkbox-field__checkbox-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sds-size-space-300);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Checkbox Control */
+.checkbox-field__checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: var(--sds-size-radius-100);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Checkbox - Default Unchecked */
+.checkbox-field__checkbox--unchecked {
+  background-color: var(--sds-color-background-default-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-brand-tertiary);
+}
+
+/* Checkbox - Default Checked/Indeterminate */
+.checkbox-field__checkbox--checked,
+.checkbox-field__checkbox--indeterminate {
+  background-color: var(--sds-color-background-brand-default);
+  border: none;
+}
+
+/* Checkbox - Disabled */
+.checkbox-field__checkbox--disabled {
+  background-color: var(--sds-color-background-disabled-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-disabled-secondary);
+  cursor: not-allowed;
+}
+
+/* Checkbox - Error State */
+.checkbox-field__checkbox--error.checkbox-field__checkbox--unchecked {
+  border-color: var(--sds-color-border-danger-default);
+}
+
+.checkbox-field__checkbox--error.checkbox-field__checkbox--checked,
+.checkbox-field__checkbox--error.checkbox-field__checkbox--indeterminate {
+  background-color: var(--sds-color-background-danger-default);
+  border: none;
+}
+
+/* Checkbox - Hover State (Default state only) */
+.checkbox-field__checkbox:not(.checkbox-field__checkbox--disabled):hover {
+  border-color: var(--sds-color-border-brand-default);
+}
+
+/* Hidden native input */
+.checkbox-field__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus ring for checkbox */
+.checkbox-field__input:focus-visible + .checkbox-field__checkbox {
+  outline: 2px solid var(--sds-color-border-brand-default);
+  outline-offset: 2px;
+}
+
+/* Icon container */
+.checkbox-field__icon {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon - Default state (on brand background) */
+.checkbox-field__icon svg {
+  stroke: var(--sds-color-icon-brand-on-brand);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Icon - Disabled state */
+.checkbox-field__icon--disabled svg {
+  stroke: var(--sds-color-icon-disabled-on-disabled);
+}
+
+/* Label Text */
+.checkbox-field__label {
+  flex: 1 0 0;
+  min-width: 1px;
+  white-space: pre-wrap;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+  cursor: pointer;
+}
+
+/* Label - Disabled */
+.checkbox-field__label--disabled {
+  cursor: not-allowed;
+}
+
+/* Description Row */
+.checkbox-field__description-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sds-size-space-300);
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Description Row - Disabled */
+.checkbox-field__description-row--disabled {
+  opacity: 0.5;
+}
+
+/* Space (alignment placeholder) */
+.checkbox-field__spacer {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Description Text */
+.checkbox-field__description {
+  flex: 1 0 0;
+  min-width: 1px;
+  white-space: pre-wrap;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-secondary);
+  font-style: normal;
+}
+
+/* Error Text */
+.checkbox-field__error {
+  flex: 1 0 0;
+  min-width: 1px;
+  white-space: pre-wrap;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: 14px;
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-danger-default);
+  font-style: normal;
+}
