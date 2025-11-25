@@ -1,5 +1,12 @@
 // Route path constants
 export const ROUTES = {
   HOME: "/",
-  DEMOS: "/demos",
+  COMPONENTS: "/components",
+  PRODUCTS: "/products",
+  SOLUTIONS: "/solutions",
+  COMMUNITY: "/community",
+  RESOURCES: "/resources",
+  PRICING: "/pricing",
+  CONTACT: "/contact",
+  NOT_FOUND: "*",
 } as const;
