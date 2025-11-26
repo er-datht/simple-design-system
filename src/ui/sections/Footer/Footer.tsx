@@ -233,7 +233,6 @@ function FooterBrand({
   className,
   ...rest
 }: FooterBrandProps) {
-  console.log("check ~ FooterBrand ~ logoHref:", logoHref);
   return (
     <div
       className={cn("footer__title-section", className)}

@@ -61,10 +61,16 @@
 .header-auth-block {
   display: flex;
   align-items: center;
+  gap: var(--sds-size-space-300);
 }
 
 .header-auth-hidden {
   display: none;
+}
+
+/* Theme Toggle Button */
+.header-theme-toggle {
+  flex-shrink: 0;
 }
 
 /* Icon styling */
@@ -102,7 +108,9 @@
 
   .header-auth-block {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: var(--sds-size-space-300);
     margin-left: auto;
   }
 
@@ -180,7 +188,12 @@
 
   .header-mobile-open .header-auth-block {
     display: flex;
+    flex-direction: column;
     gap: var(--sds-size-space-300);
     align-self: stretch;
+  }
+
+  .header-mobile-open .header-theme-toggle {
+    align-self: flex-end;
   }
 }
