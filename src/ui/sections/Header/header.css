@@ -188,12 +188,14 @@
 
   .header-mobile-open .header-auth-block {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: var(--sds-size-space-300);
-    align-self: stretch;
+    width: 100%;
   }
 
   .header-mobile-open .header-theme-toggle {
-    align-self: flex-end;
+    align-self: center;
   }
 }

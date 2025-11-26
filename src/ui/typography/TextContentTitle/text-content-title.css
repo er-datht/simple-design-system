@@ -1,39 +1,58 @@
 .text-content-title {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: var(--sds-size-space-200);
+  font-style: normal;
+  position: relative;
 }
 
 .text-content-title--start {
   align-items: flex-start;
+  text-align: left;
 }
 
 .text-content-title--center {
   align-items: center;
+  text-align: center;
 }
 
 .text-content-title__title {
   color: var(--sds-color-text-default-default);
+  font-family: var(--sds-typography-title-hero-font-family);
+  font-size: var(--sds-typography-title-hero-size);
+  font-weight: var(--sds-typography-title-hero-font-weight);
+  line-height: 1.2;
+  letter-spacing: -2.16px;
   margin: 0;
+  width: 100%;
+  white-space: pre-wrap;
 }
 
 .text-content-title__subtitle {
   color: var(--sds-color-text-default-secondary);
+  font-family: var(--sds-typography-subtitle-font-family);
+  font-size: var(--sds-typography-subtitle-size-base);
+  font-weight: var(--sds-typography-subtitle-font-weight);
+  line-height: 1.2;
   margin: 0;
+  width: 100%;
+  white-space: pre-wrap;
 }
 
-/* Hero variant styles */
+/* Hero variant - uses default title hero styles above */
 .text-content-title--hero .text-content-title__title {
-  text-align: center;
-  font-style: normal;
-  color: var(--sds-color-text-default-default);
+  font-family: var(--sds-typography-title-hero-font-family);
+  font-size: var(--sds-typography-title-hero-size);
+  font-weight: var(--sds-typography-title-hero-font-weight);
+  line-height: 1.2;
+  letter-spacing: -2.16px;
 }
 
 .text-content-title--hero .text-content-title__subtitle {
-  text-align: center;
-  line-height: 120%; /* 38.4px */
+  font-family: var(--sds-typography-subtitle-font-family);
   font-size: var(--sds-typography-subtitle-size-base);
-  color: var(--sds-color-text-default-secondary);
+  font-weight: var(--sds-typography-subtitle-font-weight);
+  line-height: 1.2;
 }
 
 /* Desktop (992px and above) - Hero Title */
@@ -42,7 +61,7 @@
     font-family: var(--sds-typography-title-hero-font-family);
     font-size: var(--sds-typography-title-hero-size);
     font-weight: var(--sds-typography-title-hero-font-weight);
-    line-height: 120%; /* 86.4px */
+    line-height: 1.2;
     letter-spacing: -2.16px;
   }
 }
@@ -53,7 +72,7 @@
     font-family: var(--sds-typography-title-page-font-family);
     font-size: var(--sds-typography-title-page-size-base);
     font-weight: var(--sds-typography-title-page-font-weight);
-    line-height: 120%; /* 57.6px */
+    line-height: 1.2;
     letter-spacing: -0.96px;
   }
 }

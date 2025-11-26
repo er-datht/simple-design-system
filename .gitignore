@@ -28,3 +28,6 @@ dist-ssr
 CLAUDE.md
 .claude/
 resource/
+
+# Github files
+.github/

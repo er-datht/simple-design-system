@@ -1,0 +1,22 @@
+.contact-us-page {
+  width: 100%;
+}
+
+.contact-us-page__success {
+  padding: var(--sds-size-space-400);
+  background: var(--sds-color-background-positive-tertiary);
+  color: var(--sds-color-text-positive-default);
+  border: 1px solid var(--sds-color-border-positive-tertiary);
+  border-radius: var(--sds-size-radius-200);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-us-page__success p {
+  margin: 0;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+}
