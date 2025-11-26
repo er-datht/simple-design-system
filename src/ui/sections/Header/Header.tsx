@@ -8,6 +8,9 @@ import { HeaderAuth } from "../HeaderAuth/HeaderAuth";
 import { IconButton } from "../../primitives/Button/IconButton";
 import { IconMenu } from "../../icons/IconMenu";
 import { IconX } from "../../icons/IconX";
+import { IconSun } from "../../icons/IconSun";
+import { IconMoon } from "../../icons/IconMoon";
+import { useTheme } from "../../../utils/ThemeContext";
 import { cn } from "../../../utils/cn";
 import "./header.css";
 
@@ -154,6 +157,7 @@ export const Header = ({
 }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   // Determine active navigation based on current location if not explicitly provided
   const computedActiveNavId =
@@ -244,6 +248,19 @@ export const Header = ({
           onSignInClick={onSignInClick}
           onRegisterClick={onRegisterClick}
           className={!isLoggedIn ? "w-full" : ""}
+        />
+
+        {/* Theme Toggle Button */}
+        <IconButton
+          icon={theme === "dark" ? <IconSun size="24" /> : <IconMoon size="24" />}
+          variant="subtle"
+          className="header-theme-toggle"
+          onClick={toggleTheme}
+          aria-label={
+            theme === "dark"
+              ? "Switch to light mode"
+              : "Switch to dark mode"
+          }
         />
       </div>
     </header>

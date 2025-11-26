@@ -4,7 +4,6 @@ import { PrimitivesDemo } from "../../components/PrimitivesDemo";
 import { TypographyDemo } from "../../components/TypographyDemo";
 import { SectionsDemo } from "../../components/SectionsDemo";
 import { FormsDemo } from "../../components/FormsDemo";
-import { Container } from "../../ui/layout/Container";
 
 export const DemosPage = () => {
   return (

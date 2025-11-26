@@ -64,15 +64,18 @@ export function FormShippingDemo() {
         <h3 className="text-lg font-medium text-gray-800 mb-4">
           Full Validation Example
         </h3>
-        <p className="text-gray-600 mb-4">
-          Try submitting with empty fields or invalid data. Validation includes:
+        <div className="text-gray-600 mb-4">
+          <p>
+            Try submitting with empty fields or invalid data. Validation
+            includes:
+          </p>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>Full name required</li>
             <li>Location selection required</li>
             <li>Delivery note optional</li>
             <li>Terms acceptance required</li>
           </ul>
-        </p>
+        </div>
         <div className="max-w-md">
           <FormShipping
             onSubmit={handleSubmit}
@@ -128,7 +131,9 @@ export function FormShippingDemo() {
               { label: "South America", value: "sa" },
             ]}
             onSubmit={(data) => {
-              alert(`Delivery details saved:\n${JSON.stringify(data, null, 2)}`);
+              alert(
+                `Delivery details saved:\n${JSON.stringify(data, null, 2)}`
+              );
             }}
             buttons={
               <Button variant="primary" type="submit">
