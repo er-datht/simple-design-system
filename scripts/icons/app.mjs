@@ -5,6 +5,7 @@ const TOKEN = process.env.FIGMA_ACCESS_TOKEN;
 const FILE_KEY = process.env.FIGMA_FILE_KEY;
 const URL_BASE = "https://api.figma.com/v1/files";
 const URL_BASE_IMAGES = "https://api.figma.com/v1/images";
+const FIGMA_ICONS_BASE = process.env.FIGMA_ICONS_BASE;
 // The name of the variant for each icon you want to export.
 // If you dont have variants, you'll need to modify this script.
 const ICON_VARIANT_NAME = "Size=16";
@@ -224,7 +225,7 @@ async function fileRESTResponseToIconComponentsJSON(response) {
     svgString.push(");");
     // Code Connect doc code
     figmaString.push(
-      `figma.connect(${name}, "<FIGMA_ICONS_BASE>?node-id=${componentSetId}", { props: { size: figma.enum("Size", { "20": "20", "24": "24", "32": "32", "40": "40", "48": "48" }) }, example: ({ size }) => <${name} size={size} /> });`
+      `figma.connect(${name}, "${FIGMA_ICONS_BASE}?node-id=${componentSetId}", { props: { size: figma.enum("Size", { "16": "16", "20": "20", "24": "24", "32": "32", "40": "40", "48": "48" }) }, example: ({ size }) => <${name} size={size} /> });`
     );
     // Add the strings for this component into our result.
     result.push([name, svgString.join("\n"), figmaString.join("\n")]);

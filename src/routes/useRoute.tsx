@@ -1,6 +1,7 @@
 import type { RouteObject } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
 import { DemosPage } from "../pages/DemosPage";
+import { AboutPage } from "../pages/AboutPage";
 import { ContactUsPage } from "../pages/ContactUsPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { Container } from "../ui/layout/Container";
@@ -18,6 +19,10 @@ export const Routes: RouteObject[] = [
       {
         path: ROUTES.COMPONENTS,
         element: <DemosPage />,
+      },
+      {
+        path: ROUTES.ABOUT,
+        element: <AboutPage />,
       },
       {
         path: ROUTES.CONTACT,

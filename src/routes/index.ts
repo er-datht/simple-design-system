@@ -7,6 +7,7 @@ export const ROUTES = {
   COMMUNITY: "/community",
   RESOURCES: "/resources",
   PRICING: "/pricing",
+  ABOUT: "/about",
   CONTACT: "/contact",
   NOT_FOUND: "*",
 } as const;

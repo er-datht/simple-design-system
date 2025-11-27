@@ -1,8 +1,10 @@
 import HeroActionsDemo from "./HeroActionsDemo";
+import HeroBasicDemo from "./HeroBasicDemo";
 import { HeaderAuthDemo } from "./HeaderAuthDemo";
 import { HeaderDemo } from "./HeaderDemo";
 import CardGridTestimonialsDemo from "./CardGridTestimonialsDemo";
 import FooterDemo from "./FooterDemo";
+import { PanelImageDoubleDemo } from "./PanelImageDoubleDemo";
 import { Tabs } from "../ui/primitives/Tab";
 
 export function SectionsDemo() {
@@ -13,6 +15,11 @@ export function SectionsDemo() {
           id: "hero-actions",
           label: "Hero Actions",
           content: <HeroActionsDemo />,
+        },
+        {
+          id: "hero-basic",
+          label: "Hero Basic",
+          content: <HeroBasicDemo />,
         },
         {
           id: "header-auth",
@@ -33,6 +40,11 @@ export function SectionsDemo() {
           id: "footer",
           label: "Footer",
           content: <FooterDemo />,
+        },
+        {
+          id: "panel-image-double",
+          label: "Panel Image Double",
+          content: <PanelImageDoubleDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"

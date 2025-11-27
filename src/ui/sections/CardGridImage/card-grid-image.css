@@ -1,0 +1,131 @@
+/* Card Grid Image Section Component */
+
+.card-grid-image {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-1200); /* 48px */
+  align-items: flex-start;
+  padding: var(--sds-size-space-600); /* 24px - mobile default */
+  max-width: 375px; /* Mobile default */
+  background: var(--sds-color-background-default-default);
+  box-sizing: border-box;
+  margin: 0 auto; /* Center the container */
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .card-grid-image {
+    padding: var(--sds-size-space-1600); /* 64px */
+    max-width: 1200px;
+  }
+}
+
+/* Text Content Heading */
+.card-grid-image__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200); /* 8px */
+  align-items: flex-start;
+  width: 100%;
+}
+
+.card-grid-image__heading {
+  font-family: var(--sds-typography-heading-font-family);
+  font-weight: var(--sds-typography-heading-font-weight); /* 600 */
+  font-size: var(--sds-typography-heading-size-base); /* 24px */
+  line-height: 1.2;
+  letter-spacing: -0.48px; /* -2% */
+  color: var(--sds-color-text-default-default);
+  margin: 0;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+.card-grid-image__subheading {
+  font-family: var(--sds-typography-subheading-font-family);
+  font-weight: var(--sds-typography-subheading-font-weight-regular); /* 400 */
+  font-size: var(--sds-typography-subheading-size-medium); /* 20px */
+  line-height: 1.2;
+  color: var(--sds-color-text-default-secondary);
+  margin: 0;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+/* Cards Container */
+.card-grid-image__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sds-size-space-1200); /* 48px */
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Individual Card - Layout adjustments for grid */
+.card-grid-image__card {
+  flex: 1 0 0;
+  min-width: 240px;
+}
+
+/* Desktop: 3 cards per row */
+@media (min-width: 768px) {
+  .card-grid-image__card {
+    /* Proper calculation for 3 columns with gap:
+       Each card = (100% - (2 gaps * 48px)) / 3 = calc((100% - 96px) / 3) */
+    flex: 1 1 calc((100% - (2 * var(--sds-size-space-1200))) / 3);
+    max-width: calc((100% - (2 * var(--sds-size-space-1200))) / 3);
+  }
+}
+
+/* Mobile: full width cards */
+@media (max-width: 767px) {
+  .card-grid-image__card {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+/* Equal height cards with text truncation */
+.card-grid-image__card {
+  /* Set consistent card height */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Override Card component's body to constrain height */
+.card-grid-image__card .card__body {
+  flex: 1 1 auto;
+  min-height: 0; /* Important for flexbox overflow handling */
+  overflow: hidden;
+}
+
+/* Constrain text section */
+.card-grid-image__card .card__text-section {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Truncate body text to 3 lines */
+.card-grid-image__card .card__body-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Override pre-wrap */
+}
+
+/* Ensure heading doesn't wrap excessively */
+.card-grid-image__card .card__heading {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Limit heading to 2 lines */
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Override pre-wrap */
+}
