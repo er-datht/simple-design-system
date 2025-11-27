@@ -28,6 +28,7 @@ const navigationItems: NavigationPillItem[] = [
   { id: "resources", label: "Resources", href: ROUTES.RESOURCES },
   { id: "pricing", label: "Pricing", href: ROUTES.PRICING },
   { id: "contact", label: "Contact", href: ROUTES.CONTACT },
+  { id: "about", label: "About", href: ROUTES.ABOUT },
   { id: "components", label: "Components", href: ROUTES.COMPONENTS },
 ];
 
