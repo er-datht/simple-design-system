@@ -12,33 +12,22 @@ figma.connect(
   PricingCard,
   "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk?node-id=1444%3A11846",
   {
-    props: {
-      // These props were automatically mapped based on your linked code:
-      variant: figma.enum("Variant", {
-        Stroke: "Stroke",
-        Brand: "Brand",
-      }),
-      // No matching props could be found for these Figma properties:
-      // "device": figma.enum('Device', {
-      //   "Desktop": "desktop",
-      //   "Mobile": "mobile"
-      // })
-    },
-    example: (props) => (
+    props: {},
+    example: () => (
       <PricingCard
-        variant={props.variant}
-        title="Starter"
-        price="29"
+        title="Professional"
+        price="99"
         currency="$"
-        priceLabel="/ mo"
-        list={[
-          "10 projects",
-          "Basic analytics",
-          "Email support",
-          "Community access",
+        period="/ mo"
+        features={[
+          "Unlimited projects",
+          "Advanced analytics",
+          "Priority support",
+          "Team collaboration",
         ]}
-        buttonText="Start Free Trial"
+        buttonLabel="Start Free Trial"
         onButtonClick={() => {}}
+        isBrand={true}
       />
     ),
   }

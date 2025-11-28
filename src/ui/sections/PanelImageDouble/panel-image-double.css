@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-none) var(--spacing-6);
+  padding: var(--sds-size-space-none) var(--sds-size-space-600);
 }
 
 .panel-image-double__container {
@@ -13,7 +13,7 @@
   max-width: var(--section-max-width);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
+  gap: var(--sds-size-space-600);
   padding: var(--sds-size-space-600);
 }
 
@@ -36,7 +36,7 @@
 @media (min-width: 769px) {
   .panel-image-double__container {
     flex-direction: row;
-    gap: var(--spacing-6);
+    gap: var(--sds-size-space-1200);
     padding: var(--sds-size-space-1600);
   }
 

@@ -9,6 +9,7 @@ import ProductInfoCardDemo from "./ProductInfoCardDemo";
 import ReviewCardDemo from "./ReviewCardDemo";
 import StatsCardDemo from "./StatsCardDemo";
 import { InputDemo } from "./InputDemo";
+import AccordionDemo from "./AccordionDemo";
 
 export function PrimitivesDemo() {
   return (
@@ -74,6 +75,11 @@ export function PrimitivesDemo() {
           id: "input",
           label: "Input",
           content: <InputDemo />,
+        },
+        {
+          id: "accordion",
+          label: "Accordion",
+          content: <AccordionDemo />,
         },
       ]}
       defaultActiveTab="buttons"

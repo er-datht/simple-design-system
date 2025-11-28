@@ -1,5 +1,6 @@
 import { type HTMLAttributes } from "react";
 import { cn } from "../../../utils/cn";
+import { Button } from "../Button/Button";
 import { TextHeading } from "../../typography/TextHeading/TextHeading";
 import { TextPrice } from "../../typography/TextPrice/TextPrice";
 import { TextList } from "../../typography/TextList/TextList";
@@ -7,22 +8,9 @@ import { TextListItem } from "../../typography/TextListItem/TextListItem";
 import "./card.css";
 
 /**
- * Visual variant for color scheme
- */
-export type PricingCardVariant = "Stroke" | "Brand";
-
-/**
  * Props for PricingCard component
  */
 export interface PricingCardProps extends HTMLAttributes<HTMLElement> {
-  /**
-   * Determines color scheme and styling
-   * - Stroke: Light background with dark button
-   * - Brand: Dark background with light button
-   * @default "Stroke"
-   */
-  variant?: PricingCardVariant;
-
   /**
    * Plan title/name
    * @default "Title"
@@ -45,24 +33,31 @@ export interface PricingCardProps extends HTMLAttributes<HTMLElement> {
    * Billing period label
    * @default "/ mo"
    */
-  priceLabel?: string;
+  period?: string;
 
   /**
-   * List of items
+   * List of feature items
    * @default ["First list item", "Second list item", "Third list item", "Fourth list item"]
    */
-  list?: string[];
+  features?: string[];
 
   /**
    * Button text label
    * @default "Button"
    */
-  buttonText?: string;
+  buttonLabel?: string;
 
   /**
    * Button click handler
    */
   onButtonClick?: () => void;
+
+  /**
+   * Whether to use the brand variant (dark/inverted styling)
+   * Creates a highlighted/featured card appearance
+   * @default false
+   */
+  isBrand?: boolean;
 
   /**
    * Additional CSS classes
@@ -76,67 +71,59 @@ export interface PricingCardProps extends HTMLAttributes<HTMLElement> {
  * A comprehensive component designed to display pricing information, plan details, and call-to-action buttons.
  * Showcases pricing tiers with titles, prices, feature lists, and actionable buttons.
  *
- * Supports multiple responsive variants (Desktop and Mobile) and styling options (Stroke and Brand themes),
+ * Supports multiple responsive variants (Desktop and Mobile) with theme-based styling,
  * making it flexible for various pricing page layouts.
  *
  * **Figma Source:** [PricingCard Component](https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk/Simple-Design-System--Community-?node-id=1444-11846)
  *
  * @example
  * ```tsx
- * // Default Stroke variant
+ * // Default usage
  * <PricingCard />
  *
- * // Brand variant (featured tier)
- * <PricingCard variant="Brand" />
- *
- * // Custom pricing grid
+ * // Custom pricing card
  * <PricingCard
  *   title="Professional"
  *   price="99"
- *   list={["Unlimited projects", "Priority support", "Advanced analytics"]}
- *   buttonText="Subscribe"
- *   variant="Brand"
+ *   features={["Unlimited projects", "Priority support", "Advanced analytics"]}
+ *   buttonLabel="Subscribe"
+ * />
+ *
+ * // Featured/highlighted card with brand styling
+ * <PricingCard
+ *   title="Enterprise"
+ *   price="299"
+ *   features={["Unlimited everything", "24/7 support", "Custom analytics"]}
+ *   buttonLabel="Contact Sales"
+ *   isBrand={true}
  * />
  * ```
  */
 export function PricingCard({
-  variant = "Stroke",
   title = "Title",
   price = "50",
   currency = "$",
-  priceLabel = "/ mo",
-  list = [
+  period = "/ mo",
+  features = [
     "First list item",
     "Second list item",
     "Third list item",
     "Fourth list item",
   ],
-  buttonText = "Button",
+  buttonLabel = "Button",
   onButtonClick,
+  isBrand = false,
   className,
   ...rest
 }: PricingCardProps) {
-  // Calculate Figma node ID based on variant (default to Desktop variant)
-  const getNodeId = () => {
-    const nodeIdMap: Record<string, string> = {
-      Stroke: "7722:3736",
-      Brand: "1444:13098",
-    };
-    return nodeIdMap[variant] || "7722:3736";
-  };
-
-  // Determine button styling based on variant
-  const isStrokeVariant = variant === "Stroke";
-
   return (
     <article
       className={cn(
         "pricing-card",
-        `pricing-card--${variant.toLowerCase()}`,
+        isBrand ? "pricing-card--brand" : "pricing-card--stroke",
         className
       )}
       data-name="PricingCard"
-      data-node-id={getNodeId()}
       aria-label={`${title} pricing card`}
       {...rest}
     >
@@ -154,7 +141,7 @@ export function PricingCard({
             <TextPrice
               price={price}
               currency={currency}
-              label={priceLabel}
+              label={period}
               hasLabel={true}
               size="Large"
             />
@@ -166,7 +153,7 @@ export function PricingCard({
             <TextPrice
               price={price}
               currency={currency}
-              label={priceLabel}
+              label={period}
               hasLabel={true}
               size="Small"
             />
@@ -174,26 +161,22 @@ export function PricingCard({
 
           {/* Features List - responsive density handled by CSS */}
           <TextList density="Default" className="pricing-card__list">
-            {list.map((feature, index) => (
+            {features.map((feature, index) => (
               <TextListItem key={index} text={feature} />
             ))}
           </TextList>
         </div>
 
         {/* Button */}
-        <button
-          type="button"
-          className={cn(
-            "pricing-card__button",
-            isStrokeVariant
-              ? "pricing-card__button--stroke"
-              : "pricing-card__button--brand"
-          )}
+        <Button
+          variant="primary"
+          size="md"
           onClick={onButtonClick}
-          aria-label={`${buttonText} for ${title} plan`}
+          aria-label={`${buttonLabel} for ${title} plan`}
+          className="pricing-card__button"
         >
-          <span className="pricing-card__button-text">{buttonText}</span>
-        </button>
+          {buttonLabel}
+        </Button>
       </div>
     </article>
   );

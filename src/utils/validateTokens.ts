@@ -98,7 +98,7 @@ export function validateTokens(): TokenValidationResult {
       `⚠️ Token validation found ${missingTokens.length} missing CSS custom properties:`
     );
     missingTokens.forEach((token) => {
-      console.warn(`  - ${token}`);
+      console.warn(`${token}`);
     });
     console.warn(
       "These tokens are referenced in your CSS but not defined in theme.css or :root"

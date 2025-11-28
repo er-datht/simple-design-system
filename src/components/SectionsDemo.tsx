@@ -6,6 +6,7 @@ import CardGridTestimonialsDemo from "./CardGridTestimonialsDemo";
 import FooterDemo from "./FooterDemo";
 import { PanelImageDoubleDemo } from "./PanelImageDoubleDemo";
 import { Tabs } from "../ui/primitives/Tab";
+import PageAccordionDemo from "./PageAccordionDemo";
 
 export function SectionsDemo() {
   return (
@@ -45,6 +46,11 @@ export function SectionsDemo() {
           id: "panel-image-double",
           label: "Panel Image Double",
           content: <PanelImageDoubleDemo />,
+        },
+        {
+          id: "page-accordion",
+          label: "Page Accordion",
+          content: <PageAccordionDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"
