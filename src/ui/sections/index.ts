@@ -4,6 +4,7 @@ export { HeaderAuth, type HeaderAuthProps } from "./HeaderAuth";
 export { HeroActions, type HeroActionsProps } from "./HeroAction";
 export { HeroForm, type HeroFormProps } from "./HeroForm";
 export { HeroBasic, type HeroBasicProps } from "./HeroBasic";
+export { HeroNewsletter, type HeroNewsletterProps } from "./HeroNewsletter";
 export {
   CardGridTestimonials,
   type CardGridTestimonialsProps,
