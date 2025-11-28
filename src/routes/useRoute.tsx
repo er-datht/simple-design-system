@@ -4,6 +4,7 @@ import { DemosPage } from "../pages/DemosPage";
 import { AboutPage } from "../pages/AboutPage";
 import { ContactUsPage } from "../pages/ContactUsPage";
 import { PricingPage } from "../pages/PricingPage";
+import { WaitlistPage } from "../pages/WaitlistPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { Container } from "../ui/layout/Container";
 import { ROUTES } from ".";
@@ -32,6 +33,10 @@ export const Routes: RouteObject[] = [
       {
         path: ROUTES.PRICING,
         element: <PricingPage />,
+      },
+      {
+        path: ROUTES.WAITLIST,
+        element: <WaitlistPage />,
       },
     ],
   },

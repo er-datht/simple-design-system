@@ -7,6 +7,7 @@ import FooterDemo from "./FooterDemo";
 import { PanelImageDoubleDemo } from "./PanelImageDoubleDemo";
 import { Tabs } from "../ui/primitives/Tab";
 import PageAccordionDemo from "./PageAccordionDemo";
+import HeroNewsletterDemo from "./HeroNewsletterDemo";
 
 export function SectionsDemo() {
   return (
@@ -21,6 +22,11 @@ export function SectionsDemo() {
           id: "hero-basic",
           label: "Hero Basic",
           content: <HeroBasicDemo />,
+        },
+        {
+          id: "hero-newsletter",
+          label: "Hero Newsletter",
+          content: <HeroNewsletterDemo />,
         },
         {
           id: "header-auth",
@@ -46,6 +52,11 @@ export function SectionsDemo() {
           id: "panel-image-double",
           label: "Panel Image Double",
           content: <PanelImageDoubleDemo />,
+        },
+        {
+          id: "page-accordion",
+          label: "Page Accordion",
+          content: <PageAccordionDemo />,
         },
         {
           id: "page-accordion",

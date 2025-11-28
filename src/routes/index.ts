@@ -9,5 +9,6 @@ export const ROUTES = {
   PRICING: "/pricing",
   ABOUT: "/about",
   CONTACT: "/contact",
+  WAITLIST: "/waitlist",
   NOT_FOUND: "*",
 } as const;
