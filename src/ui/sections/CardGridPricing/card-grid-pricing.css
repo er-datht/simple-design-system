@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Card Grid Pricing Section Styles
+   ========================================================================== */
+
+/* Section Container */
+.card-grid-pricing {
+  background-color: var(--sds-color-background-default-default);
+  width: 100%;
+}
+
+/* Platform Variants - Mobile First */
+.card-grid-pricing__mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sds-size-space-600);
+  padding: var(--sds-size-space-600);
+  width: 100%;
+  max-width: var(--sds-responsive-device-width);
+  margin: 0 auto;
+}
+
+.card-grid-pricing__desktop {
+  display: none;
+}
+
+/* Desktop Platform */
+@media (min-width: 768px) {
+  .card-grid-pricing__mobile {
+    display: none;
+  }
+
+  .card-grid-pricing__desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sds-size-space-1200);
+    padding: var(--sds-size-space-1600);
+    width: 100%;
+    max-width: var(--sds-responsive-device-width);
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   Navigation Pills
+   ========================================================================== */
+
+.card-grid-pricing__navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sds-size-space-200);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card-grid-pricing__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sds-size-space-200);
+  padding: var(--sds-size-space-200);
+  border-radius: var(--sds-size-radius-200);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.card-grid-pricing__pill:hover {
+  background-color: var(--sds-color-background-brand-tertiary);
+}
+
+.card-grid-pricing__pill:focus-visible {
+  outline: 2px solid var(--sds-color-border-brand-primary);
+  outline-offset: 2px;
+}
+
+.card-grid-pricing__pill--active {
+  background-color: var(--sds-color-background-brand-tertiary);
+}
+
+.card-grid-pricing__pill-text {
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1;
+  color: var(--sds-color-text-default-default);
+  white-space: nowrap;
+}
+
+.card-grid-pricing__pill--active .card-grid-pricing__pill-text {
+  color: var(--sds-color-text-brand-on-brand-secondary);
+}
+
+/* ==========================================================================
+   Card Grid Layout
+   ========================================================================== */
+
+/* Mobile: Stacked Cards (< 768px) */
+.card-grid-pricing__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600);
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* Tablet: 2 Cards Per Row (≥ 768px) */
+@media (min-width: 768px) {
+  .card-grid-pricing__cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sds-size-space-1600);
+    align-items: stretch;
+  }
+
+  .card-grid-pricing__card {
+    /* 2 cards per row with 64px gap */
+    /* Formula: (100% - (1 gap × 64px)) ÷ 2 cards = calc((100% - 64px) / 2) */
+    flex: 1 1 calc((100% - 64px) / 2);
+    min-width: 280px;
+    max-width: calc((100% - 64px) / 2);
+  }
+}
+
+/* Desktop: 3 Cards Per Row (≥ 1200px) */
+@media (min-width: 1200px) {
+  .card-grid-pricing__card {
+    /* 3 cards per row with 64px gaps */
+    /* Formula: (100% - (2 gaps × 64px)) ÷ 3 cards = calc((100% - 128px) / 3) */
+    flex: 1 1 calc((100% - 128px) / 3);
+    min-width: 280px;
+    max-width: calc((100% - 128px) / 3);
+  }
+}
+
+/* Mobile Card Width */
+.card-grid-pricing__mobile .card-grid-pricing__card {
+  width: 100%;
+}

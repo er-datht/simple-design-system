@@ -25,3 +25,12 @@ export {
   type CardGridImageProps,
   type CardGridImageCardItem,
 } from "./CardGridImage";
+
+export {
+  CardGridPricing,
+  type CardGridPricingProps,
+  type PricingCardConfig,
+  type BillingPeriod,
+} from "./CardGridPricing";
+
+export { PageAccordion, type PageAccordionProps } from "./PageAccordion";

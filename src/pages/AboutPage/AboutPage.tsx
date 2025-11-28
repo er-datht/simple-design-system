@@ -160,27 +160,25 @@ export const AboutPage = () => {
   }, []);
 
   return (
-    <div className="about-page">
-      <main>
-        <HeroBasic title={data.hero.title} subtitle={data.hero.subtitle} />
+    <main className="about-page">
+      <HeroBasic title={data.hero.title} subtitle={data.hero.subtitle} />
 
-        <PanelImageDouble
-          leftImageSrc={data.panelImage.leftImageSrc}
-          rightImageSrc={data.panelImage.rightImageSrc}
-        />
+      <PanelImageDouble
+        leftImageSrc={data.panelImage.leftImageSrc}
+        rightImageSrc={data.panelImage.rightImageSrc}
+      />
 
-        <CardGridContentList
-          heading={data.team.heading}
-          subheading={data.team.subheading}
-          cards={data.team.members}
-        />
+      <CardGridContentList
+        heading={data.team.heading}
+        subheading={data.team.subheading}
+        cards={data.team.members}
+      />
 
-        <CardGridImage
-          heading={data.values.heading}
-          subheading={data.values.subheading}
-          cards={data.values.cards}
-        />
-      </main>
-    </div>
+      <CardGridImage
+        heading={data.values.heading}
+        subheading={data.values.subheading}
+        cards={data.values.cards}
+      />
+    </main>
   );
 };

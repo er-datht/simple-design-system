@@ -407,6 +407,7 @@ html[data-theme="dark"] {
   --sds-size-space-2400: 6rem;
   --sds-size-space-300: 0.75rem;
   --sds-size-space-400: 1rem;
+  --sds-size-padding-lg: 1rem;
   --sds-size-space-4000: 10rem;
   --sds-size-space-600: 1.5rem;
   --sds-size-space-800: 2rem;

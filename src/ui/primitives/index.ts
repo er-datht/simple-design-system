@@ -72,6 +72,9 @@ export {
 // Tab components
 export { Tabs, type TabsProps, type TabItem } from "./Tab";
 
+// Accordion components
+export { Accordion, type AccordionProps, type AccordionItem } from "./Accordion";
+
 // TestimonialCard component
 export { TestimonialCard, type TestimonialCardProps } from "./TestimonialCard";
 
@@ -84,7 +87,6 @@ export {
   type CardDirection,
   PricingCard,
   type PricingCardProps,
-  type PricingCardVariant,
   ProductInfoCard,
   type ProductInfoCardProps,
   ReviewCard,

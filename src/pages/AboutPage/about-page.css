@@ -1,8 +1,5 @@
 .about-page {
-  width: 100%;
-}
-
-.about-page main {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }

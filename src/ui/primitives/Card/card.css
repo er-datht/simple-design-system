@@ -238,6 +238,20 @@
 .pricing-card--brand {
   background-color: var(--sds-color-background-brand-default);
   border-color: var(--sds-color-border-brand-default);
+  color: var(--sds-color-text-brand-on-brand);
+}
+
+/* Override text colors for all child elements in brand variant */
+.pricing-card--brand * {
+  color: var(--sds-color-text-brand-on-brand);
+}
+
+/* Brand variant: Override button styling */
+.pricing-card--brand .pricing-card__button,
+.pricing-card--brand button {
+  background-color: var(--sds-color-background-neutral-tertiary) !important;
+  border-color: var(--sds-color-border-neutral-secondary) !important;
+  color: var(--sds-color-text-default-default) !important;
 }
 
 /* Content Container */

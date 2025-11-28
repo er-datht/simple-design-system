@@ -3,6 +3,7 @@ import { HomePage } from "../pages/HomePage";
 import { DemosPage } from "../pages/DemosPage";
 import { AboutPage } from "../pages/AboutPage";
 import { ContactUsPage } from "../pages/ContactUsPage";
+import { PricingPage } from "../pages/PricingPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { Container } from "../ui/layout/Container";
 import { ROUTES } from ".";
@@ -27,6 +28,10 @@ export const Routes: RouteObject[] = [
       {
         path: ROUTES.CONTACT,
         element: <ContactUsPage />,
+      },
+      {
+        path: ROUTES.PRICING,
+        element: <PricingPage />,
       },
     ],
   },

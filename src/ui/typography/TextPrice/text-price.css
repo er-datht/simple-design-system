@@ -5,6 +5,7 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
+  gap: 0;
   color: var(--sds-color-text-default-default);
   font-style: normal;
 }
@@ -27,15 +28,12 @@
   margin: 0;
 }
 
-/* Currency Symbol Styles */
-.text-price__currency {
-}
-
 /* Large Variant - Currency */
 .text-price--large .text-price__currency {
   font-family: var(--sds-typography-title-page-font-family);
   font-weight: var(--sds-typography-title-page-font-weight);
   font-size: var(--sds-typography-subtitle-size-small);
+  line-height: 1;
   letter-spacing: -0.48px;
 }
 
@@ -44,11 +42,8 @@
   font-family: var(--sds-typography-body-font-family);
   font-weight: var(--sds-typography-body-font-weight-strong);
   font-size: var(--sds-typography-body-size-medium);
+  line-height: 1;
   letter-spacing: -0.32px;
-}
-
-/* Price Amount Styles */
-.text-price__amount {
 }
 
 /* Large Variant - Amount */
@@ -56,6 +51,7 @@
   font-family: var(--sds-typography-title-page-font-family);
   font-weight: var(--sds-typography-title-page-font-weight);
   font-size: var(--sds-typography-title-page-size-base);
+  line-height: 1;
   letter-spacing: -0.96px;
 }
 
@@ -64,6 +60,7 @@
   font-family: var(--sds-typography-heading-font-family);
   font-weight: var(--sds-typography-heading-font-weight);
   font-size: var(--sds-typography-heading-size-base);
+  line-height: 1;
   letter-spacing: -0.48px;
 }
 
@@ -72,15 +69,18 @@
   font-family: var(--sds-typography-body-font-family);
   font-weight: var(--sds-typography-body-font-weight-regular);
   font-size: var(--sds-typography-body-size-small);
+  line-height: 1;
   letter-spacing: 0;
+  align-self: flex-end;
+  padding-bottom: 0.35em;
 }
 
 /* Large Variant - Label */
 .text-price--large .text-price__label {
-  line-height: 1.8;
+  line-height: 1;
 }
 
 /* Small Variant - Label */
 .text-price--small .text-price__label {
-  line-height: 1.2;
+  line-height: 1;
 }

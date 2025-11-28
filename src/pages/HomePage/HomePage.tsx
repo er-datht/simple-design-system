@@ -106,46 +106,42 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className="home-page">
-      <main>
-        <HeroActions
-          title={data.hero.title}
-          subtitle={data.hero.subtitle}
-          buttons={
-            <>
-              <Button variant="neutral" size="md">
-                Learn More
-              </Button>
-              <Button variant="primary" size="md">
-                Get Started
-              </Button>
-            </>
-          }
-        />
+    <main className="home-page">
+      <HeroActions
+        title={data.hero.title}
+        subtitle={data.hero.subtitle}
+        buttons={
+          <>
+            <Button variant="neutral" size="md">
+              Learn More
+            </Button>
+            <Button variant="primary" size="md">
+              Get Started
+            </Button>
+          </>
+        }
+      />
 
-        <ImageSection
-          backgroundImage={data.imageSection.backgroundImage}
-          height={data.imageSection.height}
-          alt={data.imageSection.alt}
-        />
+      <ImageSection
+        backgroundImage={data.imageSection.backgroundImage}
+        height={data.imageSection.height}
+        alt={data.imageSection.alt}
+      />
 
-        <CardGridTestimonials
-          heading="What our customers say"
-          subheading="Don't just take our word for it"
-        >
-          {data.testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              quote={testimonial.quote}
-              avatar={
-                <Avatar type="initial" name={testimonial.name} size="md" />
-              }
-              name={testimonial.name}
-              role={testimonial.role}
-            />
-          ))}
-        </CardGridTestimonials>
-      </main>
-    </div>
+      <CardGridTestimonials
+        heading="What our customers say"
+        subheading="Don't just take our word for it"
+      >
+        {data.testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            key={index}
+            quote={testimonial.quote}
+            avatar={<Avatar type="initial" name={testimonial.name} size="md" />}
+            name={testimonial.name}
+            role={testimonial.role}
+          />
+        ))}
+      </CardGridTestimonials>
+    </main>
   );
 };
