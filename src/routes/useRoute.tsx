@@ -6,6 +6,7 @@ import { ContactUsPage } from "../pages/ContactUsPage";
 import { PricingPage } from "../pages/PricingPage";
 import { WaitlistPage } from "../pages/WaitlistPage";
 import { LandingPage } from "../pages/LandingPage";
+import { ArticlePage } from "../pages/ArticlePage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { Container } from "../ui/layout/Container";
 import { ROUTES } from ".";
@@ -42,6 +43,10 @@ export const Routes: RouteObject[] = [
       {
         path: ROUTES.LANDING,
         element: <LandingPage />,
+      },
+      {
+        path: ROUTES.ARTICLE,
+        element: <ArticlePage />,
       },
     ],
   },
