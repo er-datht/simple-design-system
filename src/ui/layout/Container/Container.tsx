@@ -126,6 +126,13 @@ export const Container = ({
                 { text: "Resource library" },
               ],
             },
+            {
+              title: "Pages",
+              items: [
+                { text: "Landing", href: ROUTES.LANDING },
+                { text: "Article", href: ROUTES.ARTICLE },
+              ],
+            },
           ]}
         />
       </>

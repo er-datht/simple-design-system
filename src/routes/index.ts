@@ -11,5 +11,6 @@ export const ROUTES = {
   CONTACT: "/contact",
   WAITLIST: "/waitlist",
   LANDING: "/landing",
+  ARTICLE: "/article",
   NOT_FOUND: "*",
 } as const;

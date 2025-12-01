@@ -114,7 +114,7 @@ export type NavigationSection = {
   /** Figma node ID for tracking */
   nodeId?: string;
   /** Array of link items */
-  items: Array<{ text: string }>;
+  items: Array<{ text: string; href?: string }>;
 };
 
 /**
@@ -415,7 +415,11 @@ function FooterDefault({
           data-figma-node-id={section.nodeId}
         >
           {section.items.map((item, itemIndex) => (
-            <TextLinkListItem key={itemIndex} text={item.text} />
+            <TextLinkListItem
+              key={itemIndex}
+              text={item.text}
+              href={item.href}
+            />
           ))}
         </Footer.Nav>
       ))}

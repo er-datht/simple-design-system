@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: var(--sds-responsive-device-width);
 
   /* Mobile spacing */
   gap: var(--sds-size-space-1600);
