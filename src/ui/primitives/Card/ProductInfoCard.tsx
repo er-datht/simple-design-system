@@ -3,6 +3,7 @@ import { cn } from "../../../utils/cn";
 import { Text } from "../../typography/Text/Text";
 import { TextStrong } from "../../typography/TextStrong/TextStrong";
 import { TextSmall } from "../../typography/TextSmall/TextSmall";
+import { Image } from "../Image";
 import "./card.css";
 
 /**
@@ -109,7 +110,7 @@ export function ProductInfoCard({
         aria-hidden="true"
       >
         {imageUrl ? (
-          <img
+          <Image
             src={imageUrl}
             alt={imageAlt}
             className="product-info-card__image-asset"
@@ -125,14 +126,22 @@ export function ProductInfoCard({
         data-node-id="2142:12007"
       >
         {/* Product Name */}
-        <Text text={productName} data-node-id="611:22040" />
+        <Text
+          text={productName}
+          data-node-id="611:22040"
+          className="truncate"
+        />
 
         {/* Price */}
         <TextStrong text={price} data-node-id="611:22618" />
 
         {/* Description (Conditional) */}
         {showDescription && (
-          <TextSmall text={description} data-node-id="611:23489" />
+          <TextSmall
+            text={description}
+            data-node-id="611:23489"
+            className="line-clamp-2"
+          />
         )}
       </div>
     </article>

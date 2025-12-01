@@ -42,3 +42,11 @@ export {
   type CardGridIconProps,
   type CardGridIconCardItem,
 } from "./CardGridIcon";
+
+export {
+  PageProductResults,
+  type PageProductResultsProps,
+  type Product,
+  type FilterOption,
+  type FilterState,
+} from "./PageProductResults";
