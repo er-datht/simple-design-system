@@ -5,6 +5,7 @@ export { HeroActions, type HeroActionsProps } from "./HeroAction";
 export { HeroForm, type HeroFormProps } from "./HeroForm";
 export { HeroBasic, type HeroBasicProps } from "./HeroBasic";
 export { HeroNewsletter, type HeroNewsletterProps } from "./HeroNewsletter";
+export { HeroImage, type HeroImageProps } from "./HeroImage";
 export {
   CardGridTestimonials,
   type CardGridTestimonialsProps,
@@ -35,3 +36,9 @@ export {
 } from "./CardGridPricing";
 
 export { PageAccordion, type PageAccordionProps } from "./PageAccordion";
+
+export {
+  CardGridIcon,
+  type CardGridIconProps,
+  type CardGridIconCardItem,
+} from "./CardGridIcon";

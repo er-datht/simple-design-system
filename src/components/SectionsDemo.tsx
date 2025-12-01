@@ -1,5 +1,6 @@
 import HeroActionsDemo from "./HeroActionsDemo";
 import HeroBasicDemo from "./HeroBasicDemo";
+import HeroImageDemo from "./HeroImageDemo";
 import { HeaderAuthDemo } from "./HeaderAuthDemo";
 import { HeaderDemo } from "./HeaderDemo";
 import CardGridTestimonialsDemo from "./CardGridTestimonialsDemo";
@@ -8,6 +9,7 @@ import { PanelImageDoubleDemo } from "./PanelImageDoubleDemo";
 import { Tabs } from "../ui/primitives/Tab";
 import PageAccordionDemo from "./PageAccordionDemo";
 import HeroNewsletterDemo from "./HeroNewsletterDemo";
+import CardGridIconDemo from "./CardGridIconDemo";
 
 export function SectionsDemo() {
   return (
@@ -22,6 +24,11 @@ export function SectionsDemo() {
           id: "hero-basic",
           label: "Hero Basic",
           content: <HeroBasicDemo />,
+        },
+        {
+          id: "hero-image",
+          label: "Hero Image",
+          content: <HeroImageDemo />,
         },
         {
           id: "hero-newsletter",
@@ -59,9 +66,9 @@ export function SectionsDemo() {
           content: <PageAccordionDemo />,
         },
         {
-          id: "page-accordion",
-          label: "Page Accordion",
-          content: <PageAccordionDemo />,
+          id: "card-grid-icon",
+          label: "Card Grid Icon",
+          content: <CardGridIconDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"
