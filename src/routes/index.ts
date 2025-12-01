@@ -10,5 +10,6 @@ export const ROUTES = {
   ABOUT: "/about",
   CONTACT: "/contact",
   WAITLIST: "/waitlist",
+  LANDING: "/landing",
   NOT_FOUND: "*",
 } as const;
