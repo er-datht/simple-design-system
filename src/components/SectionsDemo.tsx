@@ -10,6 +10,7 @@ import { Tabs } from "../ui/primitives/Tab";
 import PageAccordionDemo from "./PageAccordionDemo";
 import HeroNewsletterDemo from "./HeroNewsletterDemo";
 import CardGridIconDemo from "./CardGridIconDemo";
+import PageProductResultsDemo from "./PageProductResultsDemo";
 
 export function SectionsDemo() {
   return (
@@ -69,6 +70,11 @@ export function SectionsDemo() {
           id: "card-grid-icon",
           label: "Card Grid Icon",
           content: <CardGridIconDemo />,
+        },
+        {
+          id: "page-product-results",
+          label: "Page Product Results",
+          content: <PageProductResultsDemo />,
         },
       ]}
       defaultActiveTab="hero-actions"

@@ -255,6 +255,7 @@ export const Header = ({
           icon={theme === "dark" ? <IconSun size="24" /> : <IconMoon size="24" />}
           variant="subtle"
           className="header-theme-toggle"
+          size="sm"
           onClick={toggleTheme}
           aria-label={
             theme === "dark"

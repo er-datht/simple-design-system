@@ -374,11 +374,6 @@
   .pricing-card__title-price-row {
     display: flex;
   }
-
-  /* Mobile: Tighter spacing for features list (if needed, handled by TextList density prop) */
-  .pricing-card__list {
-    /* TextList component handles density internally */
-  }
 }
 
 /* ProductInfoCard Component Styles */
@@ -394,7 +389,7 @@
 
   /* Sizing */
   min-width: 240px;
-  width: 240px;
+  width: 100%;
 
   /* Card Styling */
   background: var(--sds-color-background-default-default);
@@ -402,6 +397,22 @@
     var(--sds-color-border-default-default);
   border-radius: var(--sds-size-radius-200);
   padding: var(--sds-size-space-400);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Desktop: Full width to fill grid cell */
+@media (min-width: 1200px) {
+  .product-info-card {
+    width: 100%;
+  }
+}
+
+.product-info-card:hover {
+  border-color: var(--sds-color-border-brand-default);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Image Section */
@@ -435,7 +446,7 @@
   flex-direction: column;
   gap: var(--sds-size-space-200);
   align-items: flex-start;
-  width: 208px;
+  width: 100%;
   flex-shrink: 0;
   position: relative;
 }
@@ -444,7 +455,6 @@
 @media (max-width: 640px) {
   .product-info-card {
     width: 100%;
-    max-width: 300px;
   }
 
   .product-info-card__image {

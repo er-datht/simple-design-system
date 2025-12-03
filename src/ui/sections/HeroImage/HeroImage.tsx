@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "../../../utils/cn";
 import { TextContentTitle } from "../../typography/TextContentTitle";
+import { Image } from "../../primitives/Image";
 import "./hero-image.css";
 
 export type HeroImageProps = {
@@ -40,7 +41,7 @@ export const HeroImage = ({
       aria-label={title}
     >
       <div className="hero-image__background" aria-hidden>
-        <img
+        <Image
           src={backgroundImage}
           alt={alt}
           className="hero-image__image"

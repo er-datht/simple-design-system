@@ -3,9 +3,9 @@
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--sds-size-space-300);
   align-items: flex-start;
-  width: 240px;
+  width: 100%;
   border: none;
   padding: 0;
   margin: 0;

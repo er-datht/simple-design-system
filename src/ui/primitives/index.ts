@@ -31,6 +31,9 @@ export {
 // Icon component
 export { Icon, type IconProps, type IconSize } from "./Icon";
 
+// Image component
+export { Image, type ImageProps } from "./Image";
+
 // Input components
 export {
   CheckboxField,
@@ -94,3 +97,15 @@ export {
   StatsCard,
   type StatsCardProps,
 } from "./Card";
+
+// Tag component
+export {
+  Tag,
+  type TagProps,
+  type TagScheme,
+  type TagVariant,
+} from "./Tag";
+
+// TagToggle component
+export { TagToggle, type TagToggleProps } from "./TagToggle";
+export { TagToggleGroup, type TagToggleItem, type TagToggleGroupProps } from "./TagToggleGroup";

@@ -1,4 +1,5 @@
 import { cn } from "../../../utils/cn";
+import { Image } from "../../primitives/Image";
 import "./image-section.css";
 
 export interface ImageSectionProps {
@@ -22,7 +23,7 @@ export const ImageSection = ({
     >
       <div className="image-section__background" />
       {backgroundImage && (
-        <img
+        <Image
           src={backgroundImage}
           alt={alt}
           className="image-section__image"

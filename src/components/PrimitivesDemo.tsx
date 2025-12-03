@@ -10,6 +10,9 @@ import ReviewCardDemo from "./ReviewCardDemo";
 import StatsCardDemo from "./StatsCardDemo";
 import { InputDemo } from "./InputDemo";
 import AccordionDemo from "./AccordionDemo";
+import { TagDemo } from "./TagDemo";
+import { TagToggleGroupDemo } from "./TagToggleGroupDemo";
+import { ImageDemo } from "./ImageDemo";
 
 export function PrimitivesDemo() {
   return (
@@ -80,6 +83,21 @@ export function PrimitivesDemo() {
           id: "accordion",
           label: "Accordion",
           content: <AccordionDemo />,
+        },
+        {
+          id: "tag",
+          label: "Tag",
+          content: <TagDemo />,
+        },
+        {
+          id: "tag-toggle-group",
+          label: "Tag Toggle Group",
+          content: <TagToggleGroupDemo />,
+        },
+        {
+          id: "image",
+          label: "Image",
+          content: <ImageDemo />,
         },
       ]}
       defaultActiveTab="buttons"

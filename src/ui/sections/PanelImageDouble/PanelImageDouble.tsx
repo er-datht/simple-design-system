@@ -1,3 +1,4 @@
+import { Image } from "../../primitives/Image";
 import "./panel-image-double.css";
 
 export type PanelImageDoubleProps = {
@@ -21,13 +22,13 @@ export const PanelImageDouble = ({
           className="panel-image-double__image-left"
           data-figma-node-id="2282:7377"
         >
-          <img src={leftImageSrc} alt="" className="panel-image-double__img" />
+          <Image src={leftImageSrc} alt="" className="panel-image-double__img" />
         </div>
         <div
           className="panel-image-double__image-right"
           data-figma-node-id="2282:7378"
         >
-          <img src={rightImageSrc} alt="" className="panel-image-double__img" />
+          <Image src={rightImageSrc} alt="" className="panel-image-double__img" />
         </div>
       </div>
     </section>
