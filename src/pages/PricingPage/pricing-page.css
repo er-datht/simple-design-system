@@ -1,0 +1,18 @@
+/* Pricing Page Styles */
+
+.pricing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--sds-color-background-default-default, #ffffff);
+  width: 100%;
+}
+
+/* Ensure proper spacing between sections */
+.pricing-page > * + * {
+  margin-top: 0;
+}
+
+.pricing-page .page-accordion-content {
+  max-width: 640px;
+}

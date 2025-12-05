@@ -19,7 +19,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: var(--sds-responsive-device-width);
 
   /* Mobile spacing */
   gap: var(--sds-size-space-1600);
@@ -144,4 +143,9 @@
     /* Override density to Tight on mobile */
     gap: var(--sds-size-space-200);
   }
+}
+
+/* Sticky Footer Modifier - footer stays at bottom when content is short */
+.footer--fixed {
+  margin-top: auto;
 }

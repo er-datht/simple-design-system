@@ -79,15 +79,17 @@ export function FormContactDemo() {
         <h2 className="text-2xl font-semibold mb-4 text-gray-900">
           Full Validation Example
         </h2>
-        <p className="text-gray-600 mb-6">
-          Complete form with built-in validation and submission handling. Try
-          submitting empty or with invalid data. Validation includes:
+        <div className="text-gray-600 mb-6">
+          <p>
+            Complete form with built-in validation and submission handling. Try
+            submitting empty or with invalid data. Validation includes:
+          </p>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>Name and surname required</li>
             <li>Valid email format</li>
             <li>Message min 10 characters, max 500 characters</li>
           </ul>
-        </p>
+        </div>
         <div className="max-w-md">
           {submitSuccess && (
             <div
@@ -97,7 +99,10 @@ export function FormContactDemo() {
               Message sent successfully! We'll get back to you soon.
             </div>
           )}
-          <FormContact onSubmit={handleSubmit} submitButtonText="Send Message" />
+          <FormContact
+            onSubmit={handleSubmit}
+            submitButtonText="Send Message"
+          />
         </div>
       </section>
 

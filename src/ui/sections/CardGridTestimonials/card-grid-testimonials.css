@@ -5,8 +5,8 @@
  * with heading, subheading, and testimonial cards.
  *
  * Responsive Behavior:
- * - Desktop (≥768px): 1200px max-width, 64px padding, 48px gaps, 3-column grid
- * - Mobile (<768px): 375px max-width, 24px padding, 24px gaps, 1-column grid
+ * - Desktop (≥768px): full width, 64px padding, 48px gaps, 3-column grid
+ * - Mobile (<768px): full width, 24px padding, 24px gaps, 1-column grid
  *
  * Design System Tokens Used:
  * - Colors: --sds-color-text-default-*, --sds-color-background-default-default

@@ -31,6 +31,9 @@ export {
 // Icon component
 export { Icon, type IconProps, type IconSize } from "./Icon";
 
+// Image component
+export { Image, type ImageProps } from "./Image";
+
 // Input components
 export {
   CheckboxField,
@@ -72,6 +75,9 @@ export {
 // Tab components
 export { Tabs, type TabsProps, type TabItem } from "./Tab";
 
+// Accordion components
+export { Accordion, type AccordionProps, type AccordionItem } from "./Accordion";
+
 // TestimonialCard component
 export { TestimonialCard, type TestimonialCardProps } from "./TestimonialCard";
 
@@ -84,7 +90,6 @@ export {
   type CardDirection,
   PricingCard,
   type PricingCardProps,
-  type PricingCardVariant,
   ProductInfoCard,
   type ProductInfoCardProps,
   ReviewCard,
@@ -92,3 +97,15 @@ export {
   StatsCard,
   type StatsCardProps,
 } from "./Card";
+
+// Tag component
+export {
+  Tag,
+  type TagProps,
+  type TagScheme,
+  type TagVariant,
+} from "./Tag";
+
+// TagToggle component
+export { TagToggle, type TagToggleProps } from "./TagToggle";
+export { TagToggleGroup, type TagToggleItem, type TagToggleGroupProps } from "./TagToggleGroup";

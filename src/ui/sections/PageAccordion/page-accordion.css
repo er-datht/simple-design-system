@@ -1,0 +1,56 @@
+/**
+ * PageAccordion Component Styles
+ *
+ * Mobile-first responsive FAQ section with accordion items
+ * Base: 24px padding, 24px gap
+ * Desktop (768px+): 64px padding, 48px gap
+ */
+
+/* Root container - Mobile first (default) */
+.page-accordion {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Box Model */
+  box-sizing: border-box;
+  width: 100%;
+
+  /* Spacing - Mobile */
+  padding: var(--sds-size-space-600, 24px);
+  gap: var(--sds-size-space-600, 24px);
+
+  /* Visual */
+  background: var(--sds-color-background-default-default, #ffffff);
+}
+
+/* Desktop responsive styles */
+@media (min-width: 768px) {
+  .page-accordion {
+    /* Spacing - Desktop */
+    padding: var(--sds-size-space-1600, 64px);
+    gap: var(--sds-size-space-1200, 48px);
+  }
+}
+
+/* Accordion content wrapper */
+.page-accordion-content {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Ensure accordion items fill width */
+.page-accordion .sds-accordion {
+  width: 100%;
+}

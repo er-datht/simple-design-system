@@ -41,6 +41,7 @@
     @apply inline-flex items-center  justify-center  gap-(--sds-size-space-200) rounded-(--sds-size-radius-200) font-(--sds-typography-body-font-weight-regular) transition-colors duration-150  focus:outline-none focus:ring-2 focus:ring-offset-2;
     font-family: var(--sds-typography-body-font-family);
     font-size: var(--sds-typography-body-size-medium);
+    white-space: nowrap;
   }
 
   .button-size-sm {

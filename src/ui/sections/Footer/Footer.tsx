@@ -1,4 +1,5 @@
 import type { HTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { TextLinkList } from "../../typography/TextLinkList";
 import { TextLinkListItem } from "../../typography/TextLinkListItem";
 import { cn } from "../../../utils/cn";
@@ -16,6 +17,8 @@ export type FooterProps = HTMLAttributes<HTMLElement> & {
   children: ReactNode;
   /** Optional custom className for styling */
   className?: string;
+  /** Whether the footer should be fixed at the bottom of the viewport */
+  fixed?: boolean;
 };
 
 /**
@@ -111,7 +114,7 @@ export type NavigationSection = {
   /** Figma node ID for tracking */
   nodeId?: string;
   /** Array of link items */
-  items: Array<{ text: string }>;
+  items: Array<{ text: string; href?: string }>;
 };
 
 /**
@@ -129,6 +132,20 @@ export type FooterDefaultProps = HTMLAttributes<HTMLElement> & {
   navigationSections: NavigationSection[];
   /** Optional custom className for styling */
   className?: string;
+  /** Whether the footer should be fixed at the bottom of the viewport */
+  fixed?: boolean;
+};
+
+// ============================================================================
+// Default Props
+// ============================================================================
+
+const defaultFooterProps = {
+  fixed: true,
+};
+
+const defaultFooterDefaultProps = {
+  fixed: true,
 };
 
 // ============================================================================
@@ -176,12 +193,17 @@ export type FooterDefaultProps = HTMLAttributes<HTMLElement> & {
  *
  * **Figma Source:** [Footer Component](https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk/Simple-Design-System--Community-?node-id=321-11357)
  */
-export function Footer({ children, className, ...rest }: FooterProps) {
+export function Footer({
+  children,
+  className,
+  fixed = defaultFooterProps.fixed,
+  ...rest
+}: FooterProps) {
   return (
     <footer
       data-name="Footer"
       data-figma-node-id="321:11357"
-      className={cn("footer", className)}
+      className={cn("footer", { "footer--fixed": fixed }, className)}
       {...rest}
     >
       <div className="footer__container">{children}</div>
@@ -219,9 +241,9 @@ function FooterBrand({
     >
       <div className="footer__logo">
         {logoHref ? (
-          <a href={logoHref} className="footer__logo-link">
+          <Link to={logoHref} className="footer__logo-link">
             {logo}
-          </a>
+          </Link>
         ) : (
           logo
         )}
@@ -366,10 +388,11 @@ function FooterDefault({
   socialLinks,
   navigationSections,
   className,
+  fixed = defaultFooterDefaultProps.fixed,
   ...rest
 }: FooterDefaultProps) {
   return (
-    <Footer className={className} {...rest}>
+    <Footer className={className} fixed={fixed} {...rest}>
       <Footer.Brand logo={logo} logoHref={logoHref}>
         <Footer.Social>
           {socialLinks.map((link, index) => (
@@ -392,7 +415,11 @@ function FooterDefault({
           data-figma-node-id={section.nodeId}
         >
           {section.items.map((item, itemIndex) => (
-            <TextLinkListItem key={itemIndex} text={item.text} />
+            <TextLinkListItem
+              key={itemIndex}
+              text={item.text}
+              href={item.href}
+            />
           ))}
         </Footer.Nav>
       ))}

@@ -1,0 +1,10 @@
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: var(--sds-size-space-800) var(--sds-size-space-400);
+  background: var(--sds-color-background-default-secondary);
+}

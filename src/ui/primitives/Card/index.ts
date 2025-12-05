@@ -8,7 +8,6 @@ export {
 export {
   PricingCard,
   type PricingCardProps,
-  type PricingCardVariant,
 } from "./PricingCard";
 export {
   ProductInfoCard,

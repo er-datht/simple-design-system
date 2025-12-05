@@ -1,0 +1,353 @@
+/**
+ * ProductDetailPage Component Styles
+ *
+ * Mobile-first responsive product detail page layout
+ * Base (Mobile): Vertical stack, 24px padding
+ * Desktop (768px+): Horizontal 2-column, 64px padding
+ */
+
+/* ========================================
+   Root Container - Mobile first (default)
+   ======================================== */
+
+.product-detail-page {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Box Model */
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 240px;
+
+  /* Spacing - Mobile */
+  padding: var(--sds-size-space-600, 24px);
+
+  /* Visual */
+  background: var(--sds-color-background-default-default, #ffffff);
+}
+
+/* Desktop responsive styles */
+@media (min-width: 768px) {
+  .product-detail-page {
+    /* Spacing - Desktop */
+    padding: var(--sds-size-space-1600, 64px);
+  }
+}
+
+/* ========================================
+   Section Container (Main Content)
+   ======================================== */
+
+/* Mobile: Vertical stack */
+.product-detail-section {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing - Mobile */
+  gap: var(--sds-size-space-1600, 64px);
+}
+
+/* Desktop: Horizontal 2-column */
+@media (min-width: 768px) {
+  .product-detail-section {
+    flex-direction: row;
+    gap: var(--sds-size-space-1600, 64px);
+  }
+}
+
+/* ========================================
+   Image Container
+   ======================================== */
+
+/* Mobile: Full width, fixed height */
+.product-detail-image-container {
+  /* Layout */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  /* Box Model */
+  width: 100%;
+  height: 327px;
+
+  /* Visual */
+  overflow: hidden;
+}
+
+/* Desktop: Equal flex share, maintains aspect ratio */
+@media (min-width: 768px) {
+  .product-detail-image-container {
+    flex: 1 0 0;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    align-self: flex-start;
+  }
+}
+
+/* Image Wrapper (contains placeholder and image) */
+.product-detail-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Placeholder */
+.product-detail-image-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--sds-color-slate-200, #e3e3e3);
+  opacity: 1;
+}
+
+/* Actual Product Image */
+.product-detail-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* Floating Favorite Button */
+.product-detail-favorite-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.product-detail-favorite-button button {
+  /* Size */
+  padding: var(--sds-size-space-200, 8px);
+  border-radius: var(--sds-typography-scale-06, 32px);
+
+  /* Visual */
+  box-shadow: var(--sds-effects-shadows-drop-shadow-200);
+}
+
+/* ========================================
+   Content Column
+   ======================================== */
+
+.product-detail-content {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Desktop: Equal flex share */
+@media (min-width: 768px) {
+  .product-detail-content {
+    flex: 1 0 0;
+    min-width: 0;
+  }
+}
+
+/* ========================================
+   Body Section (Title, Price, Description)
+   ======================================== */
+
+.product-detail-body {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Title Block */
+.product-detail-title-block {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Title Text */
+.product-detail-title {
+  /* Typography */
+  font-family: var(--sds-typography-heading-font-family, "inter", sans-serif);
+  font-weight: var(--sds-typography-heading-font-weight, 600);
+  font-size: var(--sds-typography-heading-size-base, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+
+  /* Color */
+  color: var(--sds-color-text-default-default, #1e1e1e);
+
+  /* Box Model */
+  width: 100%;
+  margin: 0;
+}
+
+/* Price Block */
+.product-detail-price-block {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  /* Spacing */
+  gap: var(--sds-size-space-100, 4px);
+}
+
+/* Price Display ($ + amount) */
+.product-detail-price {
+  /* Layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  /* Typography */
+  font-family: var(
+    --sds-typography-title-page-font-family,
+    "inter",
+    sans-serif
+  );
+  font-weight: var(--sds-typography-title-page-font-weight, 700);
+  line-height: 1;
+
+  /* Color */
+  color: var(--sds-color-text-default-default, #1e1e1e);
+}
+
+/* Dollar Sign */
+.product-detail-price-currency {
+  /* Typography */
+  font-size: var(--sds-typography-subtitle-size-small, 24px);
+  letter-spacing: -0.48px;
+}
+
+/* Price Amount */
+.product-detail-price-amount {
+  /* Typography */
+  font-size: var(--sds-typography-title-page-size-base, 48px);
+  letter-spacing: -0.96px;
+}
+
+/* Description Text */
+.product-detail-description {
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "inter", sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  line-height: 1.4;
+
+  /* Color */
+  color: var(--sds-color-text-default-secondary, #757575);
+
+  /* Box Model */
+  width: 100%;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ========================================
+   Form Fields Section
+   ======================================== */
+
+/* Mobile: Vertical stack */
+.product-detail-fields {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Box Model */
+  width: 100%;
+
+  /* Spacing - Mobile */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Desktop: Horizontal row */
+@media (min-width: 768px) {
+  .product-detail-fields {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sds-size-space-600, 24px);
+  }
+}
+
+/* Ensure select fields expand properly */
+.product-detail-fields > * {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .product-detail-fields > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ========================================
+   Primary Action Button
+   ======================================== */
+
+.product-detail-button {
+  /* Box Model */
+  width: 100%;
+  min-height: 40px;
+
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "inter", sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  line-height: 1;
+}
+
+/* ========================================
+   Accordion Section
+   ======================================== */
+
+.product-detail-accordion {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Box Model */
+  width: 100%;
+  max-width: 640px;
+
+  /* Spacing */
+  gap: var(--sds-size-space-400, 16px);
+}
+
+/* Ensure accordion items fill width */
+.product-detail-accordion .sds-accordion {
+  width: 100%;
+}

@@ -41,55 +41,53 @@ export default function PricingCardDemo() {
       <section className="border-2 border-dashed border-amber-400 p-6 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">Real-World Pricing Grid</h2>
         <p className="text-gray-600 mb-6">
-          Three-tier pricing page with featured plan using Brand variant:
+          Three-tier pricing page with featured plan using Brand variant (isBrand={true}):
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <PricingCard
-            variant="Stroke"
             title="Starter"
             price="29"
             currency="$"
-            priceLabel="/ mo"
-            list={[
+            period="/ mo"
+            features={[
               "10 projects",
               "Basic analytics",
               "Email support",
               "Community access",
             ]}
-            buttonText="Start Free Trial"
+            buttonLabel="Start Free Trial"
             onButtonClick={() => alert("Starter plan selected")}
           />
 
           <PricingCard
-            variant="Stroke"
             title="Professional"
             price="99"
             currency="$"
-            priceLabel="/ mo"
-            list={[
+            period="/ mo"
+            features={[
               "Unlimited projects",
               "Advanced analytics",
               "Priority support",
               "Custom integrations",
             ]}
-            buttonText="Subscribe Now"
+            buttonLabel="Subscribe Now"
             onButtonClick={() => alert("Professional plan selected")}
+            isBrand={true}
           />
 
           <PricingCard
-            variant="Stroke"
             title="Enterprise"
             price="299"
             currency="$"
-            priceLabel="/ mo"
-            list={[
+            period="/ mo"
+            features={[
               "Unlimited everything",
               "Dedicated support",
               "SLA guarantees",
               "Custom contracts",
             ]}
-            buttonText="Contact Sales"
+            buttonLabel="Contact Sales"
             onButtonClick={() => alert("Enterprise plan selected")}
           />
         </div>
@@ -104,33 +102,31 @@ export default function PricingCardDemo() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <PricingCard
-            variant="Stroke"
             title="Annual Plan"
             price="990"
             currency="$"
-            priceLabel="/ year"
-            list={[
+            period="/ year"
+            features={[
               "Save 2 months",
               "All Pro features",
               "Yearly invoicing",
               "Priority onboarding",
             ]}
-            buttonText="Buy Annual"
+            buttonLabel="Buy Annual"
           />
 
           <PricingCard
-            variant="Stroke"
             title="Lifetime"
             price="2,499"
             currency="$"
-            priceLabel=""
-            list={[
+            period=""
+            features={[
               "One-time payment",
               "Lifetime updates",
               "Forever support",
               "VIP community",
             ]}
-            buttonText="Get Lifetime Access"
+            buttonLabel="Get Lifetime Access"
           />
         </div>
       </section>
@@ -369,16 +365,6 @@ export default function PricingCardDemo() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-6 py-4 text-sm font-mono">variant</td>
-                <td className="px-6 py-4 text-sm font-mono">
-                  "Stroke" | "Brand"
-                </td>
-                <td className="px-6 py-4 text-sm font-mono">"Stroke"</td>
-                <td className="px-6 py-4 text-sm">
-                  Determines color scheme and styling
-                </td>
-              </tr>
-              <tr>
                 <td className="px-6 py-4 text-sm font-mono">title</td>
                 <td className="px-6 py-4 text-sm font-mono">string</td>
                 <td className="px-6 py-4 text-sm font-mono">"Title"</td>
@@ -397,7 +383,7 @@ export default function PricingCardDemo() {
                 <td className="px-6 py-4 text-sm">Currency symbol</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-mono">priceLabel</td>
+                <td className="px-6 py-4 text-sm font-mono">period</td>
                 <td className="px-6 py-4 text-sm font-mono">string</td>
                 <td className="px-6 py-4 text-sm font-mono">"/ mo"</td>
                 <td className="px-6 py-4 text-sm">Billing period label</td>
@@ -411,10 +397,18 @@ export default function PricingCardDemo() {
                 <td className="px-6 py-4 text-sm">List of feature items</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-mono">buttonText</td>
+                <td className="px-6 py-4 text-sm font-mono">buttonLabel</td>
                 <td className="px-6 py-4 text-sm font-mono">string</td>
                 <td className="px-6 py-4 text-sm font-mono">"Button"</td>
                 <td className="px-6 py-4 text-sm">Button text label</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm font-mono">isBrand</td>
+                <td className="px-6 py-4 text-sm font-mono">boolean</td>
+                <td className="px-6 py-4 text-sm font-mono">false</td>
+                <td className="px-6 py-4 text-sm">
+                  Use brand styling (dark background)
+                </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-mono">onButtonClick</td>

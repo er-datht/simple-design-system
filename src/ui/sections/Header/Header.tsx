@@ -1,4 +1,5 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   NavigationPillList,
   type NavigationPillItem,
@@ -7,6 +8,9 @@ import { HeaderAuth } from "../HeaderAuth/HeaderAuth";
 import { IconButton } from "../../primitives/Button/IconButton";
 import { IconMenu } from "../../icons/IconMenu";
 import { IconX } from "../../icons/IconX";
+import { IconSun } from "../../icons/IconSun";
+import { IconMoon } from "../../icons/IconMoon";
+import { useTheme } from "../../../utils/ThemeContext";
 import { cn } from "../../../utils/cn";
 import "./header.css";
 
@@ -17,12 +21,23 @@ export interface HeaderProps {
   logoIcon: ReactNode;
 
   /**
+   * Optional href to make the logo clickable
+   */
+  logoHref?: string;
+
+  /**
+   * Callback when logo is clicked
+   */
+  onLogoClick?: () => void;
+
+  /**
    * Array of navigation items for the NavigationPillList
    */
   navigationItems: NavigationPillItem[];
 
   /**
    * Currently active navigation item ID
+   * If not provided, will be automatically determined from current route
    */
   activeNavigationId?: string;
 
@@ -125,6 +140,8 @@ export interface HeaderProps {
  */
 export const Header = ({
   logoIcon,
+  logoHref,
+  onLogoClick,
   navigationItems,
   activeNavigationId,
   isLoggedIn,
@@ -139,6 +156,27 @@ export const Header = ({
   itemClassName,
 }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
+
+  // Determine active navigation based on current location if not explicitly provided
+  const computedActiveNavId =
+    activeNavigationId ??
+    navigationItems.find((item) => item.href === location.pathname)?.id ??
+    navigationItems[0]?.id;
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -154,7 +192,19 @@ export const Header = ({
     >
       {/* Logo Block */}
       <div className="header-logo-block">
-        <div className="header-logo">{logoIcon}</div>
+        <div className="header-logo">
+          {logoHref || onLogoClick ? (
+            <Link
+              to={logoHref || "/"}
+              onClick={onLogoClick}
+              className="header-logo-link"
+            >
+              {logoIcon}
+            </Link>
+          ) : (
+            logoIcon
+          )}
+        </div>
 
         {/* Mobile Menu Toggle Button */}
         <IconButton
@@ -173,7 +223,7 @@ export const Header = ({
       <NavigationPillList
         items={navigationItems}
         direction={isMobileMenuOpen ? "column" : "row"}
-        activeItemId={activeNavigationId}
+        activeItemId={computedActiveNavId}
         onItemClick={onNavigationItemClick}
         className={cn(
           "header-navigation-block",
@@ -198,6 +248,20 @@ export const Header = ({
           onSignInClick={onSignInClick}
           onRegisterClick={onRegisterClick}
           className={!isLoggedIn ? "w-full" : ""}
+        />
+
+        {/* Theme Toggle Button */}
+        <IconButton
+          icon={theme === "dark" ? <IconSun size="24" /> : <IconMoon size="24" />}
+          variant="subtle"
+          className="header-theme-toggle"
+          size="sm"
+          onClick={toggleTheme}
+          aria-label={
+            theme === "dark"
+              ? "Switch to light mode"
+              : "Switch to dark mode"
+          }
         />
       </div>
     </header>

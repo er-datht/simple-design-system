@@ -1,6 +1,16 @@
 import type { LiHTMLAttributes } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../../utils/cn";
 import "./text-link-list-item.css";
+
+/**
+ * Helper function to determine if a link is internal
+ */
+const isInternalLink = (href: string): boolean => {
+  return href.startsWith('/') ||
+    (!href.startsWith('http://') && !href.startsWith('https://') &&
+     !href.startsWith('mailto:') && !href.startsWith('tel:'));
+};
 
 /**
  * Props for the TextLinkListItem component.
@@ -87,15 +97,25 @@ export function TextLinkListItem({
       className={cn("text-link-list-item", className)}
       {...rest}
     >
-      <a
-        href={href}
-        target={target}
-        rel={rel}
-        onClick={onLinkClick}
-        className="text-link-list-item__link"
-      >
-        {text}
-      </a>
+      {isInternalLink(href) ? (
+        <Link
+          to={href}
+          onClick={onLinkClick}
+          className="text-link-list-item__link"
+        >
+          {text}
+        </Link>
+      ) : (
+        <a
+          href={href}
+          target={target}
+          rel={rel}
+          onClick={onLinkClick}
+          className="text-link-list-item__link"
+        >
+          {text}
+        </a>
+      )}
     </li>
   );
 }

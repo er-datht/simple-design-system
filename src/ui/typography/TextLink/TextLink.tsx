@@ -1,6 +1,16 @@
 import { type AnchorHTMLAttributes } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "../../../utils/cn";
 import "./text-link.css";
+
+/**
+ * Helper function to determine if a link is internal
+ */
+const isInternalLink = (href: string): boolean => {
+  return href.startsWith('/') ||
+    (!href.startsWith('http://') && !href.startsWith('https://') &&
+     !href.startsWith('mailto:') && !href.startsWith('tel:'));
+};
 
 /**
  * Props for TextLink component
@@ -67,10 +77,29 @@ export function TextLink({
   className,
   ...rest
 }: TextLinkProps) {
+  const linkClassName = cn("text-link", className);
+
+  // Use Link for internal routes, anchor for external
+  if (isInternalLink(href)) {
+    // Extract only the props that are compatible with Link
+    const { target, rel, ...linkProps } = rest;
+    return (
+      <Link
+        to={href}
+        className={linkClassName}
+        data-name="Text Link"
+        data-node-id="2087:8483"
+        {...linkProps}
+      >
+        {text}
+      </Link>
+    );
+  }
+
   return (
     <a
       href={href}
-      className={cn("text-link", className)}
+      className={linkClassName}
       data-name="Text Link"
       data-node-id="2087:8483"
       {...rest}

@@ -33,14 +33,12 @@
 .select-field__select {
   display: block;
   width: 100%;
-  height: 44px;
-  min-width: 240px;
   padding: var(--sds-size-space-300) var(--sds-size-space-400);
   padding-right: 40px; /* Space for chevron icon */
   font-family: var(--sds-typography-body-font-family);
   font-size: var(--sds-typography-body-size-medium);
   font-weight: var(--sds-typography-body-font-weight-regular);
-  line-height: 1.4;
+  line-height: normal;
   color: var(--sds-color-text-default-default);
   background-color: var(--sds-color-background-default-default);
   border: var(--sds-size-stroke-border) solid

@@ -1,0 +1,73 @@
+/**
+ * CardGridReviews Component Styles
+ * Responsive section component for displaying customer reviews in a grid layout
+ */
+
+/* Main container - section element */
+.card-grid-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-600); /* 24px mobile */
+  align-items: flex-start;
+  width: 100%;
+  background: var(--sds-color-background-default-default);
+  padding: var(--sds-size-space-600); /* 24px mobile */
+  box-sizing: border-box;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .card-grid-reviews {
+    padding: var(--sds-size-space-1600); /* 64px desktop */
+    gap: var(--sds-size-space-1200); /* 48px desktop */
+    max-width: var(--sds-responsive-device-width, 1200px);
+    margin: 0 auto;
+  }
+}
+
+/* Heading container */
+.card-grid-reviews__heading-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Reviews grid container */
+.card-grid-reviews__grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--sds-size-space-600); /* 24px mobile */
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Desktop grid spacing */
+@media (min-width: 768px) {
+  .card-grid-reviews__grid {
+    gap: var(--sds-size-space-1200); /* 48px desktop */
+  }
+}
+
+/* Grid items (ReviewCards) */
+.card-grid-reviews__grid > * {
+  flex: 1 0 0;
+  min-width: 240px;
+  max-width: 100%;
+}
+
+/* Desktop: 3-column grid layout */
+@media (min-width: 768px) {
+  .card-grid-reviews__grid > * {
+    flex-basis: calc(33.333% - var(--sds-size-space-1200));
+  }
+}
+
+/* Tablet: 2-column grid layout */
+@media (min-width: 640px) and (max-width: 767px) {
+  .card-grid-reviews__grid > * {
+    flex-basis: calc(50% - var(--sds-size-space-600));
+  }
+}

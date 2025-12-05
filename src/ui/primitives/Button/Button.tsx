@@ -1,8 +1,9 @@
 import { type ButtonHTMLAttributes, type ReactNode } from "react";
 import { cn } from "../../../utils/cn";
+import "./button.css";
 
 export type ButtonVariant = "primary" | "neutral" | "subtle";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "sm" | "md";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -60,31 +61,18 @@ export function Button({
   return (
     <button
       className={cn(
-        // Base styles
-        `button button-shared button-variant-${variant} button-size-${size}`,
+        // Base styles from button.css
+        "button button-shared text-base",
+        `button-size-${size}`,
 
-        // Variant styles - Primary
+        // Variant styles from button.css
         {
           "button-variant-primary button-variant-primary-hover":
             variant === "primary" && !disabled,
-          "focus:ring-(--sds-color-background-brand-default)":
-            variant === "primary",
-        },
-
-        // Variant styles - Neutral
-        {
           "button-variant-neutral button-variant-neutral-hover":
             variant === "neutral" && !disabled,
-          "focus:ring-(--sds-color-background-neutral-default)":
-            variant === "neutral",
-        },
-
-        // Variant styles - Subtle
-        {
           "button-variant-subtle button-variant-subtle-hover":
             variant === "subtle" && !disabled,
-          "focus:ring-(--sds-color-background-neutral-tertiary)":
-            variant === "subtle",
         },
 
         // Disabled state
@@ -98,9 +86,9 @@ export function Button({
       disabled={disabled}
       {...rest}
     >
-      {iconStart}
+      {iconStart && <span className="inline-flex w-4 h-4">{iconStart}</span>}
       {children}
-      {iconEnd}
+      {iconEnd && <span className="inline-flex w-4 h-4">{iconEnd}</span>}
     </button>
   );
 }
