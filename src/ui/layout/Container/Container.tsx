@@ -131,6 +131,7 @@ export const Container = ({
               items: [
                 { text: "Landing", href: ROUTES.LANDING },
                 { text: "Article", href: ROUTES.ARTICLE },
+                { text: "Shop", href: ROUTES.SHOP },
               ],
             },
           ]}
