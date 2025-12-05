@@ -1,0 +1,20 @@
+/* TextEmphasis component styles using design system CSS variables */
+
+@layer components {
+  /* Base container */
+  .text-emphasis-container {
+    @apply flex items-start shrink-0;
+    align-content: stretch;
+  }
+
+  /* Text emphasis content styling with italic */
+  .text-emphasis-content {
+    @apply relative whitespace-normal;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: var(--sds-typography-body-font-style-italic);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}

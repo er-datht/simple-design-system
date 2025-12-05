@@ -1,0 +1,127 @@
+/* SliderField Component Styles */
+
+.slider-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-300);
+  width: 240px;
+  align-items: flex-start;
+}
+
+/* Label Row - contains label text and value display */
+.slider-field__label-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Label Text */
+.slider-field__label {
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-default);
+  white-space: pre-wrap;
+  margin: 0;
+  cursor: pointer;
+}
+
+.slider-field--disabled .slider-field__label {
+  cursor: not-allowed;
+}
+
+/* Slider Output (value display) */
+.slider-field__output {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-small);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-default);
+  text-align: right;
+}
+
+/* Slider Container */
+.slider-field__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 4px 0;
+}
+
+/* react-range Track */
+.slider-field__track {
+  height: 8px;
+  width: 100%;
+  border-radius: var(--sds-size-radius-full);
+  align-self: center;
+}
+
+/* react-range Thumb */
+.slider-field__thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--sds-color-background-brand-default);
+  border: none;
+  border-radius: var(--sds-size-radius-full);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hidden thumb in single mode */
+.slider-field__thumb--hidden {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.slider-field__thumb:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.slider-field__thumb:focus {
+  box-shadow: 0 0 0 4px rgba(44, 44, 44, 0.1);
+}
+
+.slider-field__thumb:focus-visible {
+  outline: 2px solid var(--sds-color-background-brand-default);
+  outline-offset: 4px;
+}
+
+/* Disabled Thumb Styles */
+.slider-field__thumb--disabled {
+  background: var(--sds-color-background-disabled-default);
+  border: var(--sds-size-stroke-border) solid
+    var(--sds-color-border-disabled-default);
+  cursor: not-allowed;
+}
+
+.slider-field__thumb--disabled:hover {
+  transform: none;
+}
+
+.slider-field__thumb--disabled:focus {
+  box-shadow: none;
+}
+
+/* Description Text */
+.slider-field__description {
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-secondary);
+  white-space: pre-wrap;
+  width: 100%;
+  margin: 0;
+}

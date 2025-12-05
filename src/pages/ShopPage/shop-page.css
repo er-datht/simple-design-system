@@ -1,0 +1,10 @@
+/**
+ * Shop Page Styles
+ *
+ * Minimal styling as PageProductResults handles most layout
+ */
+
+.shop-page {
+  /* No additional styles needed - PageProductResults handles everything */
+  width: 100%;
+}

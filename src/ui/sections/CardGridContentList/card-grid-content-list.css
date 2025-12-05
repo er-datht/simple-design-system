@@ -1,0 +1,185 @@
+/**
+ * CardGridContentList Component Styles
+ *
+ * A responsive section component displaying a grid of content cards with images,
+ * titles, body text, and optional action buttons.
+ *
+ * Responsive Behavior:
+ * - Desktop (≥768px): 1200px max-width, 64px padding, 24px card gap, Stroke card variant
+ * - Mobile (<768px): 375px max-width, 24px padding, 48px card gap, Default card variant
+ *
+ * Design System Tokens Used:
+ * - Colors: --sds-color-text-default-*, --sds-color-background-default-default
+ * - Typography: --sds-typography-heading-*, --sds-typography-subheading-*, --sds-typography-body-*
+ * - Spacing: --sds-size-space-* (200, 600, 1200, 1600)
+ * - Sizing: --sds-size-radius-200
+ */
+
+/* ========================================
+   ROOT CONTAINER
+   ======================================== */
+
+.card-grid-content-list {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sds-size-space-1200); /* 48px gap between header and cards */
+
+  /* Sizing - Mobile first */
+  width: 100%;
+  max-width: 375px; /* Mobile max-width */
+  box-sizing: border-box;
+
+  /* Spacing - Mobile (24px padding) */
+  padding: var(--sds-size-space-600);
+  margin: 0 auto;
+
+  /* Visual Styling */
+  background-color: var(--sds-color-background-default-default);
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+/* Desktop Layout (≥768px) */
+@media (min-width: 768px) {
+  .card-grid-content-list {
+    /* Desktop max-width (1200px) */
+    max-width: 1200px;
+
+    /* Desktop padding (64px) */
+    padding: var(--sds-size-space-1600);
+  }
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.card-grid-content-list__header {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200); /* 8px gap between heading and subheading */
+  align-items: flex-start;
+
+  /* Sizing */
+  width: 100%;
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+/* ========================================
+   HEADING
+   ======================================== */
+
+.card-grid-content-list__heading {
+  /* Typography */
+  font-family: var(--sds-typography-heading-font-family);
+  font-size: var(--sds-typography-heading-size-base); /* 24px */
+  font-weight: var(--sds-typography-heading-font-weight); /* 600 */
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+
+  /* Color */
+  color: var(--sds-color-text-default-default); /* #1e1e1e */
+
+  /* Sizing */
+  width: 100%;
+
+  /* Alignment */
+  text-align: left;
+  white-space: pre-wrap;
+
+  /* Reset margin */
+  margin: 0;
+
+  /* Shrink behavior */
+  flex-shrink: 0;
+}
+
+/* ========================================
+   SUBHEADING
+   ======================================== */
+
+.card-grid-content-list__subheading {
+  /* Typography */
+  font-family: var(--sds-typography-subheading-font-family);
+  font-size: var(--sds-typography-subheading-size-medium); /* 20px */
+  font-weight: var(--sds-typography-subheading-font-weight); /* 400 */
+  line-height: 1.2;
+  letter-spacing: 0;
+
+  /* Color */
+  color: var(--sds-color-text-default-secondary); /* #757575 */
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Sizing */
+  width: 100%;
+
+  /* Alignment */
+  text-align: left;
+
+  /* Reset margin */
+  margin: 0;
+}
+
+/* ========================================
+   CARDS CONTAINER
+   ======================================== */
+
+.card-grid-content-list__cards {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Sizing */
+  width: 100%;
+
+  /* Spacing - Mobile (48px gap between cards) */
+  gap: var(--sds-size-space-1200);
+
+  /* Content Alignment */
+  align-content: stretch;
+}
+
+/* Desktop Card Gap (≥768px) */
+@media (min-width: 768px) {
+  .card-grid-content-list__cards {
+    /* Desktop gap (24px between cards) */
+    gap: var(--sds-size-space-600);
+  }
+}
+
+/* ========================================
+   INDIVIDUAL CARD STYLES
+   ======================================== */
+
+.card-grid-content-list__card {
+  /* Ensure card takes full width */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile: Default variant (no visible border) */
+.card-grid-content-list__card {
+  /* Remove border on mobile - Default variant styling */
+  border: none;
+}
+
+/* Desktop: Stroke variant (visible border) */
+@media (min-width: 768px) {
+  .card-grid-content-list__card {
+    /* Apply Stroke variant styling on desktop */
+    border: var(--sds-size-stroke-border, 1px) solid
+      var(--sds-color-border-default-default, #d9d9d9);
+    border-radius: var(--sds-size-radius-200); /* 8px */
+  }
+}

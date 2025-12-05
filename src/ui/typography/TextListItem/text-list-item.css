@@ -1,0 +1,31 @@
+/* Text List Item Component Styles */
+
+.text-list-item {
+  /* List item with disc bullet marker */
+  list-style: disc;
+  margin-left: 24px;
+  white-space: pre-wrap;
+  height: 22px;
+}
+
+.text-list-item-content {
+  /* Typography container with vertical centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Typography tokens */
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-medium);
+  color: var(--sds-color-text-default-secondary);
+
+  /* Prevent text wrapping at container level */
+  white-space: nowrap;
+}
+
+.text-list-item-text {
+  /* Text span with proper line height */
+  display: inline;
+  line-height: 1.4;
+}

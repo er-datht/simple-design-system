@@ -1,0 +1,21 @@
+/* TextSubtitle component styles using design system CSS variables */
+
+@layer components {
+  /* Base container */
+  .text-subtitle-container {
+    @apply flex items-start;
+    width: 100%;
+  }
+
+  /* Subtitle text styling */
+  .text-subtitle-text {
+    @apply relative whitespace-pre-wrap not-italic;
+    color: var(--sds-color-text-default-default);
+    font-family: var(--sds-typography-subtitle-font-family);
+    font-size: var(--sds-typography-subtitle-size-base);
+    font-style: normal;
+    font-weight: var(--sds-typography-subtitle-font-weight);
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
+}

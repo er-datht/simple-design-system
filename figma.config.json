@@ -1,0 +1,14 @@
+{
+  "codeConnect": {
+    "include": [
+      "src/ui/icons/**/*.{ts,tsx,jsx}",
+      "src/ui/primitives/**/*.{ts,tsx,jsx}",
+      "src/ui/sections/**/*.{ts,tsx,jsx}",
+      "src/ui/typography/**/*.{ts,tsx,jsx}",
+      "src/ui/forms/**/*.{ts,tsx,jsx}",
+      "src/figma/**/*.figma.{ts,tsx,jsx}"
+    ],
+    "label": "React",
+    "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/2FK25kD8bhdmjk3iTu97Vk"
+  }
+}

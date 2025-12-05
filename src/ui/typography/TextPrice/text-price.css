@@ -1,0 +1,86 @@
+/* TextPrice Component Styles */
+
+.text-price {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+}
+
+/* Price Group Container */
+.text-price__price-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Common styles for price elements */
+.text-price__currency,
+.text-price__amount,
+.text-price__label {
+  flex-shrink: 0;
+  position: relative;
+  margin: 0;
+}
+
+/* Large Variant - Currency */
+.text-price--large .text-price__currency {
+  font-family: var(--sds-typography-title-page-font-family);
+  font-weight: var(--sds-typography-title-page-font-weight);
+  font-size: var(--sds-typography-subtitle-size-small);
+  line-height: 1;
+  letter-spacing: -0.48px;
+}
+
+/* Small Variant - Currency */
+.text-price--small .text-price__currency {
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  font-size: var(--sds-typography-body-size-medium);
+  line-height: 1;
+  letter-spacing: -0.32px;
+}
+
+/* Large Variant - Amount */
+.text-price--large .text-price__amount {
+  font-family: var(--sds-typography-title-page-font-family);
+  font-weight: var(--sds-typography-title-page-font-weight);
+  font-size: var(--sds-typography-title-page-size-base);
+  line-height: 1;
+  letter-spacing: -0.96px;
+}
+
+/* Small Variant - Amount */
+.text-price--small .text-price__amount {
+  font-family: var(--sds-typography-heading-font-family);
+  font-weight: var(--sds-typography-heading-font-weight);
+  font-size: var(--sds-typography-heading-size-base);
+  line-height: 1;
+  letter-spacing: -0.48px;
+}
+
+/* Label Styles */
+.text-price__label {
+  font-family: var(--sds-typography-body-font-family);
+  font-weight: var(--sds-typography-body-font-weight-regular);
+  font-size: var(--sds-typography-body-size-small);
+  line-height: 1;
+  letter-spacing: 0;
+  align-self: flex-end;
+  padding-bottom: 0.35em;
+}
+
+/* Large Variant - Label */
+.text-price--large .text-price__label {
+  line-height: 1;
+}
+
+/* Small Variant - Label */
+.text-price--small .text-price__label {
+  line-height: 1;
+}

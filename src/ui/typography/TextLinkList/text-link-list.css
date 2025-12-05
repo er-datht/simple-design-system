@@ -1,0 +1,78 @@
+/* TextLinkList Component Styles */
+
+.text-link-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Default Density - 12px gap */
+.text-link-list--default {
+  gap: var(--sds-size-space-300);
+}
+
+/* Tight Density - 8px gap */
+.text-link-list--tight {
+  gap: var(--sds-size-space-200);
+}
+
+/* Title Section */
+.text-link-list__title-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Default Density - Title Section Padding */
+.text-link-list--default .text-link-list__title-section {
+  padding-bottom: var(--sds-size-space-400);
+}
+
+/* Tight Density - Title Section Padding */
+.text-link-list--tight .text-link-list__title-section {
+  padding-bottom: var(--sds-size-space-100);
+}
+
+/* Title Container */
+.text-link-list__title {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Title Text */
+.text-link-list__title-text {
+  font-family: var(--sds-typography-body-font-family);
+  font-size: var(--sds-typography-body-size-medium);
+  font-weight: var(--sds-typography-body-font-weight-strong);
+  line-height: 1.4;
+  color: var(--sds-color-text-default-default);
+  font-style: normal;
+  margin: 0;
+}
+
+/* List Items Container */
+.text-link-list__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Default Density - Items Gap */
+.text-link-list--default .text-link-list__items {
+  gap: var(--sds-size-space-300);
+}
+
+/* Tight Density - Items Gap */
+.text-link-list--tight .text-link-list__items {
+  gap: var(--sds-size-space-200);
+}

@@ -1,0 +1,220 @@
+/* Tag Base Styles */
+.tag {
+  /* Layout */
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sds-size-space-200, 8px);
+
+  /* Spacing */
+  padding: var(--sds-size-space-200, 8px);
+
+  /* Border Radius */
+  border-radius: var(--sds-size-radius-200, 8px);
+
+  /* Typography */
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 16px);
+  line-height: 1;
+  letter-spacing: 0;
+  font-style: normal;
+
+  /* Transition for smooth hover effects */
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  /* Prevent text wrapping */
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Tag Label */
+.tag-label {
+  display: inline;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Remove Button */
+.tag-remove-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  transition: opacity 0.2s ease;
+}
+
+.tag-remove-button:hover {
+  opacity: 0.8;
+}
+
+.tag-remove-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Brand Scheme - Primary Variant */
+.tag-scheme-brand.tag-variant-primary {
+  background-color: var(--sds-color-background-brand-default, #2c2c2c);
+  color: var(--sds-color-text-brand-on-brand, #f5f5f5);
+  .icon {
+    --icon-color: var(--sds-color-icon-brand-on-brand, #f5f5f5);
+  }
+}
+
+.tag-scheme-brand.tag-variant-primary:hover {
+  background-color: var(--sds-color-background-brand-hover, #1e1e1e);
+}
+
+/* Brand Scheme - Secondary Variant */
+.tag-scheme-brand.tag-variant-secondary {
+  background-color: var(--sds-color-background-brand-tertiary, #f5f5f5);
+  color: var(--sds-color-text-brand-on-brand-tertiary, #2c2c2c);
+  .icon {
+    --icon-color: var(--sds-color-icon-brand-on-brand-tertiary, #2c2c2c);
+  }
+}
+
+.tag-scheme-brand.tag-variant-secondary:hover {
+  background-color: var(--sds-color-background-brand-tertiary-hover, #e6e6e6);
+}
+
+/* Danger Scheme - Primary Variant */
+.tag-scheme-danger.tag-variant-primary {
+  background-color: var(--sds-color-background-danger-default, #ec221f);
+  color: var(--sds-color-text-danger-on-danger, #fee9e7);
+  .icon {
+    --icon-color: var(--sds-color-icon-danger-on-danger, #fee9e7);
+  }
+}
+
+.tag-scheme-danger.tag-variant-primary:hover {
+  background-color: var(--sds-color-background-danger-hover, #c00f0c);
+}
+
+/* Danger Scheme - Secondary Variant */
+.tag-scheme-danger.tag-variant-secondary {
+  background-color: var(--sds-color-background-danger-secondary, #fdd3d0);
+  color: var(--sds-color-text-danger-on-danger-secondary, #900b09);
+  .icon {
+    --icon-color: var(--sds-color-icon-danger-on-danger-secondary, #900b09);
+  }
+}
+
+.tag-scheme-danger.tag-variant-secondary:hover {
+  background-color: var(--sds-color-background-danger-secondary-hover, #fcb3ad);
+}
+
+/* Positive Scheme - Primary Variant */
+.tag-scheme-positive.tag-variant-primary {
+  background-color: var(--sds-color-background-positive-default, #14ae5c);
+  color: var(--sds-color-text-positive-on-positive, #ebffee);
+  .icon {
+    --icon-color: var(--sds-color-icon-positive-on-positive, #ebffee);
+  }
+}
+
+.tag-scheme-positive.tag-variant-primary:hover {
+  background-color: var(--sds-color-background-positive-hover, #009951);
+}
+
+/* Positive Scheme - Secondary Variant */
+.tag-scheme-positive.tag-variant-secondary {
+  background-color: var(--sds-color-background-positive-secondary, #cff7d3);
+  color: var(--sds-color-text-positive-on-positive-secondary, #02542d);
+  .icon {
+    --icon-color: var(--sds-color-icon-positive-on-positive-secondary, #02542d);
+  }
+}
+
+.tag-scheme-positive.tag-variant-secondary:hover {
+  background-color: var(
+    --sds-color-background-positive-secondary-hover,
+    #aff4c6
+  );
+}
+
+/* Warning Scheme - Primary Variant */
+.tag-scheme-warning.tag-variant-primary {
+  background-color: var(--sds-color-background-warning-default, #e8b931);
+  color: var(--sds-color-text-warning-on-warning, #401b01);
+  .icon {
+    --icon-color: var(--sds-color-icon-warning-on-warning, #401b01);
+  }
+}
+
+.tag-scheme-warning.tag-variant-primary:hover {
+  background-color: var(--sds-color-background-warning-hover, #e5a000);
+}
+
+/* Warning Scheme - Secondary Variant */
+.tag-scheme-warning.tag-variant-secondary {
+  background-color: var(--sds-color-background-warning-default, #e8b931);
+  color: var(--sds-color-text-warning-on-warning, #401b01);
+  .icon {
+    --icon-color: var(--sds-color-icon-warning-on-warning, #401b01);
+  }
+}
+
+.tag-scheme-warning.tag-variant-secondary:hover {
+  background-color: var(
+    --sds-color-background-warning-secondary-hover,
+    #ffe8a3
+  );
+  color: var(--sds-color-text-warning-on-warning-secondary, #682d03);
+  .icon {
+    --icon-color: var(--sds-color-icon-warning-on-warning-secondary, #682d03);
+  }
+}
+
+/* Neutral Scheme - Primary Variant */
+.tag-scheme-neutral.tag-variant-primary {
+  background-color: var(--sds-color-background-default-tertiary, #d9d9d9);
+  color: var(--sds-color-text-default-default, #1e1e1e);
+  .icon {
+    --icon-color: var(--sds-color-icon-default-default, #1e1e1e);
+  }
+}
+
+.tag-scheme-neutral.tag-variant-primary:hover {
+  background-color: var(--sds-color-background-default-tertiary-hover, #b3b3b3);
+}
+
+/* Neutral Scheme - Secondary Variant */
+.tag-scheme-neutral.tag-variant-secondary {
+  background-color: var(--sds-color-background-default-secondary, #f5f5f5);
+  color: var(--sds-color-text-default-default, #1e1e1e);
+  .icon {
+    --icon-color: var(--sds-color-icon-default-default, #1e1e1e);
+  }
+}
+
+.tag-scheme-neutral.tag-variant-secondary:hover {
+  background-color: var(
+    --sds-color-background-default-secondary-hover,
+    #e6e6e6
+  );
+}
+
+/* Accessibility: Focus States */
+.tag:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Responsive: Ensure tags work well on mobile */
+@media (max-width: 768px) {
+  .tag {
+    font-size: var(--sds-typography-body-size-small, 14px);
+  }
+}

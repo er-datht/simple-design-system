@@ -1,0 +1,38 @@
+/* Logged in state - default */
+.header-auth-logged-in {
+  display: inline-flex;
+  padding: var(--sds-size-space-200) var(--sds-size-space-300);
+  align-items: center;
+  gap: var(--sds-size-space-200);
+  border-radius: var(--sds-size-radius-200);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Logged in state - hover */
+.header-auth-logged-in:hover {
+  background: var(--sds-color-background-default-default-hover);
+}
+
+/* Logged in state - focus (for accessibility) */
+.header-auth-logged-in:focus-visible {
+  outline: 2px solid var(--sds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.header-auth-logged-out {
+  display: flex;
+  min-width: 178px;
+  align-items: center;
+  gap: var(--sds-size-space-300);
+  > .header-auth-logged-out-button {
+    display: flex;
+    padding: var(--sds-size-space-200);
+    justify-content: center;
+    align-items: center;
+    gap: var(--sds-size-space-200);
+    flex: 1 0 0;
+  }
+}

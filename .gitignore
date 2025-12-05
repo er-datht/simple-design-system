@@ -27,3 +27,7 @@ dist-ssr
 # Claude Code files
 CLAUDE.md
 .claude/
+resource/
+
+# Github files
+.github/

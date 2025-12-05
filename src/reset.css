@@ -1,0 +1,8 @@
+div,
+button,
+select,
+input,
+textarea,
+span {
+  box-sizing: border-box;
+}

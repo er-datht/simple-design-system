@@ -1,0 +1,35 @@
+/* Avatar Block component styles using design system CSS variables */
+
+@layer components {
+  /* Base avatar block container */
+  .avatar-block-container {
+    @apply flex items-start;
+    min-width: 139px;
+    gap: var(--sds-size-space-300);
+  }
+
+  /* Content wrapper for title and description */
+  .avatar-block-content {
+    @apply flex flex-col self-stretch;
+  }
+
+  /* Title text styling */
+  .avatar-block-title {
+    @apply self-stretch leading-[140%];
+    color: var(--sds-color-text-default-secondary);
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-strong);
+  }
+
+  /* Description text styling */
+  .avatar-block-description {
+    @apply self-stretch leading-[140%];
+    color: var(--sds-color-text-default-tertiary);
+    font-family: var(--sds-typography-body-font-family);
+    font-size: var(--sds-typography-body-size-medium);
+    font-style: normal;
+    font-weight: var(--sds-typography-body-font-weight-regular);
+  }
+}
