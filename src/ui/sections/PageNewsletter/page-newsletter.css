@@ -1,0 +1,167 @@
+/* PageNewsletter Section Styles */
+
+.page-newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--sds-color-background-default-default, #ffffff);
+}
+
+.page-newsletter__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sds-size-space-600, 1.5rem);
+  width: 100%;
+  max-width: var(--sds-responsive-device-width, 23.4375rem);
+  padding: var(--sds-size-space-600, 1.5rem);
+  box-sizing: border-box;
+}
+
+/* Text Content Heading */
+.page-newsletter__heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-200, 0.5rem);
+  width: 100%;
+  text-align: start;
+}
+
+.page-newsletter__heading {
+  font-family: var(--sds-typography-heading-font-family, "Inter", sans-serif);
+  font-weight: var(--sds-typography-heading-font-weight, 600);
+  font-size: var(--sds-typography-heading-size-base, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.48px;
+  color: var(--sds-color-text-default-default, #1e1e1e);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.page-newsletter__subheading {
+  font-family: var(
+    --sds-typography-subheading-font-family,
+    "Inter",
+    sans-serif
+  );
+  font-weight: var(--sds-typography-subheading-font-weight, 400);
+  font-size: var(--sds-typography-subheading-size-medium, 1.25rem);
+  line-height: 1.2;
+  color: var(--sds-color-text-default-secondary, #757575);
+  margin: 0;
+}
+
+/* Form Newsletter */
+.page-newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-size-space-400, 1rem);
+  width: 100%;
+}
+
+.page-newsletter__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  width: 100%;
+}
+
+.page-newsletter__input {
+  width: 100%;
+}
+
+.page-newsletter__button {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Success Message */
+.page-newsletter__success {
+  font-family: var(--sds-typography-body-font-family, "Inter", sans-serif);
+  font-weight: var(--sds-typography-body-font-weight-regular, 400);
+  font-size: var(--sds-typography-body-size-medium, 1rem);
+  line-height: 1.4;
+  color: var(--sds-color-text-positive-default, #008043);
+  text-align: center;
+  padding: var(--sds-size-space-300, 0.75rem);
+  background: var(--sds-color-background-positive-tertiary, #ebffee);
+  border-radius: var(--sds-size-radius-200, 0.5rem);
+  width: 100%;
+}
+
+/* Desktop Responsive Styles */
+@media (min-width: 768px) {
+  .page-newsletter__container {
+    max-width: var(--sds-responsive-device-width, 75rem);
+    padding: var(--sds-size-space-1600, 4rem);
+  }
+
+  .page-newsletter__heading-wrapper {
+    text-align: center;
+    align-items: center;
+  }
+
+  .page-newsletter__form {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--sds-size-space-400, 1rem);
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .page-newsletter__input-wrapper {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .page-newsletter__button {
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .page-newsletter__success {
+    max-width: 600px;
+  }
+}
+
+/* Focus States */
+.page-newsletter__input input:focus {
+  outline: none;
+  border-color: var(--sds-color-border-brand-default, #2c2c2c);
+  box-shadow: 0 0 0 var(--sds-size-stroke-focus-ring, 0.125rem)
+    var(--sds-color-border-brand-tertiary, #757575);
+}
+
+/* Loading State */
+.page-newsletter__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error State handled by InputField component */
+
+/* Hover States */
+.page-newsletter__button:hover:not(:disabled) {
+  background: var(--sds-color-background-brand-hover, #1e1e1e);
+}
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: high) {
+  .page-newsletter__heading {
+    font-weight: 700;
+  }
+
+  .page-newsletter__button {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .page-newsletter__button,
+  .page-newsletter__input input {
+    transition: none;
+  }
+}

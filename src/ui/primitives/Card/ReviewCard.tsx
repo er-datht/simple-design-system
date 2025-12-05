@@ -1,11 +1,12 @@
 import { type HTMLAttributes } from "react";
 import { format, isValid, parseISO } from "date-fns";
 import { cn } from "../../../utils/cn";
-import { TextHeading } from "../../typography/TextHeading/TextHeading";
-import { Text } from "../../typography/Text/Text";
-import { AvatarBlock } from "../Avatar/AvatarBlock";
-import { Avatar } from "../Avatar/Avatar";
+import { TextHeading } from "../../typography";
+import { Text } from "../../typography";
+import { AvatarBlock } from "../Avatar";
+import { Avatar } from "../Avatar";
 import "./card.css";
+import { IconStar } from "../../icons";
 
 /**
  * Props for ReviewCard component
@@ -88,38 +89,18 @@ const formatReviewDate = (date: Date | string | number | undefined): string => {
     }
 
     if (!isValid(dateObj)) {
-      return typeof date === "string" ? date : format(new Date(), "MMMM dd, yyyy");
+      return typeof date === "string"
+        ? date
+        : format(new Date(), "MMMM dd, yyyy");
     }
 
     return format(dateObj, "MMMM dd, yyyy");
   } catch {
-    return typeof date === "string" ? date : format(new Date(), "MMMM dd, yyyy");
+    return typeof date === "string"
+      ? date
+      : format(new Date(), "MMMM dd, yyyy");
   }
 };
-
-/**
- * Star Icon Component
- * Used for rating display
- */
-const StarIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path
-      d="M10 2L12.245 7.755L18 9.27L13.82 13.03L15 19L10 15.755L5 19L6.18 13.03L2 9.27L7.755 7.755L10 2Z"
-      fill="var(--sds-color-icon-brand-default, #2c2c2c)"
-      stroke="var(--sds-color-icon-brand-default, #2c2c2c)"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 /**
  * ReviewCard Component
@@ -213,16 +194,13 @@ export function ReviewCard({
             )}
             data-node-id={`638:1436${index + 1}`}
           >
-            <StarIcon />
+            <IconStar />
           </div>
         ))}
       </div>
 
       {/* Review Body (Title + Text) */}
-      <div
-        className="review-card__body"
-        data-node-id="2236:16105"
-      >
+      <div className="review-card__body" data-node-id="2236:16105">
         <TextHeading text={reviewTitle} data-node-id="611:25625" />
         <Text text={reviewBody} data-node-id="611:25950" />
       </div>
