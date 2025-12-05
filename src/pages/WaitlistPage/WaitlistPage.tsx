@@ -1,16 +1,21 @@
 import { HeroNewsletter } from "../../ui/sections";
-import FormNewsletter from "../../ui/forms/FormNewsletter/FormNewsletter";
+import { FormNewsletter } from "../../ui/forms";
 import { toast } from "../../utils/toast";
-import type { NewsletterFormData } from "../../ui/forms/schemas";
+import type { NewsletterFormData } from "../../ui/forms";
 
 export const WaitlistPage = () => {
   const handleSubmit = async (data: NewsletterFormData) => {
-    console.log("Waitlist signup:", data.email);
+    try {
+      console.log("Waitlist signup:", data.email);
 
-    // TODO: Replace with actual API call
-    // await apiClient.waitlist.add(data.email);
+      // TODO: Replace with actual API call
+      // await apiClient.waitlist.add(data.email);
 
-    toast.success("You're on the waitlist! We'll notify you when we launch.");
+      toast.success("You're on the waitlist! We'll notify you when we launch.");
+    } catch (error) {
+      console.error("Waitlist signup error:", error);
+      toast.error("Unable to join waitlist. Please try again.");
+    }
   };
 
   return (

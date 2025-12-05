@@ -8,6 +8,7 @@ import { WaitlistPage } from "../pages/WaitlistPage";
 import { LandingPage } from "../pages/LandingPage";
 import { ArticlePage } from "../pages/ArticlePage";
 import { ShopPage } from "../pages/ShopPage";
+import { ProductDetailPage } from "../pages/ProductDetailPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { Container } from "../ui/layout/Container";
 import { ROUTES } from ".";
@@ -52,6 +53,10 @@ export const Routes: RouteObject[] = [
       {
         path: ROUTES.SHOP,
         element: <ShopPage />,
+      },
+      {
+        path: ROUTES.PRODUCT,
+        element: <ProductDetailPage />,
       },
     ],
   },

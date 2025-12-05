@@ -43,6 +43,8 @@ export {
   type CardGridIconCardItem,
 } from "./CardGridIcon";
 
+export { CardGridReviews, type CardGridReviewsProps } from "./CardGridReviews";
+
 export {
   PageProductResults,
   type PageProductResultsProps,
@@ -50,3 +52,10 @@ export {
   type FilterOption,
   type FilterState,
 } from "./PageProductResults";
+
+export { PageNewsletter, type PageNewsletterProps } from "./PageNewsletter";
+
+export {
+  PageProductDetail,
+  type ProductDetailPageProps,
+} from "./PageProductDetail";

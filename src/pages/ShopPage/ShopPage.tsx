@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   PageProductResults,
   type Product,
   type FilterOption,
-} from "../../ui/sections/PageProductResults";
-import type { TagToggleItem } from "../../ui/primitives/TagToggleGroup";
+} from "../../ui/sections";
+import type { TagToggleItem } from "../../ui/primitives";
+import { ROUTES } from "../../routes";
 import "./shop-page.css";
 
 // Types for data structure
@@ -126,6 +128,7 @@ const getDefaultData = (): ShopPageData => ({
 });
 
 export const ShopPage = () => {
+  const navigate = useNavigate();
   const [data] = useState<ShopPageData>(getDefaultData());
 
   // Prepared for API integration
@@ -147,69 +150,20 @@ export const ShopPage = () => {
     // fetchShopPageData();
   }, []);
 
-  // Handle product click - could navigate to product detail page
+  // Handle product click - navigate to product detail page
   const handleProductClick = (productId: string) => {
-    console.log("Product clicked:", productId);
-    // TODO: Navigate to product detail page
-    // navigate(`/product/${productId}`);
+    navigate(ROUTES.PRODUCT.replace(":id", productId));
   };
 
   return (
     <main className="shop-page">
-      {/* <PageProductResults
+      <PageProductResults
         products={data.products}
         categoryItems={data.categoryItems}
         labelOptions={data.labelOptions}
         colorOptions={data.colorOptions}
         sizeOptions={data.sizeOptions}
         onProductClick={handleProductClick}
-      /> */}
-      <PageProductResults
-        products={[
-          {
-            id: "1",
-            name: "Wireless Mouse",
-            price: "$49.99",
-            description: "Ergonomic design",
-          },
-          {
-            id: "2",
-            name: "Keyboard",
-            price: "$79.99",
-            description: "Mechanical switches",
-          },
-        ]}
-        categoryItems={[
-          { id: "tech", label: "Tech" },
-          { id: "accessories", label: "Accessories" },
-        ]}
-        labelOptions={[
-          {
-            id: "new-arrival",
-            label: "New Arrival",
-            description: "Recently added products",
-          },
-          {
-            id: "best-seller",
-            label: "Best Seller",
-            description: "Most popular items",
-          },
-          {
-            id: "on-sale",
-            label: "On Sale",
-            description: "Discounted products",
-          },
-        ]}
-        colorOptions={[
-          { id: "black", label: "Black" },
-          { id: "white", label: "White" },
-          { id: "silver", label: "Silver" },
-        ]}
-        sizeOptions={[
-          { id: "small", label: "Small" },
-          { id: "medium", label: "Medium" },
-          { id: "large", label: "Large" },
-        ]}
       />
     </main>
   );

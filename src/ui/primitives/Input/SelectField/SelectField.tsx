@@ -171,6 +171,7 @@ export function SelectField({
           }
           className={cn(
             "select-field__select",
+            "truncate",
             hasErrorState && "select-field__select--error",
             disabled && "select-field__select--disabled",
             isPlaceholder && "select-field__select--placeholder"

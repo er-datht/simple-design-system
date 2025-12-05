@@ -13,5 +13,6 @@ export const ROUTES = {
   LANDING: "/landing",
   ARTICLE: "/article",
   SHOP: "/shop",
+  PRODUCT: "/product/:id",
   NOT_FOUND: "*",
 } as const;
