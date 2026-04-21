@@ -25,7 +25,6 @@ dist-ssr
 .env
 
 # Claude Code files
-CLAUDE.md
 .claude/
 resource/
 
