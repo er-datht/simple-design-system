@@ -23,12 +23,13 @@
   /* Layout */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--sds-size-space-1200);
 
   /* Sizing - Mobile first */
   width: 100%;
-  max-width: var(--sds-responsive-device-width);
+  max-width: var(--global-container-max-width);
+  margin: 0 auto;
   box-sizing: border-box;
 
   /* Spacing - Mobile */
